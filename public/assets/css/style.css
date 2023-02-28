@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Váriaveis de cores */
+:root {
+    --color--white: #FFFF;
+    --color--azulClaro: #A1E0EF;
+    --color--azulAcqua: #73CFD9;
+    --color--azulMed: #015F79;
+    --color--azulEsc: #014E6A;
+    --color--verdeMed: #017D7D;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat';
+    background-color: var(--color--verdeMed);
+}
+
+.secaoInicial {
+    width: 100%;
+    height: 800px;
+}
+/* HEADER */
+.logoHeader {
+    display: flex;
+    align-items: center;
+}
+
+.nomeLogoHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5vh;
+    color: var(--color--white);
+}
+
+
+.imgLogoHeader {
+    width: 85px;
+}
+
+.header, .textosHeader {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    justify-content: space-between;
+    padding: 0 2%;
+    font-size: 1.3rem;
+}
+
+.textosHeader {
+    width: 100%;
+    gap: 3em;
+}
+
+.textosHeader a{
+    text-decoration: none;
+    color: var(--color--white);
+    font-weight: bold;
+}
+
+.textosHeader a:hover {
+    color: var(--color--azulClaro);
+}
+
+/* FIM DO HEADER */
+
+/* -------------------------------------- */
+
+/* SEÇÃO INICIAL */
+.inicio {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.elipse {
+    margin-bottom: 40vh;
+}
+
+.cruz {
+    margin-right: 3%;
+    margin-top: 15vh;
+}
+
+.conteudoInicial {
+    margin-top: 25vh;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.textoInicial{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+.textoInicial h1{
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 1000;
+    color: var(--color--white);
+}
+
+.textoInicial p{
+    margin-top: 2vh;
+    width: 86%;
+    font-size: 1.5rem;
+    text-align:justify;
+    color: var(--color--white);
+}
+
+.textoInicial button{
+    margin-top: 2vh;
+    margin-right: 65%;
+    width: 20%;
+    height: 5vh;
+    border: none;
+    border-radius: 13px;
+    font-size: 1.3rem;
+    background-color: var(--color--white);
+    cursor: pointer;
+    box-shadow: 10px 17px 29px -12px rgba(0,0,0,0.58);
+}
+
+.textoInicial button:hover {
+    background-color: var(--color--azulEsc);
+    color: var(--color--white);
+    box-shadow: 10px 17px 29px -12px rgba(0,0,0,0.58);
+}
+
+/* FIM DA SECÃO INICIAL */
+
+/* ---------------------------------------------- */
+
+/* SECAO SOBRE */
+.secaoSobre{
+    width: 100%;
+}
+
+.imagemOnda{
+    width: 100%;
+    position: absolute;
+    top: 83vh;
+}
+.sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background-color: var(--color--white);
+    top: 10vh;
+}
+
+.tituloInicial {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 1000;
+    color: var(--color--verdeMed);
+}
+
+.pilares{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8vh;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.pilar {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1Pilar {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    font-size: 2rem;
+    font-weight: 1000;
+    color: var(--color--verdeMed);
+}
+
+.pPilar {
+    font-size: 1.2rem;
+    text-align:center;
+}
+
+.btnPilares{
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    width: 12%;
+    height: 6vh;
+    border: none;
+    border-radius: 18px;
+    font-size: 2rem;
+    background-color: var(--color--verdeMed);
+    color: var(--color--white);
+    cursor: pointer;
+}
+
+.linha {
+    width: 70%;
+    height: 0.4vh;
+    border-radius: 20px;
+    background-color: var(--color--verdeMed);
+}
+
+/* FIM DA SECÃO SOBRE */
+
+/* ------------------------------------------------ */
+
+/* INICIO SECAO PROPOSTA */ 
+.secaoProposta {
+    width: 100%;
+    background-color: var(--color--white);
+    height: 70vh;
+}
+
+.proposta {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudoProposta{
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.textosProposta{
+    text-align: initial;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 50%;
+}
+
+.textosProposta h1{
+    font-size: 3rem;
+    font-weight: 1000;
+    color: var(--color--verdeMed);
+}
+
+.textosProposta p{
+    font-size: 1.2rem;
+    text-align:justify;
+}
+
+.textosProposta button{
+    margin-top: 4vh;
+    width: 20%;
+    height: 5vh;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.3rem;
+    background-color: var(--color--verdeMed);
+    color: var(--color--white);
+    cursor: pointer;
+}
+
+/* FIM SECAO PROPOSTA */
+
+/* ------------------------------------------ */
+
+/* INICIO SECAO SERVIÇOS */
+
+.secaoServicos {
+    width: 100%;
+    background-color: var(--color--azulEsc);
+    height: 100vh;
+}
+
+.servicos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloServicos{
+    margin-top: 6vh;
+    font-size: 3rem;
+    font-weight: 1000;
+    text-align: center;
+    color: var(--color--white);
+    margin-bottom: 4vh;
+}
+
+.conteudoServicos {
+    display: flex;
+    flex-direction: row;
+    margin-left: 6%;
+}
+
+.containerBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.boxInformacoes{
+    width: 70%;
+    background-color: var(--color--white);
+    margin-top: 10vh;
+    padding: 3%;
+    border-radius: 20px;
+}
+
+.boxInformacoes h1{
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-left: 6%;
+    margin-bottom: 5vh;
+    color: var(--color--azulEsc);
+}
+.boxInformacoes p{
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color--azulEsc);
+    text-align: justify;
+}
+.containerButtonBolinhas {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vh;
+}
+
+.containerButtonBolinhas button{
+    border: none;
+    margin-left: 10%;
+    margin-right: 20%;
+    width: 15%;
+    height: 5vh;
+    background-color: var(--color--white);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.bolinha {
+    background-color: var(--color--white);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 3%;
+}
+
+.bolinha:hover{
+    background-color: var(--color--azulAcqua);
+}
+
+.secaoFinal {
+    width: 100%;
+    background-color: var(--color--white);
+    height: 40vh;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tituloContatos {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    font-weight: 800;
+    color: var(--color--verdeMed);
+    font-size: 3rem;
+}
+.conteudoContatos {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.contatos1 {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    align-items: center;
+}
+
+.contatos1 h1{
+    font-size: 2rem;
+    color: var(--color--verdeMed);
+}
+
+.contatos1 p{
+    font-size: 1.3rem;
+    margin-top: 2vh;
+    color: var(--color--verdeMed);
+}
