@@ -54,6 +54,7 @@ body {
     justify-content: space-between;
     padding: 0 2%;
     font-size: 1.3rem;
+    margin-right: 3%;
 }
 
 .textosHeader {
@@ -155,7 +156,7 @@ body {
 .imagemOnda{
     width: 100%;
     position: absolute;
-    top: 83vh;
+    top: 84vh;
 }
 .sobre {
     display: flex;
@@ -368,6 +369,7 @@ body {
 }
 
 .secaoFinal {
+    overflow: hidden;
     width: 100%;
     background-color: var(--color--white);
     height: 40vh;
@@ -377,6 +379,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .tituloContatos {
@@ -397,7 +400,7 @@ body {
 .contatos1 {
     display: flex;
     flex-direction: column;
-    width: 33.33%;
+    width: 33.30%;
     align-items: center;
 }
 
