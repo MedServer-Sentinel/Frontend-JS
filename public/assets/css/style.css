@@ -11,7 +11,7 @@
     --color--verdeMed: #017D7D;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -25,13 +25,14 @@ body {
     width: 100%;
     height: 800px;
 }
+
 /* HEADER */
 .logoHeader {
     display: flex;
     align-items: center;
 }
 
-.nomeLogoHeader{
+.nomeLogoHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +45,8 @@ body {
     width: 85px;
 }
 
-.header, .textosHeader {
+.header,
+.textosHeader {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -62,7 +64,7 @@ body {
     gap: 3em;
 }
 
-.textosHeader a{
+.textosHeader a {
     text-decoration: none;
     color: var(--color--white);
     font-weight: bold;
@@ -102,14 +104,14 @@ body {
     justify-content: center;
 }
 
-.textoInicial{
+.textoInicial {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 40%;
 }
 
-.textoInicial h1{
+.textoInicial h1 {
     width: 100%;
     text-align: center;
     font-size: 5rem;
@@ -117,15 +119,15 @@ body {
     color: var(--color--white);
 }
 
-.textoInicial p{
+.textoInicial p {
     margin-top: 2vh;
     width: 86%;
     font-size: 1.5rem;
-    text-align:justify;
+    text-align: justify;
     color: var(--color--white);
 }
 
-.textoInicial button{
+.textoInicial button {
     margin-top: 2vh;
     margin-right: 65%;
     width: 20%;
@@ -135,13 +137,13 @@ body {
     font-size: 1.3rem;
     background-color: var(--color--white);
     cursor: pointer;
-    box-shadow: 10px 17px 29px -12px rgba(0,0,0,0.58);
+    box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
 }
 
 .textoInicial button:hover {
     background-color: var(--color--azulEsc);
     color: var(--color--white);
-    box-shadow: 10px 17px 29px -12px rgba(0,0,0,0.58);
+    box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
 }
 
 /* FIM DA SECÃO INICIAL */
@@ -149,15 +151,16 @@ body {
 /* ---------------------------------------------- */
 
 /* SECAO SOBRE */
-.secaoSobre{
+.secaoSobre {
     width: 100%;
 }
 
-.imagemOnda{
+.imagemOnda {
     width: 100%;
     position: absolute;
     top: 84vh;
 }
+
 .sobre {
     display: flex;
     flex-direction: column;
@@ -175,7 +178,7 @@ body {
     color: var(--color--verdeMed);
 }
 
-.pilares{
+.pilares {
     display: flex;
     flex-direction: row;
     margin-top: 8vh;
@@ -200,10 +203,10 @@ body {
 
 .pPilar {
     font-size: 1.2rem;
-    text-align:center;
+    text-align: center;
 }
 
-.btnPilares{
+.btnPilares {
     margin-top: 6vh;
     margin-bottom: 6vh;
     width: 12%;
@@ -227,7 +230,7 @@ body {
 
 /* ------------------------------------------------ */
 
-/* INICIO SECAO PROPOSTA */ 
+/* INICIO SECAO PROPOSTA */
 .secaoProposta {
     width: 100%;
     background-color: var(--color--white);
@@ -240,32 +243,32 @@ body {
     flex-direction: row;
 }
 
-.conteudoProposta{
+.conteudoProposta {
     margin-top: 20vh;
     display: flex;
     flex-direction: row;
     margin-left: 10%;
 }
 
-.textosProposta{
+.textosProposta {
     text-align: initial;
     margin-left: 10%;
     margin-right: 10%;
     width: 50%;
 }
 
-.textosProposta h1{
+.textosProposta h1 {
     font-size: 3rem;
     font-weight: 1000;
     color: var(--color--verdeMed);
 }
 
-.textosProposta p{
+.textosProposta p {
     font-size: 1.2rem;
-    text-align:justify;
+    text-align: justify;
 }
 
-.textosProposta button{
+.textosProposta button {
     margin-top: 4vh;
     width: 20%;
     height: 5vh;
@@ -289,13 +292,13 @@ body {
     height: 100vh;
 }
 
-.servicos{
+.servicos {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.tituloServicos{
+.tituloServicos {
     margin-top: 6vh;
     font-size: 3rem;
     font-weight: 1000;
@@ -315,7 +318,7 @@ body {
     flex-direction: column;
 }
 
-.boxInformacoes{
+.boxInformacoes {
     width: 70%;
     background-color: var(--color--white);
     margin-top: 10vh;
@@ -323,26 +326,28 @@ body {
     border-radius: 20px;
 }
 
-.boxInformacoes h1{
+.boxInformacoes h1 {
     font-size: 2.5rem;
     font-weight: 800;
     margin-left: 6%;
     margin-bottom: 5vh;
     color: var(--color--azulEsc);
 }
-.boxInformacoes p{
+
+.boxInformacoes p {
     font-size: 1.3rem;
     font-weight: 800;
     color: var(--color--azulEsc);
     text-align: justify;
 }
+
 .containerButtonBolinhas {
     display: flex;
     flex-direction: row;
     margin-top: 5vh;
 }
 
-.containerButtonBolinhas button{
+.containerButtonBolinhas button {
     border: none;
     margin-left: 10%;
     margin-right: 20%;
@@ -364,7 +369,7 @@ body {
     margin-left: 3%;
 }
 
-.bolinha:hover{
+.bolinha:hover {
     background-color: var(--color--azulAcqua);
 }
 
@@ -375,7 +380,7 @@ body {
     height: 40vh;
 }
 
-.footer{
+.footer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -389,6 +394,7 @@ body {
     color: var(--color--verdeMed);
     font-size: 3rem;
 }
+
 .conteudoContatos {
     display: flex;
     flex-direction: row;
@@ -404,13 +410,114 @@ body {
     align-items: center;
 }
 
-.contatos1 h1{
+.contatos1 h1 {
     font-size: 2rem;
     color: var(--color--verdeMed);
 }
 
-.contatos1 p{
+.contatos1 p {
     font-size: 1.3rem;
     margin-top: 2vh;
     color: var(--color--verdeMed);
+}
+
+.cadastro_usuario {
+ 
+    display: flex;
+    width: 60%;
+    height: 70%;
+    position: absolute;
+    left: 20%;
+    right: 10%;
+    top: 10%;
+    border-radius: 3%;
+    background-color: #E9E5E5;
+}
+
+.cadastro_inputs {
+
+    height: 100%;
+    width: 50%;
+    border-radius: 3% 0% 0 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cadastro_inputs input {
+
+    height: 6%;
+    width: 6%;
+   
+    border-radius: 100px;
+    
+   
+}
+
+.central_cadastro { 
+    width: 90%;
+    height: 85%;
+    justify-content: space-around;
+
+}
+
+
+.central_cadastro p {
+    width: 40%;
+    font-size: 55px;
+    text-align: center;
+    font-family: "Montserrat";
+    font-weight: bold;
+    color: var(--color--verdeMed);
+}
+
+.central_cadastro span {
+    margin-left: 20%;
+}
+texto {
+    font-size: 20px;
+    font-weight: bold;
+    color: #017FCC;
+}
+.cadastro_nome_inputs{
+    margin-top: 4%;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    text-align: start;
+    flex-direction: column; 
+}
+.cadastro_nome_inputs input{
+    border-radius:100px;
+    width: 90%;
+    height: 15%;
+    margin-bottom: 2%;
+    background-color: #E9E5E5;
+    border: inset 3px var(--color--verdeMed) ;
+}
+.cadastro_button{
+    height: 10%;
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+.cadastro_button button{
+    height: 100%;
+    width: 40%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 30px;
+    color: var(--color--white);
+    font-family: 'Montserrat';
+    background-color: var(--color--verdeMed);
+    
+}
+
+
+.cadastro_logo {
+    width: 50%;
+    border-radius: 0 3% 3% 0;
+}
+.cadastro_logo img {
+    width: 100%;
+    height: 100%;
 }
