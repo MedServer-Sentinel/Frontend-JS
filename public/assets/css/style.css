@@ -421,7 +421,7 @@ body {
     color: var(--color--verdeMed);
 }
 
-.cadastro_usuario {
+.cadastroUsuario {
  
     display: flex;
     width: 60%;
@@ -430,95 +430,130 @@ body {
     left: 20%;
     right: 10%;
     top: 10%;
-    border-radius: 3%;
+    border-radius: 30px;
     background-color: #E9E5E5;
+    overflow: hidden;
 }
 
-.cadastro_inputs {
-
-    height: 100%;
+.cadastroContainer{
     width: 50%;
-    border-radius: 3% 0% 0 3%;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
-.cadastro_inputs input {
 
-    height: 6%;
-    width: 6%;
-   
-    border-radius: 100px;
-    
-   
-}
-
-.central_cadastro { 
-    width: 90%;
-    height: 85%;
-    justify-content: space-around;
-
-}
-
-
-.central_cadastro p {
-    width: 40%;
-    font-size: 55px;
-    text-align: center;
-    font-family: "Montserrat";
-    font-weight: bold;
-    color: var(--color--verdeMed);
-}
-
-.central_cadastro span {
-    margin-left: 20%;
-}
-texto {
-    font-size: 20px;
-    font-weight: bold;
-    color: #017FCC;
-}
-.cadastro_nome_inputs{
-    margin-top: 4%;
+.textosIniciais {
+    margin-top: 5%;
     width: 100%;
-    height: 50%;
+    height: 25%;
+}
+
+.textoViagem {
+    margin-left: 30%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textoPrimeira{
+    margin-left: 10%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size:contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textosIniciais h1{
+    font-size: 3rem;
+}
+
+.textosIniciais p{
+    font-size: 1.4rem;
+    margin-top: 2%;
+    margin-left: 10%;
+    font-weight: 700;
+    color: var(--color--azulEsc);
+}
+
+.inputsCadastro{
     display: flex;
-    text-align: start;
-    flex-direction: column; 
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 2%;
+    width: 100%;
+    height: 60%;
 }
-.cadastro_nome_inputs input{
-    border-radius:100px;
-    width: 90%;
-    height: 15%;
-    margin-bottom: 2%;
-    background-color: #E9E5E5;
-    border: inset 3px var(--color--verdeMed) ;
+
+.inputsCadastro p{
+    margin-left: 9%;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
-.cadastro_button{
-    height: 10%;
+
+.inputsCadastro input{
+    width: 70%;
+    height: 7%;
+    padding: 10px;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 1.3rem;
+}
+
+.checkbox {
     display: flex;
-    flex-direction: row-reverse;
-    
+    height: 20%;
+    margin-top: 3%;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    text-align: initial;
 }
-.cadastro_button button{
+
+.checkbox p{
+    width: 100%;
+    margin-left: 0%;
+}
+
+.checkbox input{
+    width: 10%;
     height: 100%;
-    width: 40%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 30px;
-    color: var(--color--white);
-    font-family: 'Montserrat';
-    background-color: var(--color--verdeMed);
-    
 }
 
+.buttonInputs{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
 
-.cadastro_logo {
+.buttonInputs button{
+    height: 70%;
+    width: 30%;
+    border-radius: 25px;
+    border: none;
+    background-image: url(../imagens/svg/Textura.svg);
+    background-size: cover;
+    cursor: pointer;
+    margin-right: 16%;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color--white)
+}
+
+.cadastroLogo {
     width: 50%;
     border-radius: 0 3% 3% 0;
     border-left: 3% var(--color--azulMed) ;
 }
-.cadastro_logo img {
+.cadastroLogo img {
     width: 100%;
     height: 100%;
     border-radius: 0 3% 3% 0;
