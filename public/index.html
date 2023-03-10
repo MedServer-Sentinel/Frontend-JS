@@ -8,6 +8,7 @@
     <title>Página Inicial</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="funcoes.js"></script>
 </head>
 
 <body>
@@ -45,11 +46,53 @@
                     <li><a href="">Sobre nós</a></li>
                     <li><a href="">Serviços</a></li>
                     <li><a href="">Contatos</a></li>
-                    <li><a href="">Perfil</a></li>
+                    <li><a onclick="perfil()" href="#telaLogin">Perfil</a></li>
                 </ul>
             </nav>
         </div>
-        <div class="cadastroUsuario">
+
+
+
+        <div class="container" id="telaLogin" style="display: none;"> 
+            <div class="formulario">
+
+                <h2>Vamos<br>começar ?<br><a>Faça seu login</a></h2>
+
+                <label class="input">
+                    Email
+                    <input onkeyup="validarEmail2()" type="email" id="email">
+                </label>
+
+                <label class="input">
+                    Senha
+                    <input onkeyup="validarForcaSenha2()" type="password" id="senha">
+                </label>
+
+                <label class="verSenha">
+                    <input type="checkbox" onclick="mostrarSenha2()" id="verSenha">Mostrar senha
+                    <span class="checkmark"></span>
+                </label>
+                
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias placeat ex.
+                </p>
+                <div class="btns">
+                    <a class="btn1"  onclick="cadastreSe()" href="#telaCadastro">Cadastre-se</a>
+                    <button class="btn2"><b>Entrar</b></button>
+                </div>
+            </div>
+
+            <div class="img">
+                <span class="xSaida">
+                   <a href="index.html"><img class="imgX" onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img class="loginLogo" src="./assets/imagens/svg/logoLogin.png" alt="">
+            </div>
+        </div>
+
+
+
+        <div class="cadastroUsuario" id="telaCadastro">
             <div class="cadastroContainer">
                 <div class="textosIniciais">
                     <h1 class="textoPrimeira">Primeira</h1>
@@ -66,12 +109,13 @@
                     <p>Confirmar senha</p>
                     <input type="password" placeholder="Ex: Senha@123">
                     <div class="checkbox">
-                        <input type="checkbox"><p>Mostrar senha</p>
-                        </div>
+                        <input type="checkbox">
+                        <p>Mostrar senha</p>
+                    </div>
                 </div>
-                   <div class="buttonInputs">
+                <div class="buttonInputs">
                     <button>Criar</button>
-                   </div>
+                </div>
             </div>
             <div class="cadastroLogo">
                 <img src="assets/imagens/svg/maps_medc.jpeg" alt="">
