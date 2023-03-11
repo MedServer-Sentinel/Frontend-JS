@@ -424,76 +424,70 @@ body {
 
 /* -------INICIO LOGIN--------------------------------- */
 
+
+.backgroundTransparent { 
+    z-index: 7000;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.58);
+}
+
 .container {
+    z-index: 8000;
+    display: flex;
+    flex-direction: row;
     width: 60%;
     height: 70%;
-    position: absolute;
-    left: 20%;
-    right: 10%;
-    top: 10%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 30px;
     background-color: #E9E5E5;
-    overflow: hidden;
-    /* border: solid 1px red; */
 }
 
 .formulario {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin: 40px;
-    height: 85%;
-    /* border: solid 1px blue; */
+    height: 100%;
+    width: 50%;
+
 }
 
-/* ------frase h2------------------ */
-.formulario h2 {
-    line-height: 37px;
-    font-size: 35px;
-    color: #098383;
-    /* border: solid 1px blue; */
+.textoVamos {
+    margin-top: 7%;
+    margin-left: 10%;
+    font-size: 3rem;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-h2 a {
-    display: flex;
-    font-size: 15px;
-    text-decoration: none;
-    color: #017FCC;
-    width: 30%;
-    /* border: solid 1px blue; */
+.textoComecar {
+    margin-left: 10%;
+    margin-top: 2%;
+    font-size: 3rem;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size:auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.input {
-    width: 100%;
-    /* border: solid 1px yellow; */
+
+.facaLogin{
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-left: 10%;
+    color: var(--color--azulMed);
 }
 
-#email {
-    width: 95%;
-    height: 79%;
-    border-radius: 30px;
-    border: solid 3px #098383;
-    background-color: #E9E5E5;
-}
 
-#senha {
-    width: 95%;
-    height: 79%;
-    border-radius: 30px;
-    border: solid 3px #098383;
-    background-color: #E9E5E5;
-}
-
-#verSenha {
-    cursor: pointer;
-    border-color: #017FCC;
-    border: solid 1px blue;
-}
-
-.verSenha {
-    height: 2%;
-    /* border: solid 1px blue; */
-}
 
 .imgPrincipal {
     border-radius: 0px 23px 24px 0px;
@@ -506,12 +500,11 @@ h2 a {
 }
 
 .img {
-    width: 450px;
-    height: 600px;
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: row-reverse;
     border-left: solid 3px #098383;
-    /* border: solid 1px blue; */
 }
 
 .btns {
@@ -519,7 +512,7 @@ h2 a {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* border: solid 1px blue; */
+
 }
 
 .btn1 {
@@ -530,43 +523,97 @@ h2 a {
 }
 
 .btn2 {
-    background-color: #098383;
+    background-image: url(../imagens/svg/Textura.svg);
+    background-size: cover;
     cursor: pointer;
     color: white;
     font-size: 15px;
     width: 32%;
     height: 90%;
     border-radius: 23px;
-    border: solid 1px #098383;
+    border: none;
+    margin-right: 10%;
 }
 
 .xSaida {
     margin: 1.4rem;
     justify-content: flex-end;
     position: absolute;
-    /* border: solid 1px blue; */
 }
 
-.imgX {
+.img img {
     cursor: pointer;
-    width: 170%;
-    height: 170%;
-    /* border: solid 1px red; */
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 30px 30px 0px;
 }
 
+.inputsLogin{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 4%;
+    width: 100%;
+    height: 47%;
+}
+
+.inputsLogin input {
+    width: 70%;
+    height: 7%;
+    padding: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 16px;
+}
+
+.inputsLogin p {
+    margin-left: 4%;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.checkboxLogin {
+    display: flex;
+    height: 5%;
+    margin-top: 3%;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    text-align: initial;
+}
+
+.textoLogin{
+    width: 80%;
+    margin-top: 6%;
+}
+
+.checkboxLogin p {
+    width: 100%;
+    margin-left: 0%;
+}
+
+.checkboxLogin input {
+    width: 10%;
+    height: 100%;
+}
 
 /* ---------FIM LOGIN------------------------------ */
 
-.cadastroUsuario {
 
+.cadastroUsuario {
+    z-index: 999999;
     display: flex;
     display: none;
     width: 60%;
     height: 70%;
-    position: absolute;
-    left: 20%;
-    right: 10%;
-    top: 10%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 30px;
     background-color: #E9E5E5;
     overflow: hidden;
@@ -623,7 +670,7 @@ h2 a {
     height: 60%;
 }
 
-.inputsCadastro p {
+.inputsCadastro p{
     margin-left: 9%;
     font-size: 1.2rem;
     font-weight: 500;
@@ -640,8 +687,9 @@ h2 a {
     border: 3px solid var(--color--verdeMed);
     border-radius: 20px;
     text-align: unset;
-    font-size: 1.3rem;
+    font-size: 16px;
 }
+
 
 .checkbox {
     display: flex;
@@ -671,8 +719,14 @@ h2 a {
     align-items: center;
 }
 
+
+.buttonInputs p{
+    margin-right: 2%;
+    cursor: pointer;
+}
+
 .buttonInputs button {
-    height: 70%;
+    height: 50%;
     width: 30%;
     border-radius: 25px;
     border: none;
@@ -688,7 +742,10 @@ h2 a {
 .cadastroLogo {
     width: 50%;
     border-radius: 0 3% 3% 0;
-    border-left: 3% var(--color--azulMed);
+    background-color: #e1f0ed;
+    border-left: solid 3px #098383;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .cadastroLogo img {
