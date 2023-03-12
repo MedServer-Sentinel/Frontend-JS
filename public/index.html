@@ -12,72 +12,119 @@
 </head>
 
 <body>
-        <div class="backgroundTransparent" id="backgroundBlack" style="display: none;">
-            <div class="container" id="telaLogin"> 
-                <div class="formulario">
-                    <h1 class="textoVamos">Vamos</h1>
-                    <h1 class="textoComecar">começar?</h1>
-                    <p class="facaLogin">Faça seu login</p>
-                    <div class="inputsLogin">
-                        <p>Email</p>
-                        <input type="text" placeholder="Ex: caique.gsilva@sptech.school">
-                        <p>Senha</p>
-                        <input type="password" placeholder="Ex : Senha@123">
-                        <div class="checkboxLogin">
-                            <input type="checkbox">
-                            <p>Mostrar senha</p>
-                        </div>
-                        <p class="textoLogin">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Alias placeat ex.</p>
+    <div class="backgroundTransparent" id="backgroundBlack" style="display: none;">
+        <div class="container" id="telaLogin">
+            <div class="formulario">
+                <h1 class="textoVamos">Vamos</h1>
+                <h1 class="textoComecar">começar?</h1>
+                <p class="facaLogin">Faça seu login</p>
+                <div class="inputsLogin">
+                    <p>Email</p>
+                    <input type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                    <p>Senha</p>
+                    <input type="password" placeholder="Ex : Senha@123">
+                    <div class="checkboxLogin">
+                        <input type="checkbox">
+                        <p>Mostrar senha</p>
                     </div>
-                    <div class="btns">
-                        <a class="btn1" onclick="cadastreSe()" href="#telaCadastro">Cadastre-se</a>
-                        <button class="btn2"><b>Entrar</b></button>
-                    </div>
+                    <p class="textoLogin">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Alias placeat ex.</p>
                 </div>
-        
-                <div class="img">
-                    <span class="xSaida">
-                       <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
-                    </span>
-                    <img class="loginLogo" src="./assets/imagens/svg/logoLogin.png" alt="">
+                <div class="btns">
+                    <a class="btn1" onclick="cadastreSe()" href="#telaCadastro">Cadastre-se</a>
+                    <button class="btn2"><b>Entrar</b></button>
                 </div>
             </div>
-            <div class="cadastroUsuario" id="telaCadastro">
-                <div class="cadastroContainer">
-                    <div class="textosIniciais">
-                        <h1 class="textoPrimeira">Primeira</h1>
-                        <h1 class="textoViagem">Viagem?</h1>
-                        <p>Faça seu cadastro</p>
-                    </div>
-                    <div class="inputsCadastro">
-                        <p>Nome</p>
-                        <input type="text" placeholder="Ex: Caique Gomes">
-                        <p>Email</p>
-                        <input type="text" placeholder="Ex: caique.gsilva@sptech.school">
-                        <p>Senha</p>
-                        <input type="password" placeholder="Ex : Senha@123">
-                        <p>Confirmar senha</p>
-                        <input type="password" placeholder="Ex: Senha@123">
-                        <div class="checkbox">
-                            <input type="checkbox">
-                            <p>Mostrar senha</p>
-                        </div>
-                    </div>
-                    <div class="buttonInputs">
-                        <p href="#telaLogin" onclick="voltarLogin()">Voltar</p>
-                        <button>Criar</button>
-                    </div>
-                </div>
-                <div class="cadastroLogo">
-                    <span class="xSaida">
-                        <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
-                     </span>
-                    <img src="assets/imagens/svg/maps_medc.svg" alt="">
-                </div>
-             
+
+            <div class="img">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img class="loginLogo" src="./assets/imagens/svg/logoLogin.png" alt="">
             </div>
         </div>
+        <div class="cadastroUsuario" id="telaCadastro">
+            <div class="cadastroContainer">
+                <div class="textosIniciais">
+                    <h1 class="textoPrimeira">Primeira</h1>
+                    <h1 class="textoViagem">Viagem?</h1>
+                    <p>Faça seu cadastro</p>
+                </div>
+                <div class="inputsCadastro">
+                    <p>Nome</p>
+                    <input type="text" placeholder="Ex: Caique Gomes">
+                    <p>Email</p>
+                    <input type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                    <p>Senha</p>
+                    <input type="password" placeholder="Ex : Senha@123">
+                    <p>Confirmar senha</p>
+                    <input type="password" placeholder="Ex: Senha@123">
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <p>Mostrar senha</p>
+                    </div>
+                </div>
+                <div class="buttonInputs">
+                    <p href="#telaLogin" onclick="voltarLogin()">Voltar</p>
+                    <button onclick="CadastroFeito()">Criar</button>
+                </div>
+            </div>
+            <div class="cadastroLogo">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img src="assets/imagens/svg/maps_medc.svg" alt="">
+            </div>
+
+        </div>
+        <div class="cadastroEmpresa" id="telaEmpresa" style="display: none;">
+            <div class="cadastroContainerEmpresa">
+                <div class="textosIniciaisEmpresa">
+                    <h1 class="textoPrimeiraEmpresa">Conhecendo </h1>
+                    <h1 class="textoViagemEmpresa">sua empresa...</h1>
+                    <p>Preencha os campos</p>
+                </div>
+                <div class="inputsCadastroEmpresa">
+                    <div class="duplaInputOne">
+                        <p>Dado</p>
+                        <input type="text" placeholder="Ex: Caique Gomes">
+                        <p>Dado</p>
+                        <input type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                    </div>
+                    <div class="duplaInputOne">
+                    <p>Dado</p>
+                    <input type="password" placeholder="Ex : Senha@123">
+                    <p>Dado</p>
+                    <input type="password" placeholder="Ex: Senha@123">
+                    </div>
+                    <div class="inputUnico">
+                    <p>Dado</p>
+                    <input type="text">
+                </div>
+              
+                       
+                </div>
+                  <div class="buttonEcheck">
+                <div class="checkboxEmpresa">
+                    <input type="checkbox">
+                    <p>Mostrar senha</p>
+                </div>
+               
+                <div class="buttonInputsEmpresa">
+                    <p href="#telaLogin" onclick="voltarLogin()">Login</p>
+                    <button>Criar</button>
+                </div>
+            </div>
+            </div>
+            <div class="cadastroLogo">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img src="assets/imagens/svg/Rectangle 59.svg" alt="">
+            </div>
+
+        </div>
+    </div>
 
 
     <section class="secaoInicial">
