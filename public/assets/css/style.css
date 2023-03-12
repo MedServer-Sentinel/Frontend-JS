@@ -800,6 +800,182 @@ color: var(--color--azulAcqua);
     border-radius: 0 3% 3% 0;
 }
 
+.cadastroEmpresa{
+    z-index: 999999;
+    display: flex;
+    /* display: none; */
+    width: 60%;
+    height: 70%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background-color: #E9E5E5;
+    overflow: hidden;
+}
+
+.cadastroContainerEmpresa {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textosIniciaisEmpresa {
+    margin-top: 5%;
+    width: 100%;
+    height: 25%;
+}
+
+.textoViagemEmpresa {
+    margin-left: 10%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textoPrimeiraEmpresa {
+    margin-left: 10%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textosIniciaisEmpresa h1 {
+    font-size: 3rem;
+}
+
+.textosIniciaisEmpresa p {
+    font-size: 1.4rem;
+    margin-top: 2%;
+    margin-left: 10%;
+    font-weight: 700;
+    color: #017FCC;
+}
+
+.inputsCadastroEmpresa {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 4%;
+    width: 100%;
+    height: 100%;
+    
+}
+.duplaInputOne{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    
+   }
+   .inputUnico{
+ 
+    width: 100%;
+    height: 30%;
+  
+   }
+   .inputUnico input{
+    width: 100%;
+    height: 100%;
+    
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 16px;
+   }
+   
+   
+
+.inputsCadastroEmpresa p{
+    margin-left: 9%;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.inputsCadastroEmpresa input {
+    width: 80%;
+    height: 10%;
+    padding: 10px;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 16px;
+}
+.buttonEcheck{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.checkboxEmpresa{
+    display: flex;
+    height: 80%;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    text-align: initial;
+}
+
+.checkboxEmpresa p {
+    width: 50%;
+    font-weight: 500;
+
+}
+
+.checkboxEmpresa input {
+    width: 20%;
+    height: 20%;
+}
+
+.buttonEcheck {
+    margin-top: 2%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+ 
+}
+
+
+.buttonEcheck p{
+    margin-right: 2%;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.buttonInputsEmpresa{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.buttonInputsEmpresa button {
+     background-image: url(../imagens/svg/Textura.svg);
+    background-size: cover; 
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    width: 70%;
+    height:40%;
+    border-radius: 23px;
+    border: none;
+    margin-right: 5%;
+   
+}
+
 .conteudoInicialCel, .inicioCel, .secaoPropostaCel{
     display: none;
 }
