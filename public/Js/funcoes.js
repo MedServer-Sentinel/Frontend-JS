@@ -21,11 +21,6 @@ function voltarLogin()  {
   telaLogin.style.display = "flex"
   telaCadastro.style.display = "none"
 }
- function CadastroFeito(){
-  telaEmpresa.style.display = "flex"
-  telaLogin.style.display = "none"
-  telaCadastro.style.display = "none"
-}
 
 function abrirMenu() {
   let menuMobile = document.querySelector('.mobile-menu');
