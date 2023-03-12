@@ -22,7 +22,17 @@ function voltarLogin()  {
   telaCadastro.style.display = "none"
 }
 
-
+function abrirMenu() {
+  let menuMobile = document.querySelector('.mobile-menu');
+  let nav = document.querySelector('.nav-bar')
+  if(menuMobile.classList.contains('open')){
+    menuMobile.classList.remove('open');
+    nav.classList.remove('colorNav')
+  } else {
+    menuMobile.classList.add('open');
+    nav.classList.add('colorNav');
+  }
+}
 
 
 
