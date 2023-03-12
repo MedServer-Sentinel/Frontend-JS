@@ -8,7 +8,7 @@
     <title>Página Inicial</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="funcoes.js"></script>
+    <script src="./Js/funcoes.js"></script>
 </head>
 
 <body>
@@ -52,13 +52,13 @@
                     </div>
                     <div class="inputsCadastro">
                         <p>Nome</p>
-                        <input type="text" placeholder="Ex: Caique Gomes">
+                        <input class="inputCad" type="text" placeholder="Ex: Caique Gomes">
                         <p>Email</p>
-                        <input type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                        <input class="inputCad" type="text" placeholder="Ex: caique.gsilva@sptech.school">
                         <p>Senha</p>
-                        <input type="password" placeholder="Ex : Senha@123">
+                        <input class="inputCad" type="password" placeholder="Ex : Senha@123">
                         <p>Confirmar senha</p>
-                        <input type="password" placeholder="Ex: Senha@123">
+                        <input class="inputCad" type="password" placeholder="Ex: Senha@123">
                         <div class="checkbox">
                             <input type="checkbox">
                             <p>Mostrar senha</p>
@@ -80,12 +80,28 @@
         </div>
 
 
-    <section class="secaoInicial">
+    <section class="secaoInicial" id="secaoInicial">
+
+        <div class="conteudoInicialCel" id="conteudoInicialCel">
+            <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/desenho.svg" alt="">
+            <div class="textoInicialCel">
+                <h1 data-aos="zoom-in">Lorem ipsum</h1>
+                <p data-aos="zoom-in">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem vel quo harum
+                    numquam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae dolor asperiores aliquid
+                    perferendis facere officia perspiciatis voluptatibus nesciunt, ratione ab distinctio odit
+                    repellendus quia sequi suscipit, reprehenderit sit numquam delectus.</p>
+                <button data-aos="zoom-in">Saiba Mais</button>
+            </div>
+        </div>
+
+
         <div class="inicio">
             <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/fundo.svg" width="35%">
             <img class="elipse" src="./assets/imagens/svg/elipse.svg" alt="">
             <img data-aos="fade-left" data-aos-duration="3000" class="cruz" src="./assets/imagens/svg/cruz.svg" alt="">
         </div>
+
+
 
         <div class="conteudoInicial">
             <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/desenho.svg" alt="">
@@ -99,30 +115,55 @@
             </div>
         </div>
 
-        <div class="header" id="header">
-            <div class="logoHeader">
-                <img src="./assets/imagens/logo_teste.png" alt="Logo GN" class="imgLogoHeader">
-                <div class="nomeLogoHeader">
-                    <h2>MedServer</h2>
-                    <p>Sentinels</p>
+        <div class="inicioCel">
+            <div class="fundo">
+                <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/fundo.svg">
+            </div>
+            <img class="elipse" src="./assets/imagens/svg/elipse.svg" alt="">
+        </div>
+        <header>
+            <nav class="nav-bar">
+                <div class="logo">
+                    <img src="./assets/imagens/logo_teste.png" alt="Logo GN" class="imgLogoHeader">
+                    <div class="nomeLogoHeader">
+                        <h2>MedServer</h2>
+                        <p>Sentinels</p>
+                    </div>
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
+                        <li class="nav-item"><a href="#servicos" class="nav-link"> Serviços</a></li>
+                        <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                    </ul>
+                </div>
+                <div class="login-button">
+                    <button onclick="perfil()"><a href="#">Perfil</a></button>
+                    <img onclick="perfil()" src="./assets/imagens/svg/perfil.svg"  width="30px" alt="">
+                </div>
+    
+                <div class="mobile-menu-icon">
+                    <button onclick="abrirMenu()"><img class="icon" src="./assets/imagens/svg/menu_white_36dp.svg" alt=""></button>
+                </div>
+            </nav>
+            <div class="mobile-menu">
+                <ul>
+                    <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
+                    <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                </ul>
+    
+                <div class="login-button">
+                    <button onclick="perfil()"><a href="#">Perfil</a></button>
                 </div>
             </div>
-            <nav>
-                <ul id="textos_header_id" class="textosHeader">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Sobre nós</a></li>
-                    <li><a href="">Serviços</a></li>
-                    <li><a href="">Contatos</a></li>
-                    <li><a onclick="perfil()" href="#telaLogin">Perfil</a></li>
-                </ul>
-            </nav>
-        </div>
+        </header>
+
 
 
     </section>
-    <section class="secaoSobre">
+    <section class="secaoSobre" id="sobreNos">
         <div class="imagemOnda">
-            <img src="./assets/imagens/svg/ondas.svg" alt="" width="100%">
         </div>
         <div class="sobre">
             <h1 class="tituloInicial">Sobre</h1>
@@ -161,8 +202,24 @@
         </div>
 
     </section>
-
-    <section class="secaoProposta">
+    <section class="secaoPropostaCel" >
+        <div class="proposta">
+            <div class="conteudoProposta">
+                <h1 data-aos="zoom-in">Proposta</h1>
+                <img data-aos="fade-right" src="./assets/imagens/svg/desenhoProposta.svg" alt="" width="500px">
+                <div class="textosProposta">
+                    <p data-aos="zoom-in">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aut possimus
+                        debitis. Molestiae aliquid fuga quam facere atque qui ipsum porro doloremque aspernatur. Dolore
+                        pariatur nam laudantium explicabo, dicta omnis! Lorem ipsum dolor sit, amet consectetur
+                        adipisicing elit. Sequi ea at eum, dignissimos pariatur numquam doloribus perferendis facere
+                        necessitatibus totam. Odit fugit nostrum repudiandae consequatur asperiores vitae quia fuga
+                        libero?</p>
+                    <button data-aos="zoom-in">Saiba Mais</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="secaoProposta" >
         <div class="proposta">
             <div class="conteudoProposta">
                 <img data-aos="fade-right" src="./assets/imagens/svg/desenhoProposta.svg" alt="" width="500px">
@@ -180,14 +237,14 @@
         </div>
     </section>
 
-    <section class="secaoServicos">
+    <section class="secaoServicos" id="servicos">
         <div class="servicos">
             <h1 class="tituloServicos">Serviços</h1>
             <div class="conteudoServicos">
                 <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/hospital.svg" alt=""
                     width="700px">
                 <div class="containerBox">
-                    <div class="boxInformacoes" data-aos="fade-left" data-aos-duration="3000">
+                    <div class="boxInformacoes" data-aos="zoom-in" data-aos-duration="2000">
                         <h1>Proposta</h1>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus quia quibusdam tempore, id
                             tenetur facere delectus obcaecati repellendus reprehenderit dolores veritatis! Rem voluptas
@@ -214,7 +271,7 @@
         </div>
     </section>
 
-    <section class="secaoFinal">
+    <section class="secaoFinal" id="contato">
         <div class="footer">
             <h1 class="tituloContatos" data-aos="zoom-in" data-aos-duration="2000">Contatos</h1>
             <div class="conteudoContatos">
