@@ -848,11 +848,12 @@ color: var(--color--azulAcqua);
 @media only screen and (max-width:1925px){
     .imagemOnda {
         width: 100%;
+        height: 40vh;
         background-image: url("../imagens/svg/ondas.svg");
         background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
-        top: 587px;
+        top: 57vh;
     }
 
     .secaoFinal {
@@ -886,6 +887,11 @@ color: var(--color--azulAcqua);
 }
 
 @media screen and (max-width: 1200px){
+
+    .buttonInputs button{
+        width: 30%;
+        height: 45%;
+    }
 
     .cadastroUsuario {
         z-index: 999999;
