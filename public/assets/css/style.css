@@ -771,7 +771,7 @@ color: var(--color--azulAcqua);
     cursor: pointer;
 }
 
-.buttonInputs button {
+ .buttonInputs button {
     height: 50%;
     width: 30%;
     border-radius: 25px;
@@ -783,7 +783,19 @@ color: var(--color--azulAcqua);
     font-size: 1.3rem;
     font-weight: 800;
     color: var(--color--white)
-}
+} 
+/* .buttonInputs button{
+background-image: url(../imagens/svg/Textura.svg);
+background-size: cover;
+cursor: pointer;
+color: white;
+font-size: 15px;
+width: 32%;
+height: 90%;
+border-radius: 23px;
+border: none;
+margin-right: 10%;
+} */
 
 .cadastroLogo {
     width: 50%;
@@ -799,1682 +811,181 @@ color: var(--color--azulAcqua);
     height: 100%;
     border-radius: 0 3% 3% 0;
 }
-
-.conteudoInicialCel, .inicioCel, .secaoPropostaCel{
-    display: none;
-}
-
-@media only screen and (max-width:1919px){
-    .imagemOnda {
-        width: 100%;
-        height: 40vh;
-        background-image: url("../imagens/svg/ondas.svg");
-        background-size: 100%;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 438px;
-    }
-
-    .secaoFinal {
-        overflow: hidden;
-        width: 100%;
-        background-color: var(--color--white);
-        height: 400px;
-    }
-
-    .textosProposta p {
-        font-size: 1.2rem;
-        text-align: justify;
-        margin-top: 10px;
-    }  
-    .secaoServicos{
-        height: 1000px;
-    } 
-
-    .buttonInputs button {
-        width: 33%;
-        height: 35%;
-        font-size: 1.5rem;
-    }
-    .btn1 {
-        font-size: 1.2rem;
-    }
-
-    .buttonInputs p {
-        font-size: 1.2rem;
-    }
-}
-
-@media only screen and (max-width:1925px){
-    .imagemOnda {
-        width: 100%;
-        height: 40vh;
-        background-image: url("../imagens/svg/ondas.svg");
-        background-size: 100%;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 57vh;
-    }
-
-    .secaoFinal {
-        overflow: hidden;
-        width: 100%;
-        background-color: var(--color--white);
-        height: 400px;
-    }
-
-    .textosProposta p {
-        font-size: 1.2rem;
-        text-align: justify;
-        margin-top: 10px;
-    }  
-    .secaoServicos{
-        height: 1000px;
-    } 
-
-    .buttonInputs button {
-        width: 33%;
-        height: 35%;
-        font-size: 1.5rem;
-    }
-    .btn1 {
-        font-size: 1.2rem;
-    }
-
-    .buttonInputs p {
-        font-size: 1.2rem;
-    }
-}
-
-@media screen and (max-width: 1200px){
-
-    .buttonInputs button{
-        width: 30%;
-        height: 45%;
-    }
-
-    .cadastroUsuario {
-        z-index: 999999;
-        display: flex;
-        display: none;
-        width: 80%;
-        height: 70%;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 30px;
-        background-color: #E9E5E5;
-        overflow: hidden;
-    }
-
-    .container {
-        z-index: 8000;
-        display: flex;
-        flex-direction: row;
-        width: 80%;
-        height: 70%;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 30px;
-        background-color: #E9E5E5;
-    }
-
-    .conteudoInicial{
-        display:none;
-    }
-
-    .secaoInicial{
-        width: 100%;
-        height: 600px;
-    }
-
-
-    .inicio{
-        position: absolute;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .elipse {
-        margin-bottom: 20px;
-    }
-    
-    .cruz {
-        display: none;
-        z-index: 99999999;
-        margin-top: 15vh;
-    }
-
-    .conteudoInicial {
-        
-        margin-top: 17vh;
-        position: absolute;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .conteudoInicial img{
-        width: 350px;
-        height: 350px;
-        margin-left: 16%;
-    }
-    
-    .textoInicial {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 40%;
-    }
-    
-    .textoInicial h1 {
-        width: 100%;
-        text-align: center;
-        font-size: 50px;
-        font-weight: 1000;
-        color: var(--color--white);
-    }
-    
-    .textoInicial p {
-        margin-top: 2vh;
-        width: 86%;
-        font-size: 16px;
-        text-align: justify;
-        color: var(--color--white);
-    }
-    
-    .textoInicial button {
-        margin-top: 2vh;
-        margin-right: 50%;
-        width: 30%;
-        height: 50px;
-        border: none;
-        border-radius: 13px;
-        font-size: 1.3rem;
-        background-color: var(--color--white);
-        cursor: pointer;
-        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
-    }
-    
-    .textoInicial button:hover {
-        background-color: var(--color--azulEsc);
-        color: var(--color--white);
-        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
-    }
-
-    .secaoSobre{
-        width: 100%;
-        height: 750px;
-    }
-
-    .imagemOnda{
-        width: 100%;
-        background-image: url(../imagens/svg/ondas.svg);
-        background-size: 100%;
-        background-repeat: no-repeat;
-        position: absolute;
-        background-position: bottom;
-        top: 335px;
-    }
-
-    .pilares{
-        display: flex;
-        flex-direction: row;
-        margin-top: 8vh;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
-    .btnPilares{
-        width: 20%;
-        height: 60px;
-        border: none;
-        border-radius: 18px;
-        font-size: 1.5rem;
-        background-color: var(--color--verdeMed);
-        color: var(--color--white);
-        cursor: pointer;
-    }
-
-    .secaoProposta{
-        width: 100%;
-        height: 800px;
-    }
-
-    .conteudoProposta {
-        margin-top: 20vh;
-        display: flex;
-        flex-direction: row;
-        margin-left: 5%;
-    }
-
-    .textosProposta button {
-        margin-top: 4vh;
-        width: 50%;
-        height: 50px;
-        border: none;
-        padding: 10px;
-        border-radius: 18px;
-        font-size: 1.3rem;
-        background-color: var(--color--verdeMed);
-        color: var(--color--white);
-        cursor: pointer;
-    }
-
-    .secaoServicos{
-        width: 100%;
-        height: 850px;
-    }
-    
-    .servicos {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .tituloServicos {
-        margin-top: 10px;
-        font-size: 3rem;
-        font-weight: 1000;
-        text-align: center;
-        color: var(--color--white);
-        margin-bottom: 16px;
-    }
-    
-    .conteudoServicos {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .conteudoServicos img{
-        width: 300px;
-    }
-    
-    .containerBox {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .boxInformacoes {
-        width: 70%;
-        background-color: var(--color--white);
-        margin-top: 16px;
-        padding: 3%;
-        border-radius: 20px;
-    }
-    
-    .boxInformacoes h1 {
-        font-size: 2rem;
-        font-weight: 800;
-        margin-left: 6%;
-        margin-bottom: 5vh;
-        color: var(--color--azulEsc);
-    }
-    
-    .boxInformacoes p {
-        font-size: 0.8rem;
-        font-weight: 800;
-        color: var(--color--azulEsc);
-        text-align: justify;
-    }
-    
-    .containerButtonBolinhas {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        margin-top: 5vh;
-    }
-    
-    .containerButtonBolinhas button {
-        border: none;
-        margin-left: 10px;
-        margin-right: 10px;
-        width: 20%;
-        height: 50px;
-        background-color: var(--color--white);
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
-    
-    .bolinha {
-        background-color: var(--color--white);
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        margin-left: 3%;
-    }
-    
-    .bolinha:hover {
-        background-color: var(--color--azulAcqua);
-    }
-
-    .secaoFinal{
-        width: 100%;
-        height: 300px;
-    }
-    
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    
-    .tituloContatos {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-weight: 800;
-        color: var(--color--verdeMed);
-        font-size: 3rem;
-    }
-    
-    
-    
-    .contatos1 {
-        display: flex;
-        flex-direction: column;
-        width: 33.30%;
-        align-items: center;
-    }
-    
-    .contatos1 h1 {
-        font-size: 1.3rem;
-        color: var(--color--verdeMed);
-    }
-    
-    .contatos1 p {
-        font-size: 1rem;
-        margin-top: 2vh;
-        color: var(--color--verdeMed);
-    }
-}
-
-@media screen and (max-width:992px){
-
-    .cadastroUsuario {
-        z-index: 999999;
-        display: flex;
-        display: none;
-        width: 90%;
-        height: 78%;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 30px;
-        background-color: #E9E5E5;
-        overflow: hidden;
-    }
-
-    .container {
-        z-index: 8000;
-        display: flex;
-        flex-direction: row;
-        width: 90%;
-        height: 70%;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 30px;
-        background-color: #E9E5E5;
-    }
-
-     .conteudoInicial{
-        display:none;
-    }
-
-    .secaoInicial{
-        width: 100%;
-        height: 600px;
-    }
-
-
-    .inicio{
-        position: absolute;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .elipse {
-        margin-bottom: 30px;
-    }
-    
-    .cruz {
-        display: none;
-        z-index: 99999999;
-        margin-top: 15vh;
-    }
-
-    .conteudoInicial {
-        margin-top: 25vh;
-        position: absolute;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .conteudoInicial img{
-        width: 300px;
-        height: 300px;
-    }
-    
-    .textoInicial {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 40%;
-    }
-    
-    .textoInicial h1 {
-        width: 100%;
-        text-align: center;
-        font-size: 50px;
-        font-weight: 1000;
-        color: var(--color--white);
-    }
-    
-    .textoInicial p {
-        margin-top: 2vh;
-        width: 86%;
-        font-size: 16px;
-        text-align: justify;
-        color: var(--color--white);
-    }
-    
-    .textoInicial button {
-        margin-top: 2vh;
-        margin-right: 50%;
-        width: 30%;
-        height: 50px;
-        border: none;
-        border-radius: 13px;
-        font-size: 1.3rem;
-        background-color: var(--color--white);
-        cursor: pointer;
-        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
-    }
-    
-    .textoInicial button:hover {
-        background-color: var(--color--azulEsc);
-        color: var(--color--white);
-        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
-    }
-
-    .secaoSobre{
-        width: 100%;
-        height: 750px;
-    }
-
-    .imagemOnda{
-        width: 100%;
-        background-image: url(../imagens/svg/ondas.svg);
-        background-size: 100%;
-        background-repeat: no-repeat;
-        position: absolute;
-        background-position: bottom;
-        top: 360px;
-    }
-
-    .pilares{
-        display: flex;
-        flex-direction: row;
-        margin-top: 8vh;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
-    .btnPilares{
-        width: 20%;
-        height: 60px;
-        border: none;
-        border-radius: 18px;
-        font-size: 1.5rem;
-        background-color: var(--color--verdeMed);
-        color: var(--color--white);
-        cursor: pointer;
-    }
-
-    .secaoProposta{
-        width: 100%;
-        height: 800px;
-    }
-
-    .conteudoProposta {
-        margin-top: 20vh;
-        display: flex;
-        flex-direction: row;
-        margin-left: 5%;
-    }
-
-    .textosProposta button {
-        margin-top: 4vh;
-        width: 50%;
-        height: 50px;
-        border: none;
-        padding: 10px;
-        border-radius: 18px;
-        font-size: 1.3rem;
-        background-color: var(--color--verdeMed);
-        color: var(--color--white);
-        cursor: pointer;
-    }
-
-    .secaoServicos{
-        width: 100%;
-        height: 850px;
-    }
-    
-    .servicos {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .tituloServicos {
-        margin-top: 10px;
-        font-size: 3rem;
-        font-weight: 1000;
-        text-align: center;
-        color: var(--color--white);
-        margin-bottom: 16px;
-    }
-    
-    .conteudoServicos {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .conteudoServicos img{
-        width: 300px;
-    }
-    
-    .containerBox {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .boxInformacoes {
-        width: 70%;
-        background-color: var(--color--white);
-        margin-top: 16px;
-        padding: 3%;
-        border-radius: 20px;
-    }
-    
-    .boxInformacoes h1 {
-        font-size: 2rem;
-        font-weight: 800;
-        margin-left: 6%;
-        margin-bottom: 5vh;
-        color: var(--color--azulEsc);
-    }
-    
-    .boxInformacoes p {
-        font-size: 0.8rem;
-        font-weight: 800;
-        color: var(--color--azulEsc);
-        text-align: justify;
-    }
-    
-    .containerButtonBolinhas {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        margin-top: 5vh;
-    }
-    
-    .containerButtonBolinhas button {
-        border: none;
-        margin-left: 10px;
-        margin-right: 10px;
-        width: 20%;
-        height: 50px;
-        background-color: var(--color--white);
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
-    
-    .bolinha {
-        background-color: var(--color--white);
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        margin-left: 3%;
-    }
-    
-    .bolinha:hover {
-        background-color: var(--color--azulAcqua);
-    }
-
-    .secaoFinal{
-        width: 100%;
-        height: 300px;
-    }
-    
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    
-    .tituloContatos {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-weight: 800;
-        color: var(--color--verdeMed);
-        font-size: 3rem;
-    }
-    
-    
-    
-    .contatos1 {
-        display: flex;
-        flex-direction: column;
-        width: 33.30%;
-        align-items: center;
-    }
-    
-    .contatos1 h1 {
-        font-size: 1.3rem;
-        color: var(--color--verdeMed);
-    }
-    
-    .contatos1 p {
-        font-size: 1rem;
-        margin-top: 2vh;
-        color: var(--color--verdeMed);
-    }
-
-}
-
-@media screen and (max-width:768px){
-
-    .backgroundTransparent {
-        z-index: 99999999;
-    }
-
-    .cadastroUsuario {
-        z-index: 999999;
-        display: flex;
-        display: none;
-        width: 90%;
-        height: 80%;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 30px;
-        background-color: #E9E5E5;
-        overflow: hidden;
-    }
-
-    .textosIniciais p {
-        font-size: 1rem;
-    }
-
-    .textosIniciais h1 {
-        font-size: 1.8rem;
-    }
-
-    .inputsCad{
-        height: 4%;
-    }
-
-    .inputsCadastro p{
-        font-size: 0.8rem;
-    }
-
-    .inputsLogin p {
-        font-size: 1rem;
-    }
-    .checkbox input {
-        margin-left: 30px;
-    }
-    .inputsLogin input::placeholder, .inputsCadastro input::placeholder {
-        font-size: 0.8rem;
-    }
-
-    .buttonInputs button {
-        height: 55%;
-        width: 35%;
-    }
-
-    .container {
-        z-index: 8000;
-        display: flex;
-        flex-direction: row;
-        width: 90%;
-        height: 80%;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 30px;
-        background-color: #E9E5E5;
-    }
-
-    .textoVamos{
-        font-size: 2rem;
-    }
-
-    .textoComecar{
-        font-size: 2rem;
-    }
-
-    .btns{
-        margin-top: 40px;
-    }
-
-    .secaoPropostaCel ,  .conteudoInicial, .inicio{
-        display: none;
-    }
-
-    .nav-bar {
-        padding: 1.5rem 4rem;
-    }
-    .nav-item {
-        display: none;
-    }
-    .login-button {
-        display: none;
-    }
-    .mobile-menu-icon {
-        display: flex;
-        justify-content: center;
-    }
-
-    .nav-link:hover, .login-button a:hover {
-        color: var(--color--azulAcqua);
-        }
-
-    .icon {
-        width: 50px;
-    }
-    .mobile-menu-icon button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        margin-left: 20px;
-    }
-    .mobile-menu ul {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding-bottom: 1rem;
-    }
-    .mobile-menu .nav-item {
-        display: block;
-        padding-top: 1.2rem;
-    }
-    .mobile-menu .login-button {
-        display: block;
-        padding: 1rem 2rem;
-    }
-    .mobile-menu .login-button button {
-        width: 100%;
-    }
-    .open {
-        z-index: 999999;
-        display: block;
-        position: relative;
-        background-color: var(--color--verdeMed);
-        
-    }
-
-    .colorNav {
-        background-color: var(--color--verdeMed);
-    }
-
-    .inicioCel {
-        display: block;
-        position: absolute;
-    }
-
-    .fundo img{
-        width: 240px;
-    }
-
-    .elipse{
-        position: absolute;
-        width: 80%;
-        top: 26vh;
-        left: 55vw;
-    }
-
-    .conteudoInicialCel {
-        z-index: 9999;
-        margin-top: 170px;
-        position: absolute;
-        display: flex;
-        width: 100%;
-        flex-direction: row;
-    }
-
-    .conteudoInicialCel img{
-        width: 30%;
-        margin-left: 90px;
-    }
-
-    .secaoInicial{
-        width: 100%;
-        height: 450px;
-    }
-    
-    .textoInicialCel {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 50%;
-        margin-right: 16px;
-    }
-    
-    .textoInicialCel h1 {
-        width: 100%;
-        text-align: center;
-        font-size: 1.6rem;
-        font-weight: 1000;
-        color: var(--color--white);
-    }
-    
-    .textoInicialCel p {
-        margin-top: 27px;
-        width: 86%;
-        font-size: 0.6rem;
-        text-align: justify;
-        color: var(--color--white);
-    }
-    
-    .textoInicialCel button {
-        margin-top: 2vh;
-        margin-right: 40%;
-        width: 30%;
-        height: 25px;
-        border: none;
-        border-radius: 13px;
-        font-size: 0.8rem;
-        background-color: var(--color--white);
-        cursor: pointer;
-        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
-    }
-    
-    .textoInicialCel button:hover {
-        background-color: var(--color--azulEsc);
-        color: var(--color--white);
-        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
-    }
-
-  .imagemOnda{
-    width: 100%;
-    background-image: url("../imagens/svg/ondas.svg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    background-position: bottom;
-    top: 210px;
-  }
-
-  .secaoSobre{
-    width: 100%;
-    height: 380px;
-    background-color: var(--color--white);
-  }
-
-  .sobre{
+/* ---------------- FIM DA TELA CADASTRO USUARIO -------------- */
+.cadastroEmpresa{
+    z-index: 999999;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    top: 3vh;
-  }
-
-  .tituloInicial{
-    font-size: 2rem;
-  }
-  
-  .pilares {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    flex-direction: row;
-    margin-top: 16px;
-    margin-right: 10%;
+    /* display: none; */
+    width: 60%;
+    height: 70%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background-color: #E9E5E5;
+    overflow: hidden;
 }
 
-.pilar {
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.pilar img{
-    width: 60px;
-}
-
-.h1Pilar {
-    margin-top: 32px;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    font-weight: 1000;
-    color: var(--color--verdeMed);
-}
-
-.pPilar {
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-.btnPilares {
-    margin-top: 16px;
-    margin-bottom: 20px;
-    width: 20%;
-    height: 30px;
-    border: none;
-    border-radius: 18px;
-    font-size: 0.5rem;
-    background-color: var(--color--verdeMed);
-    color: var(--color--white);
-    cursor: pointer;
-}
-
-.linha {
-    width: 70%;
-    height: 4px;
-    border-radius: 20px;
-    background-color: var(--color--verdeMed);
-}
-
-
-.secaoProposta {
-    width: 100%;
-    background-color: var(--color--white);
-    height: 400px;
-}
-
-.proposta {
-    width: 100%;
-    display: flex;
-}
-
-.conteudoProposta {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.textosProposta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: initial;
-    margin-top: 15px;
-    margin-right: 10%;
+.cadastroContainerEmpresa {
     width: 50%;
-}
-
-.conteudoProposta h1 {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    font-weight: 1000;
-    color: var(--color--verdeMed);
-}
-
-.textosProposta p {
-    margin-top: 15px;
-    font-size: 0.8rem;
-    text-align: justify;
-}
-
-.textosProposta button {
-    margin-top: 10px;
-    width: 40%;
-    height: 30px;
-    border: none;
-    border-radius: 18px;
-    font-size: 0.5rem;
-    background-color: var(--color--verdeMed);
-    color: var(--color--white);
-    cursor: pointer;
-}
-
-.conteudoProposta img{
-    margin-top: 15px;
-    width: 250px;
-}
-
-
-.secaoServicos{
-    width: 100%;
-    height: 650px;
-}
-
-.servicos {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.tituloServicos {
-    margin-top: 10px;
-    font-size: 1.8rem;
-    font-weight: 1000;
-    text-align: center;
-    color: var(--color--white);
-    margin-bottom: 16px;
-}
-
-.conteudoServicos {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.conteudoServicos img{
-    width: 250px;
-}
-
-.containerBox {
-    display: flex;
+.textosIniciaisEmpresa {
+    margin-top: 5%;
     width: 100%;
-    flex-direction: column;
-    align-items: center;
+    height: 25%;
 }
 
-.boxInformacoes {
-    width: 70%;
-    background-color: var(--color--white);
-    margin-top: 16px;
-    padding: 3%;
+.textoViagemEmpresa {
+    margin-left: 10%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textoPrimeiraEmpresa {
+    margin-left: 10%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textosIniciaisEmpresa h1 {
+    font-size: 3rem;
+}
+
+.textosIniciaisEmpresa p {
+    font-size: 1.4rem;
+    margin-top: 2%;
+    margin-left: 10%;
+    font-weight: 700;
+    color: #017FCC;
+}
+
+.inputsCadastroEmpresa {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 4%;
+    width: 100%;
+    height: 100%;
+    
+}
+.duplaInputOne{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    
+   }
+   .inputUnico{
+ 
+    width: 100%;
+    height: 30%;
+  
+   }
+   .inputUnico input{
+    width: 100%;
+    height: 100%;
+    
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
     border-radius: 20px;
-}
+    text-align: unset;
+    font-size: 16px;
+   }
+   
+   
 
-.boxInformacoes h1 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-left: 6%;
-    margin-bottom: 5vh;
-    color: var(--color--azulEsc);
-}
-
-.boxInformacoes p {
-    font-size: 0.5rem;
-    font-weight: 800;
-    color: var(--color--azulEsc);
-    text-align: justify;
-}
-
-.containerButtonBolinhas {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 5vh;
-}
-
-.containerButtonBolinhas button {
-    border: none;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 100px;
-    height: 40px;
-    background-color: var(--color--white);
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1rem;
+.inputsCadastroEmpresa p{
+    margin-left: 9%;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
-.bolinha {
-    background-color: var(--color--white);
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
+.inputsCadastroEmpresa input {
+    width: 80%;
+    height: 10%;
+    padding: 10px;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 16px;
+}
+.buttonEcheck{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.checkboxEmpresa{
+    display: flex;
+    height: 80%;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    text-align: initial;
+}
+
+.checkboxEmpresa p {
+    width: 50%;
+    font-weight: 500;
+
+}
+
+.checkboxEmpresa input {
+    width: 20%;
+    height: 20%;
+}
+
+.buttonEcheck {
+    margin-top: 2%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+ 
+}
+
+
+.buttonEcheck p{
+    margin-right: 2%;
     cursor: pointer;
-    margin-left: 3%;
-}
-
-.bolinha:hover {
-    background-color: var(--color--azulAcqua);
-}
-
-.secaoFinal{
-    width: 100%;
-    height: 250px;
-}
-
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.tituloContatos {
-    margin-top: 20px;
-    margin-bottom: 5vh;
-    font-weight: 800;
-    color: var(--color--verdeMed);
-    font-size: 1.7rem;
-}
-
-
-
-.contatos1 {
-    display: flex;
-    flex-direction: column;
-    width: 33.30%;
-    align-items: center;
-}
-
-.contatos1 h1 {
     font-size: 1rem;
-    color: var(--color--verdeMed);
+}
+.buttonInputsEmpresa{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
 }
 
-.contatos1 p {
-    font-size: 0.8rem;
-    margin-top: 2vh;
-    color: var(--color--verdeMed);
+.buttonInputsEmpresa button {
+     background-image: url(../imagens/svg/Textura.svg);
+    background-size: cover; 
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    width: 70%;
+    height:40%;
+    border-radius: 23px;
+    border: none;
+    margin-right: 5%;
+    
+   
 }
- .inicio, .conteudoInicial{
-    display:none;
-}
-}
-
-@media only screen and (max-width:600px){
-
-    .backgroundTransparent {
-        z-index: 99999999;
-    }
-
-    .cadastroUsuario {
-        z-index: 999999;
-        display: flex;
-        display: none;
-        width: 90%;
-        height: 80%;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 30px;
-        background-color: #E9E5E5;
-        overflow: hidden;
-    }
-
-    .textosIniciais p {
-        font-size: 1rem;
-    }
-
-    .textosIniciais h1 {
-        font-size: 1.8rem;
-    }
-
-    .inputsCad{
-        height: 4%;
-    }
-
-    .inputsCadastro p{
-        font-size: 0.8rem;
-    }
-
-    .inputsLogin p {
-        font-size: 1rem;
-    }
-    .checkbox input {
-        margin-left: 30px;
-    }
-    .inputsLogin input::placeholder, .inputsCadastro input::placeholder {
-        font-size: 0.8rem;
-    }
-
-    .buttonInputs button {
-        height: 55%;
-        width: 40%;
-        font-weight: 600;
-        font-size: 15px;
-    }
-        .nav-bar {
-            padding: 1.5rem 4rem;
-        }
-        .nav-item {
-            display: none;
-        }
-        .login-button {
-            display: none;
-        }
-        .mobile-menu-icon {
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav-link:hover, .login-button a:hover {
-            color: var(--color--azulAcqua);
-            }
-
-        .icon {
-            width: 50px;
-        }
-        .mobile-menu-icon button {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            margin-left: 20px;
-        }
-        .mobile-menu ul {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            padding-bottom: 1rem;
-        }
-        .mobile-menu .nav-item {
-            display: block;
-            padding-top: 1.2rem;
-        }
-        .mobile-menu .login-button {
-            display: block;
-            padding: 1rem 2rem;
-        }
-        .mobile-menu .login-button button {
-            width: 100%;
-        }
-        .open {
-            z-index: 999999;
-            display: block;
-            position: relative;
-            background-color: var(--color--verdeMed);
-            
-        }
-
-        .colorNav {
-            background-color: var(--color--verdeMed);
-        }
-
-        .inicioCel {
-            display: block;
-            position: absolute;
-        }
-
-        .fundo img{
-            width: 240px;
-        }
-
-        .elipse{
-            position: absolute;
-            width: 80%;
-            top: 26vh;
-            left: 55vw;
-        }
-
-        .conteudoInicialCel {
-            z-index: 9999;
-            margin-top: 170px;
-            position: absolute;
-            display: flex;
-            width: 100%;
-            flex-direction: row;
-        }
-
-        .conteudoInicialCel img{
-            width: 30%;
-            margin-left: 90px;
-        }
-
-        .secaoInicial{
-            width: 100%;
-            height: 400px;
-        }
-        
-        .textoInicialCel {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 50%;
-            margin-right: 16px;
-        }
-        
-        .textoInicialCel h1 {
-            width: 100%;
-            text-align: center;
-            font-size: 1.6rem;
-            font-weight: 1000;
-            color: var(--color--white);
-        }
-        
-        .textoInicialCel p {
-            margin-top: 27px;
-            width: 86%;
-            font-size: 0.6rem;
-            text-align: justify;
-            color: var(--color--white);
-        }
-        
-        .textoInicialCel button {
-            margin-top: 2vh;
-            margin-right: 40%;
-            width: 30%;
-            height: 25px;
-            border: none;
-            border-radius: 13px;
-            font-size: 0.8rem;
-            background-color: var(--color--white);
-            cursor: pointer;
-            box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
-        }
-        
-        .textoInicialCel button:hover {
-            background-color: var(--color--azulEsc);
-            color: var(--color--white);
-            box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
-        }
-
-      .imagemOnda{
-        width: 100%;
-        height: 30px;
-        background-image: url("../imagens/svg/ondas.svg");
-        background-size: 100%;
-        background-repeat: no-repeat;
-        position: absolute;
-        background-position: bottom;
-        top: 371px;
-      }
-
-      .secaoSobre{
-        width: 100%;
-        height: 380px;
-        background-color: var(--color--white);
-      }
-
-      .sobre{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-        width: 100%;
-        top: 3vh;
-      }
-
-      .tituloInicial{
-        font-size: 2rem;
-      }
-      
-      .pilares {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        flex-direction: row;
-        margin-top: 16px;
-        margin-right: 10%;
-    }
-    
-    .pilar {
-        width: 25%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .pilar img{
-        width: 60px;
-    }
-    
-    .h1Pilar {
-        margin-top: 32px;
-        margin-bottom: 10px;
-        font-size: 1rem;
-        font-weight: 1000;
-        color: var(--color--verdeMed);
-    }
-    
-    .pPilar {
-        font-size: 0.8rem;
-        text-align: center;
-    }
-    
-    .btnPilares {
-        margin-top: 16px;
-        margin-bottom: 20px;
-        width: 20%;
-        height: 30px;
-        border: none;
-        border-radius: 18px;
-        font-size: 0.5rem;
-        background-color: var(--color--verdeMed);
-        color: var(--color--white);
-        cursor: pointer;
-    }
-    
-    .linha {
-        width: 70%;
-        height: 4px;
-        border-radius: 20px;
-        background-color: var(--color--verdeMed);
-    }
-
-    .secaoPropostaCel{
-        display: block;
-        background-color: var(--color--white);
-        width: 100%;
-        height: 550px;
-    }
-
-    .proposta {
-        width: 100%;
-        display: flex;
-    }
-    
-    .conteudoProposta {
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .textosProposta {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: initial;
-        margin-top: 15px;
-        margin-right: 10%;
-        width: 50%;
-    }
-    
-    .conteudoProposta h1 {
-        margin-top: 20px;
-        font-size: 1.5rem;
-        font-weight: 1000;
-        color: var(--color--verdeMed);
-    }
-    
-    .textosProposta p {
-        font-size: 0.8rem;
-        text-align: justify;
-    }
-    
-    .textosProposta button {
-        margin-top: 10px;
-        width: 40%;
-        height: 30px;
-        border: none;
-        border-radius: 18px;
-        font-size: 0.5rem;
-        background-color: var(--color--verdeMed);
-        color: var(--color--white);
-        cursor: pointer;
-    }
-    
-    .conteudoProposta img{
-        margin-top: 15px;
-        width: 300px;
-    }
-
-    .secaoServicos{
-        width: 100%;
-        height: 650px;
-    }
-
-    .servicos {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .tituloServicos {
-        margin-top: 10px;
-        font-size: 1.8rem;
-        font-weight: 1000;
-        text-align: center;
-        color: var(--color--white);
-        margin-bottom: 16px;
-    }
-    
-    .conteudoServicos {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .conteudoServicos img{
-        width: 250px;
-    }
-    
-    .containerBox {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .boxInformacoes {
-        width: 70%;
-        background-color: var(--color--white);
-        margin-top: 16px;
-        padding: 3%;
-        border-radius: 20px;
-    }
-    
-    .boxInformacoes h1 {
-        font-size: 1.5rem;
-        font-weight: 800;
-        margin-left: 6%;
-        margin-bottom: 5vh;
-        color: var(--color--azulEsc);
-    }
-    
-    .boxInformacoes p {
-        font-size: 0.5rem;
-        font-weight: 800;
-        color: var(--color--azulEsc);
-        text-align: justify;
-    }
-    
-    .containerButtonBolinhas {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        margin-top: 5vh;
-    }
-    
-    .containerButtonBolinhas button {
-        border: none;
-        margin-left: 10px;
-        margin-right: 10px;
-        width: 100px;
-        height: 40px;
-        background-color: var(--color--white);
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: 500;
-    }
-    
-    .bolinha {
-        background-color: var(--color--white);
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        margin-left: 3%;
-    }
-    
-    .bolinha:hover {
-        background-color: var(--color--azulAcqua);
-    }
-
-    .secaoFinal{
-        width: 100%;
-        height: 250px;
-    }
-
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    
-    .tituloContatos {
-        margin-top: 20px;
-        margin-bottom: 5vh;
-        font-weight: 800;
-        color: var(--color--verdeMed);
-        font-size: 1.7rem;
-    }
-
-    
-    .contatos1 {
-        display: flex;
-        flex-direction: column;
-        width: 33.30%;
-        align-items: center;
-    }
-    
-    .contatos1 h1 {
-        font-size: 1rem;
-        color: var(--color--verdeMed);
-    }
-    
-    .contatos1 p {
-        font-size: 0.8rem;
-        margin-top: 2vh;
-        color: var(--color--verdeMed);
-    }
-     .inicio, .secaoProposta, .conteudoInicial{
-        display:none;
-    }
-}
-
 
