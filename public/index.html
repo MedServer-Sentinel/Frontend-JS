@@ -12,112 +12,111 @@
 </head>
 
 <body>
-        <div class="backgroundTransparent" id="backgroundBlack" style="display: none;">
-            <div class="container" id="telaLogin"> 
-                <div class="formulario">
-                    <h1 class="textoVamos">Vamos</h1>
-                    <h1 class="textoComecar">começar?</h1>
-                    <p class="facaLogin">Faça seu login</p>
-                    <div class="inputsLogin">
-                        <p>Email</p>
-                        <input type="text" placeholder="Ex: caique.gsilva@sptech.school">
-                        <p>Senha</p>
-                        <input type="password" placeholder="Ex : Senha@123">
-                        <div class="checkboxLogin">
-                            <input type="checkbox">
-                            <p>Mostrar senha</p>
-                        </div>
-                        <p class="textoLogin">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Alias placeat ex.</p>
+    <div class="backgroundTransparent" id="backgroundBlack" style="display: none;">
+        <div class="container" id="telaLogin">
+            <div class="formulario">
+                <h1 class="textoVamos">Vamos</h1>
+                <h1 class="textoComecar">começar?</h1>
+                <p class="facaLogin">Faça seu login</p>
+                <div class="inputsLogin">
+                    <p>Email</p>
+                    <input type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                    <p>Senha</p>
+                    <input type="password" placeholder="Ex : Senha@123">
+                    <div class="checkboxLogin">
+                        <input type="checkbox">
+                        <p>Mostrar senha</p>
                     </div>
-                    <div class="btns">
-                        <a class="btn1" onclick="cadastreSe()" href="#telaCadastro">Cadastre-se</a>
-                        <button class="btn2"><b>Entrar</b></button>
-                    </div>
+                    <p class="textoLogin">Bora entrar ? Insira suas informações de login para acessar sua conta.</p>
                 </div>
-        
-                <div class="img">
-                    <span class="xSaida">
-                       <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
-                    </span>
-                    <img class="loginLogo" src="./assets/imagens/svg/logoLogin.png" alt="">
+                <div class="btns">
+                    <a class="btn1" onclick="cadastreSe()" href="#telaCadastro">Cadastre-se</a>
+                    <button class="btn2"><b>Entrar</b></button>
                 </div>
             </div>
-            <div class="cadastroUsuario" id="telaCadastro">
-                <div class="cadastroContainer">
-                    <div class="textosIniciais">
-                        <h1 class="textoPrimeira">Primeira</h1>
-                        <h1 class="textoViagem">Viagem?</h1>
-                        <p>Faça seu cadastro</p>
-                    </div>
-                    <div class="inputsCadastro">
-                        <p>Nome</p>
-                        <input class="inputCad" type="text" placeholder="Ex: Caique Gomes">
-                        <p>Email</p>
-                        <input class="inputCad" type="text" placeholder="Ex: caique.gsilva@sptech.school">
-                        <p>Senha</p>
-                        <input class="inputCad" type="password" placeholder="Ex : Senha@123">
-                        <p>Confirmar senha</p>
-                        <input class="inputCad" type="password" placeholder="Ex: Senha@123">
-                        <div class="checkbox">
-                            <input type="checkbox">
-                            <p>Mostrar senha</p>
-                        </div>
-                    </div>
-                    <div class="buttonInputs">
-                        <p href="#telaLogin" onclick="voltarLogin()">Voltar</p>
-                        <button onclick="CadastroFeito()">Criar</button>
-                    </div>
-                </div>
-                <div class="cadastroLogo">
-                    <span class="xSaida">
-                        <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
-                     </span>
-                    <img src="assets/imagens/svg/maps_medc.svg" alt="">
-                </div>
-             
+
+            <div class="img">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img class="loginLogo" src="./assets/imagens/svg/logoLogin.png" alt="">
             </div>
-            <div class="cadastroEmpresa" id="telaEmpresa" style="display: none;">
-                <div class="cadastroContainerEmpresa">
-                    <div class="textosIniciaisEmpresa">
-                        <h1 class="textoPrimeiraEmpresa">Conhecendo </h1>
-                        <h1 class="textoViagemEmpresa">sua empresa...</h1>
-                        <p>Preencha os campos</p>
+        </div>
+        <div class="cadastroUsuario" id="telaCadastro">
+            <div class="cadastroContainer">
+                <div class="textosIniciais">
+                    <h1 class="textoPrimeira">Primeira</h1>
+                    <h1 class="textoViagem">Viagem?</h1>
+                    <p>Faça seu cadastro</p>
+                </div>
+                <div class="inputsCadastro">
+                    <p>Nome</p>
+                    <input class="inputCad" type="text" placeholder="Ex: Caique Gomes">
+                    <p>Email</p>
+                    <input class="inputCad" type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                    <p>Senha</p>
+                    <input class="inputCad" type="password" placeholder="Ex : Senha@123">
+                    <p>Confirmar senha</p>
+                    <input class="inputCad" type="password" placeholder="Ex: Senha@123">
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <p>Mostrar senha</p>
                     </div>
-                    <div class="inputsCadastroEmpresa">
-                        <div class="duplaInputOne">
-                            <p>Dado</p>
-                            <input class="iptDado" type="text" placeholder="Ex: Caique Gomes">
-                            <p>Dado</p>
-                            <input class="iptDado" type="text" placeholder="Ex: caique.gsilva@sptech.school">
-                        </div>
-                        <div class="duplaInputOne">
-                            <p>Dado</p>
-                             <input class="iptDado" type="password" placeholder="Ex : Senha@123">
-                             <p>Dado</p>
-                            <input class="iptDado" type="password" placeholder="Ex: Senha@123">
-                        </div>
-                        <div class="inputUnico">
+                </div>
+                <div class="buttonInputs">
+                    <p href="#telaLogin" onclick="voltarLogin()">Voltar</p>
+                    <button onclick="CadastroFeito()">Criar</button>
+                </div>
+            </div>
+            <div class="cadastroLogo">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img src="assets/imagens/svg/maps_medc.svg" alt="">
+            </div>
+
+        </div>
+        <div class="cadastroEmpresa" id="telaEmpresa" style="display: none;">
+            <div class="cadastroContainerEmpresa">
+                <div class="textosIniciaisEmpresa">
+                    <h1 class="textoPrimeiraEmpresa">Conhecendo </h1>
+                    <h1 class="textoViagemEmpresa">sua empresa...</h1>
+                    <p>Preencha os campos</p>
+                </div>
+                <div class="inputsCadastroEmpresa">
+                    <div class="duplaInputOne">
+                        <p>Dado</p>
+                        <input class="iptDado" type="text" placeholder="Ex: Caique Gomes">
+                        <p>Dado</p>
+                        <input class="iptDado" type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                    </div>
+                    <div class="duplaInputOne">
+                        <p>Dado</p>
+                        <input class="iptDado" type="password" placeholder="Ex : Senha@123">
+                        <p>Dado</p>
+                        <input class="iptDado" type="password" placeholder="Ex: Senha@123">
+                    </div>
+                    <div class="inputUnico">
                         <p>Dado</p>
                         <input type="text">
                     </div>
-                  
-                           
-                    </div>
 
-                    <div class="buttonInputsEmpresa">
-                        <p href="#telaLogin" onclick="voltarLogin()">Login</p>
-                        <button>Criar</button>
-                    </div>
+
                 </div>
-                <div class="cadastroLogoEmpresa">
-                    <span class="xSaida">
-                        <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
-                    </span>
+
+                <div class="buttonInputsEmpresa">
+                    <p href="#telaLogin" onclick="voltarLogin()">Login</p>
+                    <button>Criar</button>
                 </div>
-    
             </div>
+            <div class="cadastroLogoEmpresa">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+            </div>
+
         </div>
+    </div>
 
 
     <section class="secaoInicial" id="secaoInicial">
@@ -146,11 +145,12 @@
         <div class="conteudoInicial">
             <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/desenho.svg" alt="">
             <div class="textoInicial">
-                <h1 data-aos="zoom-in">Lorem ipsum</h1>
-                <p data-aos="zoom-in">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem vel quo harum
-                    numquam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae dolor asperiores aliquid
-                    perferendis facere officia perspiciatis voluptatibus nesciunt, ratione ab distinctio odit
-                    repellendus quia sequi suscipit, reprehenderit sit numquam delectus.</p>
+                <h1 data-aos="zoom-in">MedServer</h1>
+                <p data-aos="zoom-in">Transforme o atendimento nos hospitais com o nosso monitoramento de desktops!
+                    Agora você pode garantir a eficiência no setor de recepção e evitar filas e atrasos que prejudicam o
+                    atendimento médico. Não espere mais para oferecer a melhor experiência aos seus pacientes. Conte
+                    conosco. Utilizando uma tecnologia moderna e eficiente, que garante a rapidez e a agilidade
+                    necessárias para um atendimento de qualidade.</p>
                 <button data-aos="zoom-in">Saiba Mais</button>
             </div>
         </div>
@@ -179,11 +179,12 @@
                 </div>
                 <div class="login-button">
                     <button onclick="perfil()"><a href="#">Perfil</a></button>
-                    <img onclick="perfil()" src="./assets/imagens/svg/perfil.svg"  width="30px" alt="">
+                    <img onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
                 </div>
-    
+
                 <div class="mobile-menu-icon">
-                    <button onclick="abrirMenu()"><img class="icon" src="./assets/imagens/svg/menu_white_36dp.svg" alt=""></button>
+                    <button onclick="abrirMenu()"><img class="icon" src="./assets/imagens/svg/menu_white_36dp.svg"
+                            alt=""></button>
                 </div>
             </nav>
             <div class="mobile-menu">
@@ -192,7 +193,7 @@
                     <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
                     <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
                 </ul>
-    
+
                 <div class="login-button">
                     <button onclick="perfil()"><a href="#">Perfil</a></button>
                 </div>
@@ -211,30 +212,26 @@
                 <div class="pilar">
                     <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarUm.svg" alt=""
                         width="150px">
-                    <h1 class="h1Pilar">Sobre</h1>
-                    <p class="pPilar" data-aos="zoom-in">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-                        labore quisquam sequi sapiente aliquam? </p>
+                    <h1 class="h1Pilar">ÉTICA</h1>
+                    <p class="pPilar" data-aos="zoom-in">Nós valorizamos a integridade e transparência em todas as nossas operações. É fundamental para nós manter a confiança dos nossos clientes, agindo sempre com ética e respeito.</p>
                 </div>
                 <div class="pilar">
                     <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarDois.svg" alt=""
                         width="150px">
-                    <h1 class="h1Pilar">Sobre</h1>
-                    <p class="pPilar" data-aos="zoom-in">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-                        labore quisquam sequi sapiente aliquam?</p>
+                    <h1 class="h1Pilar">HUMILDADE</h1>
+                    <p class="pPilar" data-aos="zoom-in">Reconhecemos a importância de ouvir as necessidades e demandas dos nossos clientes e atuar de forma humilde e colaborativa na busca de soluções que atendam suas expectativas.</p>
                 </div>
                 <div class="pilar">
                     <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarTres.svg" alt=""
                         width="150px">
-                    <h1 class="h1Pilar">Sobre</h1>
-                    <p class="pPilar" data-aos="zoom-in">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-                        labore quisquam sequi sapiente aliquam?</p>
+                    <h1 class="h1Pilar">EFICIÊNCIA</h1>
+                    <p class="pPilar" data-aos="zoom-in">Vamos ajudar nossos clientes a aumentarem a produtividade e reduzirem os atrasos nos atendimentos. Estamos sempre buscando maneiras de aprimorar nossos serviços e fornecer soluções mais eficientes e inovadoras.</p>
                 </div>
                 <div class="pilar">
                     <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarQuatro.svg" alt=""
                         width="150px">
-                    <h1 class="h1Pilar">Sobre</h1>
-                    <p class="pPilar" data-aos="zoom-in">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
-                        labore quisquam sequi sapiente aliquam?</p>
+                    <h1 class="h1Pilar">CONFIANÇA</h1>
+                    <p class="pPilar" data-aos="zoom-in">Somos comprometidos com a confiabilidade dos nossos serviços. Trabalhamos para garantir a disponibilidade e a performance, proporcionando uma experiência segura e eficiente.</p>
                 </div>
             </div>
             <button class="btnPilares" data-aos="zoom-in">Saiba Mais</button>
@@ -242,7 +239,7 @@
         </div>
 
     </section>
-    <section class="secaoPropostaCel" >
+    <section class="secaoPropostaCel">
         <div class="proposta">
             <div class="conteudoProposta">
                 <h1 data-aos="zoom-in">Proposta</h1>
@@ -259,18 +256,17 @@
             </div>
         </div>
     </section>
-    <section class="secaoProposta" >
+    <section class="secaoProposta">
         <div class="proposta">
             <div class="conteudoProposta">
                 <img data-aos="fade-right" src="./assets/imagens/svg/desenhoProposta.svg" alt="" width="500px">
                 <div class="textosProposta">
                     <h1 data-aos="zoom-in">Proposta</h1>
-                    <p data-aos="zoom-in">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aut possimus
-                        debitis. Molestiae aliquid fuga quam facere atque qui ipsum porro doloremque aspernatur. Dolore
-                        pariatur nam laudantium explicabo, dicta omnis! Lorem ipsum dolor sit, amet consectetur
-                        adipisicing elit. Sequi ea at eum, dignissimos pariatur numquam doloribus perferendis facere
-                        necessitatibus totam. Odit fugit nostrum repudiandae consequatur asperiores vitae quia fuga
-                        libero?</p>
+                    <p data-aos="zoom-in">Com nosso serviço de monitoramento, os atendentes na recepção de hospitais
+                        poderão realizar suas tarefas de forma mais eficiente e rápida, proporcionando um atendimento
+                        mais ágil e satisfatório aos pacientes. Além disso, nosso serviço de monitoramento também
+                        oferece relatórios detalhados sobre o desempenho dos desktops, permitindo que os gestores possam
+                        tomar decisões mais informadas e melhorar continuamente a eficiência dos processos.</p>
                     <button data-aos="zoom-in">Saiba Mais</button>
                 </div>
             </div>
@@ -286,17 +282,15 @@
                 <div class="containerBox">
                     <div class="boxInformacoes" data-aos="zoom-in" data-aos-duration="2000">
                         <h1>Proposta</h1>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus quia quibusdam tempore, id
-                            tenetur facere delectus obcaecati repellendus reprehenderit dolores veritatis! Rem voluptas
-                            temporibus eum ea minima molestias quidem commodi. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Reiciendis aut sint velit? Aperiam ducimus animi laborum expedita
-                            perferendis iusto autem itaque inventore saepe quo! Hic doloribus ad illum error assumenda!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, eius voluptates
-                            repudiandae saepe praesentium ipsum modi quasi corporis voluptatem odit officiis! Incidunt
-                            consequuntur sit iusto, saepe ex mollitia totam nobis. Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Tempora id vero dolore molestiae tenetur hic accusantium eos
-                            earum nulla reiciendis, quisquam sunt velit recusandae laudantium accusamus ipsa ducimus
-                            eligendi ex.
+                        <p>Nossa empresa oferece um serviço completo de monitoramento de desktops na recepção de
+                            hospitais, utilizando ferramentas avançadas para detectar e solucionar problemas de lentidão
+                            e falhas no sistema. Nossa equipe de suporte técnico está disponível 24 horas por dia para
+                            atender às necessidades dos nossos clientes. Com o nosso serviço de monitoramento de desktops, os atendentes podem contar com um ambiente
+                            de trabalho mais estável e rápido, o que aumenta a produtividade e reduz os atrasos e filas
+                            nos atendimentos. Não perca mais tempo e dinheiro com lentidão e falhas nos desktops da
+                            recepção do seu hospital. Entre em contato conosco e solicite um orçamento para o nosso
+                            serviço de monitoramento de desktops na recepção de hospitais. Garantimos resultados
+                            efetivos e um atendimento personalizado para atender às suas necessidades..
                         </p>
                     </div>
                     <div class="containerButtonBolinhas" data-aos="zoom-in" data-aos-duration="2000">
