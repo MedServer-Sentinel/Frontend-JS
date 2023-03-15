@@ -19,13 +19,7 @@ function sairX() {
 function voltarLogin()  {
 
   telaLogin.style.display = "flex"
-  telaCadastro.style.display = "none"
-}
-
-function voltarLogin()  {
-
-  telaLogin.style.display = "flex"
-  telaCadastro.style.display = "none"
+  telaEmpresa.style.display = "none"
 }
  function CadastroFeito(){
   telaEmpresa.style.display = "flex"

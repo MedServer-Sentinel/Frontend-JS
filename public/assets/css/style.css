@@ -945,15 +945,14 @@ color: var(--color--azulAcqua);
     display: none;
 }
 
-@media only screen and (max-width:1919px){
+@media only screen and (max-width:1900px){
     .imagemOnda {
         width: 100%;
-        height: 40vh;
+        height: 30vh;
         background-image: url("../imagens/svg/ondas.svg");
         background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
-        top: 438px;
     }
 
     .secaoFinal {
@@ -986,7 +985,7 @@ color: var(--color--azulAcqua);
     }
 }
 
-@media only screen and (max-width:1925px){
+@media only screen and (min-width:1920px){
     .imagemOnda {
         width: 100%;
         height: 40vh;
@@ -994,7 +993,11 @@ color: var(--color--azulAcqua);
         background-size: 100%;
         background-repeat: no-repeat;
         position: absolute;
-        top: 57vh;
+        top: 70vh;
+    }
+
+    .cadastroUsuario {
+        height: 80%;
     }
 
     .secaoFinal {
@@ -1026,8 +1029,8 @@ color: var(--color--azulAcqua);
     }
 
     .buttonInputs button {
-        width: 33%;
-        height: 45%;
+        width: 30%;
+        height: 50%;
         font-size: 20px;
     }
     .btn1 {
@@ -1043,7 +1046,7 @@ color: var(--color--azulAcqua);
 
     .cadastroEmpresa{
         width: 90%;
-        height: 70%;
+        height: 90%;
     }
 
     .textosIniciaisEmpresa h1{
@@ -1068,15 +1071,21 @@ color: var(--color--azulAcqua);
     }
 
     .buttonInputsEmpresa button{
-        width: 35%;
+        height: 35%;
+        width: 25%;
     }
 
     .btns{
         margin-top: 15px;
     }
-    .buttonInputs button{
-        width: 30%;
-        height: 50%;
+    .buttonInputs button {
+        font-weight: 700;
+        width: 35%;
+        height: 60%;
+    }
+
+    .textosIniciais h1 {
+        font-size: 2rem;
     }
 
     .cadastroUsuario {
@@ -1084,7 +1093,7 @@ color: var(--color--azulAcqua);
         display: flex;
         display: none;
         width: 80%;
-        height: 80%;
+        height: 90%;
         position: fixed;
         left: 50%;
         top: 50%;
@@ -1099,17 +1108,13 @@ color: var(--color--azulAcqua);
         display: flex;
         flex-direction: row;
         width: 80%;
-        height: 70%;
+        height: 90%;
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         border-radius: 30px;
         background-color: #E9E5E5;
-    }
-
-    .conteudoInicial{
-        display:none;
     }
 
     .secaoInicial{
@@ -1137,7 +1142,7 @@ color: var(--color--azulAcqua);
 
     .conteudoInicial {
         
-        margin-top: 17vh;
+        margin-top: 25vh;
         position: absolute;
         width: 100%;
         display: flex;
@@ -1205,7 +1210,7 @@ color: var(--color--azulAcqua);
         background-repeat: no-repeat;
         position: absolute;
         background-position: bottom;
-        top: 355px;
+        top: 480px;
     }
 
     .pilares{
@@ -1392,11 +1397,19 @@ color: var(--color--azulAcqua);
 
     .cadastroEmpresa{
         width: 90%;
-        height: 70%;
+        height: 90%;
+    }
+
+    .cadastroLogo {
+        width: 50%;
+    }
+
+    .cadastroLogo img{
+        width: 100%
     }
 
     .textosIniciaisEmpresa h1{
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .iptDado{
@@ -1425,7 +1438,7 @@ color: var(--color--azulAcqua);
         display: flex;
         display: none;
         width: 90%;
-        height: 78%;
+        height: 90%;
         position: fixed;
         left: 50%;
         top: 50%;
@@ -1435,12 +1448,30 @@ color: var(--color--azulAcqua);
         overflow: hidden;
     }
 
+    .textosIniciais h1 {
+        font-size: 2rem;
+    }
+
+    .textosIniciais p{
+        font-size: 1rem;
+    }
+
+    .inputsCadastro p{
+        font-size: 1rem;
+    }
+
+    .buttonInputs button {
+        width: 35%;
+        height: 50%;
+        font-weight: 700;
+    }
+
     .container {
         z-index: 8000;
         display: flex;
         flex-direction: row;
         width: 90%;
-        height: 70%;
+        height: 90%;
         position: fixed;
         top: 50%;
         left: 50%;
@@ -1544,7 +1575,7 @@ color: var(--color--azulAcqua);
         background-repeat: no-repeat;
         position: absolute;
         background-position: bottom;
-        top: 360px;
+        top: 480px;
     }
 
     .pilares{
@@ -1732,7 +1763,7 @@ color: var(--color--azulAcqua);
 
     .cadastroEmpresa{
         width: 90%;
-        height: 70%;
+        height: 80%;
     }
 
     .textosIniciaisEmpresa h1{
@@ -1807,8 +1838,9 @@ color: var(--color--azulAcqua);
     }
 
     .buttonInputs button {
-        height: 35%;
+        height: 50%;
         width: 35%;
+        font-weight: 600;
     }
 
     .container {
@@ -1977,17 +2009,18 @@ color: var(--color--azulAcqua);
 
   .imagemOnda{
     width: 100%;
+    height: 40vh;
     background-image: url("../imagens/svg/ondas.svg");
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
     background-position: bottom;
-    top: 122px;
+    top: 210px;
   }
 
   .secaoSobre{
     width: 100%;
-    height: 380px;
+    height: 460px;
     background-color: var(--color--white);
   }
 
@@ -2015,6 +2048,8 @@ color: var(--color--azulAcqua);
 
 .pilar {
     width: 25%;
+    height: 100%;
+    margin-left: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2062,7 +2097,7 @@ color: var(--color--azulAcqua);
 .secaoProposta {
     width: 100%;
     background-color: var(--color--white);
-    height: 400px;
+    height: 350px;
 }
 
 .proposta {
@@ -2252,6 +2287,15 @@ color: var(--color--azulAcqua);
     margin-top: 2vh;
     color: var(--color--verdeMed);
 }
+
+.cadastroLogo {
+ width: 50%;
+}
+
+.cadastroLogo img{
+width: 100%;
+}
+
  .inicio, .conteudoInicial{
     display:none;
 }
@@ -2276,8 +2320,8 @@ color: var(--color--azulAcqua);
 
     .inputsCadastroEmpresa p {
         margin-top: 15px;
-        margin-left: 9%;
-        font-size: 1.2rem;
+        margin-left: 13%;
+        font-size: 1rem;
         font-weight: 500;
     }
 
@@ -2287,8 +2331,16 @@ color: var(--color--azulAcqua);
 
     .buttonInputsEmpresa button{
         width: 35%;
+        height: 40px;
     }
 
+    .iptDado::placeholder{
+        font-size: 10px;
+    }
+
+    .buttonInputsEmpresa, .btn1, .buttonInputs p {
+        font-size: 1rem;
+    }
     .backgroundTransparent {
         z-index: 99999999;
     }
@@ -2335,11 +2387,11 @@ color: var(--color--azulAcqua);
     }
 
     .buttonInputs button {
-        height: 35%;
-        width: 40%;
-        font-weight: 600;
-        font-size: 15px;
-    }
+       height: 46%;
+       width: 40%;
+       font-weight: 600;
+       font-size: 20px;
+}
         .nav-bar {
             padding: 1.5rem 4rem;
         }
@@ -2428,7 +2480,7 @@ color: var(--color--azulAcqua);
 
         .secaoInicial{
             width: 100%;
-            height: 400px;
+            height: 410px;
         }
         
         .textoInicialCel {
@@ -2476,7 +2528,7 @@ color: var(--color--azulAcqua);
 
       .imagemOnda{
         width: 100%;
-        height: 30px;
+        height: 40px;
         background-image: url("../imagens/svg/ondas.svg");
         background-size: 100%;
         background-repeat: no-repeat;
@@ -2487,7 +2539,7 @@ color: var(--color--azulAcqua);
 
       .secaoSobre{
         width: 100%;
-        height: 380px;
+        height: 460px;
         background-color: var(--color--white);
       }
 
@@ -2515,6 +2567,8 @@ color: var(--color--azulAcqua);
     
     .pilar {
         width: 25%;
+        height: 100%;
+        margin-left: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -2605,10 +2659,11 @@ color: var(--color--azulAcqua);
         height: 30px;
         border: none;
         border-radius: 18px;
-        font-size: 0.5rem;
+        font-size: 11px;
         background-color: var(--color--verdeMed);
         color: var(--color--white);
         cursor: pointer;
+        font-weight: 700;
     }
     
     .conteudoProposta img{
@@ -2749,6 +2804,15 @@ color: var(--color--azulAcqua);
         margin-top: 2vh;
         color: var(--color--verdeMed);
     }
+
+    .cadastroLogo {
+        width: 50%;
+    }
+
+    .cadastroLogo img {
+        width: 100%;
+    }
+
      .inicio, .secaoProposta, .conteudoInicial{
         display:none;
     }
