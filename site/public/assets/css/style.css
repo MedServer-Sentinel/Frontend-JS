@@ -1,0 +1,2732 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Váriaveis de cores */
+:root {
+    --color--white: #FFFF;
+    --color--azulClaro: #A1E0EF;
+    --color--azulAcqua: #73CFD9;
+    --color--azulMed: #015F79;
+    --color--azulEsc: #014E6A;
+    --color--verdeMed: #017D7D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat';
+    background-color: var(--color--verdeMed);
+}
+
+.secaoInicial {
+    width: 100%;
+    height: 800px;
+}
+
+/* HEADER */
+header {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.40);
+    position: relative;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 85px;
+}
+
+.nomeLogoHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5vh;
+    color: var(--color--white);
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: var(--color--white);
+    font-weight: 700;
+}
+
+.nav-link:hover {
+color: var(--color--azulAcqua);
+}
+
+.login-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login-button img{
+    cursor: pointer;
+}
+
+.login-button button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.login-button button a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* FIM DO HEADER */
+
+/* -------------------------------------- */
+
+/* SEÇÃO INICIAL */
+.inicio {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.elipse {
+    margin-bottom: 40vh;
+}
+
+.cruz {
+    margin-right: 3%;
+    margin-top: 15vh;
+}
+
+.conteudoInicial {
+    margin-top: 25vh;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.textoInicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+.textoInicial h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 1000;
+    color: var(--color--white);
+}
+
+.textoInicial p {
+    margin-top: 2vh;
+    width: 86%;
+    font-size: 1.5rem;
+    text-align: justify;
+    color: var(--color--white);
+}
+
+.textoInicial button {
+    margin-top: 2vh;
+    margin-right: 65%;
+    width: 20%;
+    height: 50px;
+    border: none;
+    border-radius: 13px;
+    font-size: 1.3rem;
+    background-color: var(--color--white);
+    cursor: pointer;
+    box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+}
+
+.textoInicial button:hover {
+    background-color: var(--color--azulEsc);
+    color: var(--color--white);
+    box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+}
+
+/* FIM DA SECÃO INICIAL */
+
+/* ---------------------------------------------- */
+
+/* SECAO SOBRE */
+.secaoSobre {
+    width: 100%;
+}
+
+.imagemOnda {
+    width: 100%;
+    height: 71vh;
+    background-image: url("../imagens/svg/ondas.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-position: bottom;
+    top: 52vh;
+}
+
+.sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background-color: var(--color--white);
+    top: 10vh;
+}
+
+.tituloInicial {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 1000;
+    color: var(--color--verdeMed);
+}
+
+.pilares {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8vh;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.pilar {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1Pilar {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    font-size: 2rem;
+    font-weight: 1000;
+    color: var(--color--verdeMed);
+}
+
+.pPilar {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.btnPilares {
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    width: 15%;
+    height: 60px;
+    border: none;
+    border-radius: 18px;
+    font-size: 2rem;
+    background-color: var(--color--verdeMed);
+    color: var(--color--white);
+    cursor: pointer;
+}
+
+.linha {
+    width: 70%;
+    height: 0.4vh;
+    border-radius: 20px;
+    background-color: var(--color--verdeMed);
+}
+
+/* FIM DA SECÃO SOBRE */
+
+/* ------------------------------------------------ */
+
+/* INICIO SECAO PROPOSTA */
+.secaoProposta {
+    width: 100%;
+    background-color: var(--color--white);
+    height: 70vh;
+}
+
+.proposta {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.conteudoProposta {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.textosProposta {
+    text-align: initial;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 50%;
+}
+
+.textosProposta h1 {
+    font-size: 3rem;
+    font-weight: 1000;
+    color: var(--color--verdeMed);
+}
+
+.textosProposta p {
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.textosProposta button {
+    margin-top: 4vh;
+    width: 20%;
+    height: 50px;
+    border: none;
+    padding: 10px;
+    border-radius: 18px;
+    font-size: 1.3rem;
+    background-color: var(--color--verdeMed);
+    color: var(--color--white);
+    cursor: pointer;
+}
+
+/* FIM SECAO PROPOSTA */
+
+/* ------------------------------------------ */
+
+/* INICIO SECAO SERVIÇOS */
+
+.secaoServicos {
+    width: 100%;
+    background-color: var(--color--azulEsc);
+    height: 1000px
+}
+
+.servicos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloServicos {
+    margin-top: 6vh;
+    font-size: 3rem;
+    font-weight: 1000;
+    text-align: center;
+    color: var(--color--white);
+    margin-bottom: 4vh;
+}
+
+.conteudoServicos {
+    display: flex;
+    flex-direction: row;
+    margin-left: 6%;
+}
+
+.containerBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.boxInformacoes {
+    width: 70%;
+    background-color: var(--color--white);
+    margin-top: 10vh;
+    padding: 3%;
+    border-radius: 20px;
+}
+
+.boxInformacoes h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-left: 6%;
+    margin-bottom: 5vh;
+    color: var(--color--azulEsc);
+}
+
+.boxInformacoes p {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color--azulEsc);
+    text-align: justify;
+}
+
+.containerButtonBolinhas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+.containerButtonBolinhas button {
+    border: none;
+    margin-left: 10%;
+    margin-right: 20%;
+    width: 15%;
+    height: 55px;
+    background-color: var(--color--white);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.bolinha {
+    background-color: var(--color--white);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 3%;
+}
+
+.bolinha:hover {
+    background-color: var(--color--azulAcqua);
+}
+
+.secaoFinal {
+    overflow: hidden;
+    width: 100%;
+    background-color: var(--color--white);
+    height: 330px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.tituloContatos {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    font-weight: 800;
+    color: var(--color--verdeMed);
+    font-size: 3rem;
+}
+
+.conteudoContatos {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.contatos1 {
+    display: flex;
+    flex-direction: column;
+    width: 33.30%;
+    align-items: center;
+}
+
+.contatos1 h1 {
+    font-size: 2rem;
+    color: var(--color--verdeMed);
+}
+
+.contatos1 p {
+    font-size: 1.3rem;
+    margin-top: 2vh;
+    color: var(--color--verdeMed);
+}
+
+
+/* -------INICIO LOGIN--------------------------------- */
+
+
+.backgroundTransparent { 
+    z-index: 7000;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.58);
+}
+
+.container {
+    z-index: 8000;
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    height: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background-color: #E9E5E5;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+
+}
+
+.textoVamos {
+    margin-top: 7%;
+    margin-left: 10%;
+    font-size: 3rem;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textoComecar {
+    margin-left: 10%;
+    margin-top: 2%;
+    font-size: 3rem;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size:auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.facaLogin{
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-left: 10%;
+    color: var(--color--azulMed);
+}
+
+
+
+.imgPrincipal {
+    border-radius: 0px 23px 24px 0px;
+    width: 490px;
+    height: 542px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: solid 1px blue;
+    
+}
+
+.img {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    border-left: solid 3px #098383;
+}
+
+.btns {
+    height: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.btn1 {
+    margin: 10px;
+    color: black;
+    text-decoration: none;
+    /* border: solid 1px red; */
+}
+
+.btn2 {
+    background-image: url(../imagens/svg/Textura.svg);
+    background-size: cover;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    width: 32%;
+    height: 90%;
+    border-radius: 23px;
+    border: none;
+    margin-right: 10%;
+}
+
+.xSaida {
+    margin: 1.4rem;
+    justify-content: flex-end;
+    position: absolute;
+}
+
+.img img {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 30px 30px 0px;
+}
+
+.inputsLogin{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 4%;
+    width: 100%;
+    height: 47%;
+}
+
+.inputsLogin input {
+    width: 70%;
+    height: 7%;
+    padding: 10px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 16px;
+}
+
+.inputsLogin p {
+    margin-left: 4%;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.checkboxLogin {
+    display: flex;
+    height: 5%;
+    margin-top: 3%;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    text-align: initial;
+}
+
+.textoLogin{
+    width: 80%;
+    margin-top: 6%;
+}
+
+.checkboxLogin p {
+    width: 100%;
+    margin-left: 0%;
+}
+
+.checkboxLogin input {
+    width: 10%;
+    height: 100%;
+}
+
+/* ---------FIM LOGIN------------------------------ */
+
+
+.cadastroUsuario {
+    z-index: 999999;
+    display: flex;
+    display: none;
+    width: 60%;
+    height: 80%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background-color: #E9E5E5;
+    overflow: hidden;
+}
+
+.cadastroContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textosIniciais {
+    margin-top: 5%;
+    width: 100%;
+    height: 25%;
+}
+
+.textoViagem {
+    margin-left: 30%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textoPrimeira {
+    margin-left: 10%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textosIniciais h1 {
+    font-size: 3rem;
+}
+
+.textosIniciais p {
+    font-size: 1.4rem;
+    margin-top: 2%;
+    margin-left: 10%;
+    font-weight: 700;
+    color: var(--color--azulEsc);
+}
+
+.inputsCadastro {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 5%;
+    width: 100%;
+    height: 50%;
+}
+
+.inputsCadastro p{
+    margin-left: 9%;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.inputsCadastro input {
+    width: 70%;
+    height: 5%;
+    padding: 10px;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 16px;
+}
+
+
+.checkbox {
+    display: flex;
+    height: 20%;
+    margin-top: 3%;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    text-align: initial;
+}
+
+.checkbox p {
+    width: 100%;
+    margin-left: 0%;
+}
+
+.checkbox input {
+    width: 10%;
+    height: 80%;
+}
+
+.buttonInputs {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.buttonInputs p{
+    margin-right: 2%;
+    cursor: pointer;
+}
+
+.buttonInputs button {
+    height: 40%;
+    width: 30%;
+    border-radius: 25px;
+    border: none;
+    background-image: url(../imagens/svg/Textura.svg);
+    background-size: cover;
+    cursor: pointer;
+    margin-right: 16%;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color--white)
+}
+
+.cadastroLogo {
+    width: 50%;
+    border-radius: 0 3% 3% 0;
+    background-color: #e1f0ed;
+    border-left: solid 3px #098383;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.cadastroLogo img{
+    width: 100%;
+}
+
+/* Cadastro empresa */
+.cadastroEmpresa{
+    z-index: 999999;
+    display: flex;
+    /* display: none; */
+    width: 60%;
+    height: 80%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background-color: #E9E5E5;
+    overflow: hidden;
+}
+
+.cadastroContainerEmpresa {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cadastroLogoEmpresa {
+    width: 50%;
+    border-radius: 0 3% 3% 0;
+    background-image: url(../imagens/svg/backgroundCadastro.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-left: solid 3px #098383;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.textosIniciaisEmpresa {
+    margin-top: 5%;
+    width: 100%;
+    height: 25%;
+}
+
+.textoViagemEmpresa {
+    margin-left: 10%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textoPrimeiraEmpresa {
+    margin-left: 10%;
+    background-image: url("../imagens/svg/Textura.svg");
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.textosIniciaisEmpresa h1 {
+    font-size: 3rem;
+}
+
+.textosIniciaisEmpresa p {
+    font-size: 1.4rem;
+    margin-top: 2%;
+    margin-left: 10%;
+    font-weight: 700;
+    color: #017FCC;
+}
+
+.inputsCadastroEmpresa {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 4%;
+    width: 100%;
+    height: 100%;
+    
+}
+.duplaInputOne{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    
+   }
+   .inputUnico{
+    width: 100%;
+    height: 30%;
+  
+   }
+   .inputUnico input{
+    width: 88%;
+    height: 50%;
+    margin-left: 6%;
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 16px;
+   }
+
+   
+   
+
+.inputsCadastroEmpresa p{
+    margin-left: 9%;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.iptDado {
+    width: 80%;
+    height: 10%;
+    padding: 10px;
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    background-color: transparent;
+    border: 3px solid var(--color--verdeMed);
+    border-radius: 20px;
+    text-align: unset;
+    font-size: 16px;
+}
+
+.buttonInputsEmpresa{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 1rem;
+}
+
+.buttonInputsEmpresa button {
+     background-image: url(../imagens/svg/Textura.svg);
+    background-size: cover; 
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    width: 30%;
+    height:30%;
+    margin-left: 10px;
+    border-radius: 23px;
+    border: none;
+    margin-right: 5%;
+   
+}
+
+.conteudoInicialCel, .inicioCel, .secaoPropostaCel{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 1200px){
+
+    .cadastroEmpresa{
+        width: 90%;
+        height: 90%;
+    }
+
+    .textosIniciaisEmpresa h1{
+        font-size: 2.3rem;
+    }
+
+    .iptDado{
+        width: 70%;
+        height: 10%;
+        margin-top: 3%;
+    }
+
+    .inputsCadastroEmpresa p {
+        margin-top: 15px;
+        margin-left: 9%;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .textosIniciaisEmpresa p{
+        font-size: 1.4rem;
+    }
+
+    .buttonInputsEmpresa button{
+        height: 35%;
+        width: 25%;
+    }
+
+    .btns{
+        margin-top: 15px;
+    }
+    .buttonInputs button {
+        font-weight: 700;
+        width: 35%;
+        height: 40%;
+    }
+
+    .textosIniciais h1 {
+        font-size: 2rem;
+    }
+
+    .cadastroUsuario {
+        z-index: 999999;
+        display: flex;
+        display: none;
+        width: 80%;
+        height: 90%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        background-color: #E9E5E5;
+        overflow: hidden;
+    }
+
+    .container {
+        z-index: 8000;
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        height: 90%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        background-color: #E9E5E5;
+    }
+
+    .secaoInicial{
+        width: 100%;
+        height: 600px;
+    }
+
+
+    .inicio{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .elipse {
+        margin-bottom: 20px;
+    }
+    
+    .cruz {
+        display: none;
+        z-index: 99999999;
+        margin-top: 15vh;
+    }
+
+    .conteudoInicial {
+        
+        margin-top: 25vh;
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .conteudoInicial img{
+        width: 350px;
+        height: 350px;
+        margin-left: 16%;
+    }
+    
+    .textoInicial {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+    }
+    
+    .textoInicial h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 1000;
+        color: var(--color--white);
+    }
+    
+    .textoInicial p {
+        margin-top: 2vh;
+        width: 86%;
+        font-size: 16px;
+        text-align: justify;
+        color: var(--color--white);
+    }
+    
+    .textoInicial button {
+        margin-top: 2vh;
+        margin-right: 50%;
+        width: 30%;
+        height: 50px;
+        border: none;
+        border-radius: 13px;
+        font-size: 1.3rem;
+        background-color: var(--color--white);
+        cursor: pointer;
+        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+    }
+    
+    .textoInicial button:hover {
+        background-color: var(--color--azulEsc);
+        color: var(--color--white);
+        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+    }
+
+    .secaoSobre{
+        width: 100%;
+        height: 750px;
+    }
+
+    .imagemOnda{
+        width: 100%;
+        background-image: url(../imagens/svg/ondas.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        background-position: bottom;
+        top: 38.5vh;
+    }
+
+    .pilares{
+        display: flex;
+        flex-direction: row;
+        margin-top: 8vh;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .btnPilares{
+        width: 20%;
+        height: 60px;
+        border: none;
+        border-radius: 18px;
+        font-size: 1.5rem;
+        background-color: var(--color--verdeMed);
+        color: var(--color--white);
+        cursor: pointer;
+    }
+
+    .secaoProposta{
+        width: 100%;
+        height: 800px;
+    }
+
+    .conteudoProposta {
+        margin-top: 20vh;
+        display: flex;
+        flex-direction: row;
+        margin-left: 5%;
+    }
+
+    .textosProposta button {
+        margin-top: 4vh;
+        width: 50%;
+        height: 50px;
+        border: none;
+        padding: 10px;
+        border-radius: 18px;
+        font-size: 1.3rem;
+        background-color: var(--color--verdeMed);
+        color: var(--color--white);
+        cursor: pointer;
+    }
+
+    .secaoServicos{
+        width: 100%;
+        height: 850px;
+    }
+    
+    .servicos {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .tituloServicos {
+        margin-top: 10px;
+        font-size: 3rem;
+        font-weight: 1000;
+        text-align: center;
+        color: var(--color--white);
+        margin-bottom: 16px;
+    }
+    
+    .conteudoServicos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .conteudoServicos img{
+        width: 300px;
+    }
+    
+    .containerBox {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .boxInformacoes {
+        width: 70%;
+        background-color: var(--color--white);
+        margin-top: 16px;
+        padding: 3%;
+        border-radius: 20px;
+    }
+    
+    .boxInformacoes h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-left: 6%;
+        margin-bottom: 5vh;
+        color: var(--color--azulEsc);
+    }
+    
+    .boxInformacoes p {
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--color--azulEsc);
+        text-align: justify;
+    }
+    
+    .containerButtonBolinhas {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5vh;
+    }
+    
+    .containerButtonBolinhas button {
+        border: none;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 20%;
+        height: 50px;
+        background-color: var(--color--white);
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    
+    .bolinha {
+        background-color: var(--color--white);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-left: 3%;
+    }
+    
+    .bolinha:hover {
+        background-color: var(--color--azulAcqua);
+    }
+
+    .secaoFinal{
+        width: 100%;
+        height: 300px;
+    }
+    
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .tituloContatos {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: 800;
+        color: var(--color--verdeMed);
+        font-size: 3rem;
+    }
+    
+    
+    
+    .contatos1 {
+        display: flex;
+        flex-direction: column;
+        width: 33.30%;
+        align-items: center;
+    }
+    
+    .contatos1 h1 {
+        font-size: 1.3rem;
+        color: var(--color--verdeMed);
+    }
+    
+    .contatos1 p {
+        font-size: 1rem;
+        margin-top: 2vh;
+        color: var(--color--verdeMed);
+    }
+}
+
+@media screen and (max-width:992px){
+
+    .cadastroEmpresa{
+        width: 90%;
+        height: 90%;
+    }
+
+    .cadastroLogo {
+        width: 50%;
+    }
+
+    .cadastroLogo img{
+        width: 100%
+    }
+
+    .textosIniciaisEmpresa h1{
+        font-size: 2rem;
+    }
+
+    .iptDado{
+        width: 70%;
+        height: 10%;
+        margin-top: 3%;
+    }
+
+    .inputsCadastroEmpresa p {
+        margin-top: 15px;
+        margin-left: 9%;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .textosIniciaisEmpresa p{
+        font-size: 1rem;
+    }
+
+    .buttonInputsEmpresa button{
+        width: 35%;
+    }
+
+    .cadastroUsuario {
+        z-index: 999999;
+        display: flex;
+        display: none;
+        width: 90%;
+        height: 90%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        background-color: #E9E5E5;
+        overflow: hidden;
+    }
+
+    .textosIniciais h1 {
+        font-size: 2rem;
+    }
+
+    .textosIniciais p{
+        font-size: 1rem;
+    }
+
+    .inputsCadastro p{
+        font-size: 1rem;
+    }
+
+    .buttonInputs button {
+        width: 35%;
+        height: 50%;
+        font-weight: 700;
+    }
+
+    .container {
+        z-index: 8000;
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        height: 90%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        background-color: #E9E5E5;
+    }
+
+     .conteudoInicial{
+        display:none;
+    }
+
+    .secaoInicial{
+        width: 100%;
+        height: 600px;
+    }
+
+
+    .inicio{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .elipse {
+        margin-bottom: 30px;
+    }
+    
+    .cruz {
+        display: none;
+        z-index: 99999999;
+        margin-top: 15vh;
+    }
+
+    .conteudoInicial {
+        margin-top: 25vh;
+        position: absolute;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .conteudoInicial img{
+        width: 300px;
+        height: 300px;
+    }
+    
+    .textoInicial {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40%;
+    }
+    
+    .textoInicial h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 1000;
+        color: var(--color--white);
+    }
+    
+    .textoInicial p {
+        margin-top: 2vh;
+        width: 86%;
+        font-size: 16px;
+        text-align: justify;
+        color: var(--color--white);
+    }
+    
+    .textoInicial button {
+        margin-top: 2vh;
+        margin-right: 50%;
+        width: 30%;
+        height: 50px;
+        border: none;
+        border-radius: 13px;
+        font-size: 1.3rem;
+        background-color: var(--color--white);
+        cursor: pointer;
+        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+    }
+    
+    .textoInicial button:hover {
+        background-color: var(--color--azulEsc);
+        color: var(--color--white);
+        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+    }
+
+    .secaoSobre{
+        width: 100%;
+        height: 750px;
+    }
+
+    .imagemOnda{
+        width: 100%;
+        background-image: url(../imagens/svg/ondas.svg);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        background-position: bottom;
+        top: 39vh;
+    }
+
+    .pilares{
+        display: flex;
+        flex-direction: row;
+        margin-top: 8vh;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .btnPilares{
+        width: 20%;
+        height: 60px;
+        border: none;
+        border-radius: 18px;
+        font-size: 1.5rem;
+        background-color: var(--color--verdeMed);
+        color: var(--color--white);
+        cursor: pointer;
+    }
+
+    .secaoProposta{
+        width: 100%;
+        height: 800px;
+    }
+
+    .conteudoProposta {
+        margin-top: 20vh;
+        display: flex;
+        flex-direction: row;
+        margin-left: 5%;
+    }
+
+    .textosProposta button {
+        margin-top: 4vh;
+        width: 50%;
+        height: 50px;
+        border: none;
+        padding: 10px;
+        border-radius: 18px;
+        font-size: 1.3rem;
+        background-color: var(--color--verdeMed);
+        color: var(--color--white);
+        cursor: pointer;
+    }
+
+    .secaoServicos{
+        width: 100%;
+        height: 850px;
+    }
+    
+    .servicos {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .tituloServicos {
+        margin-top: 10px;
+        font-size: 3rem;
+        font-weight: 1000;
+        text-align: center;
+        color: var(--color--white);
+        margin-bottom: 16px;
+    }
+    
+    .conteudoServicos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .conteudoServicos img{
+        width: 300px;
+    }
+    
+    .containerBox {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .boxInformacoes {
+        width: 70%;
+        background-color: var(--color--white);
+        margin-top: 16px;
+        padding: 3%;
+        border-radius: 20px;
+    }
+    
+    .boxInformacoes h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-left: 6%;
+        margin-bottom: 5vh;
+        color: var(--color--azulEsc);
+    }
+    
+    .boxInformacoes p {
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--color--azulEsc);
+        text-align: justify;
+    }
+    
+    .containerButtonBolinhas {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5vh;
+    }
+    
+    .containerButtonBolinhas button {
+        border: none;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 20%;
+        height: 50px;
+        background-color: var(--color--white);
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+    
+    .bolinha {
+        background-color: var(--color--white);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-left: 3%;
+    }
+    
+    .bolinha:hover {
+        background-color: var(--color--azulAcqua);
+    }
+
+    .secaoFinal{
+        width: 100%;
+        height: 300px;
+    }
+    
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .tituloContatos {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: 800;
+        color: var(--color--verdeMed);
+        font-size: 3rem;
+    }
+    
+    
+    
+    .contatos1 {
+        display: flex;
+        flex-direction: column;
+        width: 33.30%;
+        align-items: center;
+    }
+    
+    .contatos1 h1 {
+        font-size: 1.3rem;
+        color: var(--color--verdeMed);
+    }
+    
+    .contatos1 p {
+        font-size: 1rem;
+        margin-top: 2vh;
+        color: var(--color--verdeMed);
+    }
+
+}
+
+@media screen and (max-width:768px){
+
+    .cadastroEmpresa{
+        width: 90%;
+        height: 80%;
+    }
+
+    .textosIniciaisEmpresa h1{
+        font-size: 1.8rem;
+    }
+
+    .iptDado{
+        width: 70%;
+        height: 10%;
+        margin-top: 3%;
+    }
+
+    .inputsCadastroEmpresa p {
+        margin-top: 15px;
+        margin-left: 9%;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .textosIniciaisEmpresa p{
+        font-size: 1rem;
+    }
+
+    .buttonInputsEmpresa button{
+        width: 35%;
+    }
+
+    .backgroundTransparent {
+        z-index: 99999999;
+    }
+
+    .cadastroUsuario {
+        z-index: 999999;
+        display: flex;
+        display: none;
+        width: 90%;
+        height: 80%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        background-color: #E9E5E5;
+        overflow: hidden;
+    }
+
+    .textosIniciais p {
+        font-size: 1rem;
+    }
+
+    .textosIniciais h1 {
+        font-size: 1.8rem;
+    }
+
+    .inputsCad{
+        height: 4%;
+    }
+
+    .inputsCadastro p{
+        font-size: 0.8rem;
+    }
+
+    .inputsLogin p {
+        font-size: 1rem;
+    }
+    .checkbox input {
+        margin-left: 30px;
+        margin-right: 10px;
+    }
+    .inputsLogin input::placeholder, .inputsCadastro input::placeholder {
+        font-size: 0.8rem;
+    }
+
+    .buttonInputs button {
+        height: 50%;
+        width: 35%;
+        font-weight: 600;
+    }
+
+    .container {
+        z-index: 8000;
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        height: 80%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        background-color: #E9E5E5;
+    }
+
+    .textoVamos{
+        font-size: 2rem;
+    }
+
+    .textoComecar{
+        font-size: 2rem;
+    }
+
+    .btns{
+        margin-top: 40px;
+    }
+
+    .secaoPropostaCel ,  .conteudoInicial, .inicio{
+        display: none;
+    }
+
+    .nav-bar {
+        padding: 1.5rem 4rem;
+    }
+    .nav-item {
+        display: none;
+    }
+    .login-button {
+        display: none;
+    }
+    .mobile-menu-icon {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-link:hover, .login-button a:hover {
+        color: var(--color--azulAcqua);
+        }
+
+    .icon {
+        width: 50px;
+    }
+    .mobile-menu-icon button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-left: 20px;
+    }
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    .mobile-menu .nav-item {
+        display: block;
+        padding-top: 1.2rem;
+    }
+    .mobile-menu .login-button {
+        display: block;
+        padding: 1rem 2rem;
+    }
+    .mobile-menu .login-button button {
+        width: 100%;
+    }
+    .open {
+        z-index: 999999;
+        display: block;
+        position: relative;
+        background-color: var(--color--verdeMed);
+        
+    }
+
+    .colorNav {
+        background-color: var(--color--verdeMed);
+    }
+
+    .inicioCel {
+        display: block;
+        position: absolute;
+    }
+
+    .fundo img{
+        width: 240px;
+    }
+
+    .elipse{
+        position: absolute;
+        width: 80%;
+        top: 26vh;
+        left: 55vw;
+    }
+
+    .conteudoInicialCel {
+        z-index: 9999;
+        margin-top: 170px;
+        position: absolute;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .conteudoInicialCel img{
+        width: 30%;
+        margin-left: 90px;
+    }
+
+    .secaoInicial{
+        width: 100%;
+        height: 450px;
+    }
+    
+    .textoInicialCel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        margin-right: 16px;
+    }
+    
+    .textoInicialCel h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: 1000;
+        color: var(--color--white);
+    }
+    
+    .textoInicialCel p {
+        margin-top: 27px;
+        width: 86%;
+        font-size: 0.6rem;
+        text-align: justify;
+        color: var(--color--white);
+    }
+    
+    .textoInicialCel button {
+        margin-top: 2vh;
+        margin-right: 40%;
+        width: 30%;
+        height: 25px;
+        border: none;
+        border-radius: 13px;
+        font-size: 0.8rem;
+        background-color: var(--color--white);
+        cursor: pointer;
+        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+    }
+    
+    .textoInicialCel button:hover {
+        background-color: var(--color--azulEsc);
+        color: var(--color--white);
+        box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+    }
+
+  .imagemOnda{
+    width: 100%;
+    height: 40vh;
+    background-image: url("../imagens/svg/ondas.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-position: bottom;
+    top: 210px;
+  }
+
+  .secaoSobre{
+    width: 100%;
+    height: 460px;
+    background-color: var(--color--white);
+  }
+
+  .sobre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    top: 3vh;
+  }
+
+  .tituloInicial{
+    font-size: 2rem;
+  }
+  
+  .pilares {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 16px;
+    margin-right: 10%;
+}
+
+.pilar {
+    width: 25%;
+    height: 100%;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pilar img{
+    width: 60px;
+}
+
+.h1Pilar {
+    margin-top: 32px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: 1000;
+    color: var(--color--verdeMed);
+}
+
+.pPilar {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.btnPilares {
+    margin-top: 16px;
+    margin-bottom: 20px;
+    width: 20%;
+    height: 30px;
+    border: none;
+    border-radius: 18px;
+    font-size: 0.5rem;
+    background-color: var(--color--verdeMed);
+    color: var(--color--white);
+    cursor: pointer;
+}
+
+.linha {
+    width: 70%;
+    height: 4px;
+    border-radius: 20px;
+    background-color: var(--color--verdeMed);
+}
+
+
+.secaoProposta {
+    width: 100%;
+    background-color: var(--color--white);
+    height: 350px;
+}
+
+.proposta {
+    width: 100%;
+    display: flex;
+}
+
+.conteudoProposta {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.textosProposta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: initial;
+    margin-top: 15px;
+    margin-right: 10%;
+    width: 50%;
+}
+
+.conteudoProposta h1 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 1000;
+    color: var(--color--verdeMed);
+}
+
+.textosProposta p {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    text-align: justify;
+}
+
+.textosProposta button {
+    margin-top: 10px;
+    width: 40%;
+    height: 30px;
+    border: none;
+    border-radius: 18px;
+    font-size: 0.5rem;
+    background-color: var(--color--verdeMed);
+    color: var(--color--white);
+    cursor: pointer;
+}
+
+.conteudoProposta img{
+    margin-top: 15px;
+    width: 250px;
+}
+
+
+.secaoServicos{
+    width: 100%;
+    height: 650px;
+}
+
+.servicos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloServicos {
+    margin-top: 10px;
+    font-size: 1.8rem;
+    font-weight: 1000;
+    text-align: center;
+    color: var(--color--white);
+    margin-bottom: 16px;
+}
+
+.conteudoServicos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.conteudoServicos img{
+    width: 250px;
+}
+
+.containerBox {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boxInformacoes {
+    width: 70%;
+    background-color: var(--color--white);
+    margin-top: 16px;
+    padding: 3%;
+    border-radius: 20px;
+}
+
+.boxInformacoes h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-left: 6%;
+    margin-bottom: 5vh;
+    color: var(--color--azulEsc);
+}
+
+.boxInformacoes p {
+    font-size: 0.5rem;
+    font-weight: 800;
+    color: var(--color--azulEsc);
+    text-align: justify;
+}
+
+.containerButtonBolinhas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5vh;
+}
+
+.containerButtonBolinhas button {
+    border: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--color--white);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.bolinha {
+    background-color: var(--color--white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 3%;
+}
+
+.bolinha:hover {
+    background-color: var(--color--azulAcqua);
+}
+
+.secaoFinal{
+    width: 100%;
+    height: 250px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.tituloContatos {
+    margin-top: 20px;
+    margin-bottom: 5vh;
+    font-weight: 800;
+    color: var(--color--verdeMed);
+    font-size: 1.7rem;
+}
+
+
+
+.contatos1 {
+    display: flex;
+    flex-direction: column;
+    width: 33.30%;
+    align-items: center;
+}
+
+.contatos1 h1 {
+    font-size: 1rem;
+    color: var(--color--verdeMed);
+}
+
+.contatos1 p {
+    font-size: 0.8rem;
+    margin-top: 2vh;
+    color: var(--color--verdeMed);
+}
+
+.cadastroLogo {
+ width: 50%;
+}
+
+.cadastroLogo img{
+width: 100%;
+}
+
+ .inicio, .conteudoInicial{
+    display:none;
+}
+}
+
+@media only screen and (max-width:600px){
+
+    .cadastroEmpresa{
+        width: 90%;
+        height: 70%;
+    }
+
+    .textosIniciaisEmpresa h1{
+        font-size: 1.8rem;
+    }
+
+    .iptDado{
+        width: 70%;
+        height: 10%;
+        margin-top: 3%;
+    }
+
+    .inputsCadastroEmpresa p {
+        margin-top: 15px;
+        margin-left: 13%;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .textosIniciaisEmpresa p{
+        font-size: 1rem;
+    }
+
+    .buttonInputsEmpresa button{
+        width: 35%;
+        height: 40px;
+    }
+
+    .iptDado::placeholder{
+        font-size: 10px;
+    }
+
+    .buttonInputsEmpresa, .btn1, .buttonInputs p {
+        font-size: 1rem;
+    }
+    .backgroundTransparent {
+        z-index: 99999999;
+    }
+
+    .cadastroUsuario {
+        z-index: 999999;
+        display: flex;
+        display: none;
+        width: 90%;
+        height: 80%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 30px;
+        background-color: #E9E5E5;
+        overflow: hidden;
+    }
+
+    .textosIniciais p {
+        font-size: 1rem;
+    }
+
+    .textosIniciais h1 {
+        font-size: 1.8rem;
+    }
+
+    .inputsCad{
+        height: 4%;
+    }
+
+    .inputsCadastro p{
+        font-size: 0.8rem;
+    }
+
+    .inputsLogin p {
+        font-size: 1rem;
+    }
+    .checkbox input {
+        margin-left: 30px;
+    }
+    .inputsLogin input::placeholder, .inputsCadastro input::placeholder {
+        font-size: 0.8rem;
+    }
+
+    .buttonInputs button {
+       height: 40%;
+       width: 40%;
+       font-weight: 600;
+       font-size: 20px;
+}
+        .nav-bar {
+            padding: 1.5rem 4rem;
+        }
+        .nav-item {
+            display: none;
+        }
+        .login-button {
+            display: none;
+        }
+        .mobile-menu-icon {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-link:hover, .login-button a:hover {
+            color: var(--color--azulAcqua);
+            }
+
+        .icon {
+            width: 50px;
+        }
+        .mobile-menu-icon button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        .mobile-menu ul {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+        .mobile-menu .nav-item {
+            display: block;
+            padding-top: 1.2rem;
+        }
+        .mobile-menu .login-button {
+            display: block;
+            padding: 1rem 2rem;
+        }
+        .mobile-menu .login-button button {
+            width: 100%;
+        }
+        .open {
+            z-index: 999999;
+            display: block;
+            position: relative;
+            background-color: var(--color--verdeMed);
+            
+        }
+
+        .colorNav {
+            background-color: var(--color--verdeMed);
+        }
+
+        .inicioCel {
+            display: block;
+            position: absolute;
+        }
+
+        .fundo img{
+            width: 240px;
+        }
+
+        .elipse{
+            position: absolute;
+            width: 80%;
+            top: 26vh;
+            left: 55vw;
+        }
+
+        .conteudoInicialCel {
+            z-index: 9999;
+            margin-top: 170px;
+            position: absolute;
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+        }
+
+        .conteudoInicialCel img{
+            width: 30%;
+            margin-left: 90px;
+        }
+
+        .secaoInicial{
+            width: 100%;
+            height: 410px;
+        }
+        
+        .textoInicialCel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+            margin-right: 16px;
+        }
+        
+        .textoInicialCel h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 1000;
+            color: var(--color--white);
+        }
+        
+        .textoInicialCel p {
+            margin-top: 27px;
+            width: 86%;
+            font-size: 0.6rem;
+            text-align: justify;
+            color: var(--color--white);
+        }
+        
+        .textoInicialCel button {
+            margin-top: 2vh;
+            margin-right: 40%;
+            width: 30%;
+            height: 25px;
+            border: none;
+            border-radius: 13px;
+            font-size: 0.8rem;
+            background-color: var(--color--white);
+            cursor: pointer;
+            box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+        }
+        
+        .textoInicialCel button:hover {
+            background-color: var(--color--azulEsc);
+            color: var(--color--white);
+            box-shadow: 10px 17px 29px -12px rgba(0, 0, 0, 0.58);
+        }
+
+      .imagemOnda{
+        width: 100%;
+        height: 40px;
+        background-image: url("../imagens/svg/ondas.svg");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        background-position: bottom;
+        top: 371px;
+      }
+
+      .secaoSobre{
+        width: 100%;
+        height: 460px;
+        background-color: var(--color--white);
+      }
+
+      .sobre{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        top: 3vh;
+      }
+
+      .tituloInicial{
+        font-size: 2rem;
+      }
+      
+      .pilares {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: row;
+        margin-top: 16px;
+        margin-right: 10%;
+    }
+    
+    .pilar {
+        width: 25%;
+        height: 100%;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pilar img{
+        width: 60px;
+    }
+    
+    .h1Pilar {
+        margin-top: 32px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        font-weight: 1000;
+        color: var(--color--verdeMed);
+    }
+    
+    .pPilar {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    
+    .btnPilares {
+        margin-top: 16px;
+        margin-bottom: 20px;
+        width: 20%;
+        height: 30px;
+        border: none;
+        border-radius: 18px;
+        font-size: 0.5rem;
+        background-color: var(--color--verdeMed);
+        color: var(--color--white);
+        cursor: pointer;
+    }
+    
+    .linha {
+        width: 70%;
+        height: 4px;
+        border-radius: 20px;
+        background-color: var(--color--verdeMed);
+    }
+
+    .secaoPropostaCel{
+        display: block;
+        background-color: var(--color--white);
+        width: 100%;
+        height: 550px;
+    }
+
+    .proposta {
+        width: 100%;
+        display: flex;
+    }
+    
+    .conteudoProposta {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .textosProposta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: initial;
+        margin-top: 15px;
+        margin-right: 10%;
+        width: 50%;
+    }
+    
+    .conteudoProposta h1 {
+        margin-top: 20px;
+        font-size: 1.5rem;
+        font-weight: 1000;
+        color: var(--color--verdeMed);
+    }
+    
+    .textosProposta p {
+        font-size: 0.8rem;
+        text-align: justify;
+    }
+    
+    .textosProposta button {
+        margin-top: 10px;
+        width: 40%;
+        height: 30px;
+        border: none;
+        border-radius: 18px;
+        font-size: 11px;
+        background-color: var(--color--verdeMed);
+        color: var(--color--white);
+        cursor: pointer;
+        font-weight: 700;
+    }
+    
+    .conteudoProposta img{
+        margin-top: 15px;
+        width: 300px;
+    }
+
+    .secaoServicos{
+        width: 100%;
+        height: 650px;
+    }
+
+    .servicos {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .tituloServicos {
+        margin-top: 10px;
+        font-size: 1.8rem;
+        font-weight: 1000;
+        text-align: center;
+        color: var(--color--white);
+        margin-bottom: 16px;
+    }
+    
+    .conteudoServicos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conteudoServicos img{
+        width: 250px;
+    }
+    
+    .containerBox {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .boxInformacoes {
+        width: 70%;
+        background-color: var(--color--white);
+        margin-top: 16px;
+        padding: 3%;
+        border-radius: 20px;
+    }
+    
+    .boxInformacoes h1 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-left: 6%;
+        margin-bottom: 5vh;
+        color: var(--color--azulEsc);
+    }
+    
+    .boxInformacoes p {
+        font-size: 0.5rem;
+        font-weight: 800;
+        color: var(--color--azulEsc);
+        text-align: justify;
+    }
+    
+    .containerButtonBolinhas {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5vh;
+    }
+    
+    .containerButtonBolinhas button {
+        border: none;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 100px;
+        height: 40px;
+        background-color: var(--color--white);
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    .bolinha {
+        background-color: var(--color--white);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-left: 3%;
+    }
+    
+    .bolinha:hover {
+        background-color: var(--color--azulAcqua);
+    }
+
+    .secaoFinal{
+        width: 100%;
+        height: 250px;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .tituloContatos {
+        margin-top: 20px;
+        margin-bottom: 5vh;
+        font-weight: 800;
+        color: var(--color--verdeMed);
+        font-size: 1.7rem;
+    }
+
+    
+    .contatos1 {
+        display: flex;
+        flex-direction: column;
+        width: 33.30%;
+        align-items: center;
+    }
+    
+    .contatos1 h1 {
+        font-size: 1rem;
+        color: var(--color--verdeMed);
+    }
+    
+    .contatos1 p {
+        font-size: 0.8rem;
+        margin-top: 2vh;
+        color: var(--color--verdeMed);
+    }
+
+    .cadastroLogo {
+        width: 50%;
+    }
+
+    .cadastroLogo img {
+        width: 100%;
+    }
+
+     .inicio, .secaoProposta, .conteudoInicial{
+        display:none;
+    }
+}
+
+

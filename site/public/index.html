@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="./Js/funcoes.js"></script>
+</head>
+
+<body>
+    <div class="backgroundTransparent" id="backgroundBlack" style="display: none;">
+        <div class="container" id="telaLogin">
+            <div class="formulario">
+                <h1 class="textoVamos">Vamos</h1>
+                <h1 class="textoComecar">começar?</h1>
+                <p class="facaLogin">Faça seu login</p>
+                <div class="inputsLogin">
+                    <p>Email</p>
+                    <input type="text" placeholder="Ex: caique.gsilva@sptech.school" id="input_email">
+                    <p>Senha</p>
+                    <input type="password" placeholder="Ex : Senha@123" id="input_senha">
+                    <div class="checkboxLogin">
+                        <input type="checkbox">
+                        <p>Mostrar senha</p>
+                    </div>
+                    <p class="textoLogin">Insira suas informações de login para acessar sua conta.</p>
+                </div>
+                <div class="btns">
+                    <a class="btn1" onclick="cadastreSe()" href="#telaCadastro">Cadastre-se</a>
+                    <button class="btn2" onclick="login()"><b>Entrar</b></button>
+                </div>
+            </div>
+
+            <div class="img">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img class="loginLogo" src="./assets/imagens/svg/logoLogin.png" alt="">
+            </div>
+        </div>
+        <div class="cadastroUsuario" id="telaCadastro">
+            <div class="cadastroContainer">
+                <div class="textosIniciais">
+                    <h1 class="textoPrimeira">Primeira</h1>
+                    <h1 class="textoViagem">Viagem?</h1>
+                    <p>Faça seu cadastro</p>
+                </div>
+                <div class="inputsCadastro">
+                    <p>Nome</p>
+                    <input class="inputCad" type="text" id="nome_input" placeholder="Ex: Caique Gomes">
+                    <p>Email</p>
+                    <input class="inputCad" type="text" id="email_input" placeholder="Ex: caique.gsilva@sptech.school">
+                    <p>Senha</p>
+                    <input class="inputCad" type="password" id="senha_input" placeholder="Ex : Senha@123">
+                    <p>Confirmar senha</p>
+                    <input class="inputCad" type="password" id="confirmacao_senha_input" placeholder="Ex: Senha@123">
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <p>Mostrar senha</p>
+                    </div>
+                </div>
+                <div class="buttonInputs">
+                    <p href="#telaLogin" onclick="voltarLogin()">Voltar</p>
+                    <button onclick="CadastroFeito()">Criar</button>
+                </div>
+            </div>
+            <div class="cadastroLogo">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img src="assets/imagens/svg/maps_medc.svg" alt="">
+            </div>
+
+        </div>
+        <div class="cadastroEmpresa" id="telaEmpresa" style="display: none;">
+            <div class="cadastroContainerEmpresa">
+                <div class="textosIniciaisEmpresa">
+                    <h1 class="textoPrimeiraEmpresa">Conhecendo </h1>
+                    <h1 class="textoViagemEmpresa">sua empresa...</h1>
+                    <p>Preencha os campos</p>
+                </div>
+                <div class="inputsCadastroEmpresa">
+                    <div class="duplaInputOne">
+                        <p>Nome</p>
+                        <input class="iptDado" id="nome_empresa_input" type="text" placeholder="Ex: Caique Gomes">
+                        <p>Email</p>
+                        <input class="iptDado" id="email_empresa_input" type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                    </div>
+                    <div class="duplaInputOne">
+                        <p>Cnpj</p>
+                        <input class="iptDado" id="cnpj_empresa_input" type="number" placeholder="Ex : 51127456919245">
+                        <p>Telefone</p>
+                        <input class="iptDado" id="telefone_empresa_input" type="number" placeholder="Ex: 11 966193319">
+                    </div>
+                    <div class="inputUnico">
+                        <p>Dado</p>
+                        <input type="text">
+                    </div>
+
+
+                </div>
+
+                <div class="buttonInputsEmpresa">
+                    <p href="#telaLogin" onclick="voltarLogin()">Login</p>
+                    <button>Criar</button>
+                </div>
+            </div>
+            <div class="cadastroLogoEmpresa">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <section class="secaoInicial" id="secaoInicial">
+
+        <div class="conteudoInicialCel" id="conteudoInicialCel">
+            <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/desenho.svg" alt="">
+            <div class="textoInicialCel">
+                <h1 data-aos="zoom-in">MedServer</h1>
+                <p data-aos="zoom-in">Transforme o atendimento nos hospitais com o nosso monitoramento de desktops!
+                    Agora você pode garantir a eficiência no setor de recepção e evitar filas e atrasos que prejudicam o
+                    atendimento médico. Não espere mais para oferecer a melhor experiência aos seus pacientes. Conte
+                    conosco. Utilizando uma tecnologia moderna e eficiente, que garante a rapidez e a agilidade
+                    necessárias para um atendimento de qualidade.</p>
+                <button data-aos="zoom-in">Saiba Mais</button>
+            </div>
+        </div>
+
+
+        <div class="inicio">
+            <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/fundo.svg" width="35%">
+            <img class="elipse" src="./assets/imagens/svg/elipse.svg" alt="">
+            <img data-aos="fade-left" data-aos-duration="3000" class="cruz" src="./assets/imagens/svg/cruz.svg" alt="">
+        </div>
+
+
+
+        <div class="conteudoInicial">
+            <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/desenho.svg" alt="">
+            <div class="textoInicial">
+                <h1 data-aos="zoom-in">MedServer</h1>
+                <p data-aos="zoom-in">Transforme o atendimento nos hospitais com o nosso monitoramento de desktops!
+                    Agora você pode garantir a eficiência no setor de recepção e evitar filas e atrasos que prejudicam o
+                    atendimento médico. Não espere mais para oferecer a melhor experiência aos seus pacientes. Conte
+                    conosco. Utilizando uma tecnologia moderna e eficiente, que garante a rapidez e a agilidade
+                    necessárias para um atendimento de qualidade.</p>
+                <button data-aos="zoom-in">Saiba Mais</button>
+            </div>
+        </div>
+
+        <div class="inicioCel">
+            <div class="fundo">
+                <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/fundo.svg">
+            </div>
+            <img class="elipse" src="./assets/imagens/svg/elipse.svg" alt="">
+        </div>
+        <header>
+            <nav class="nav-bar">
+                <div class="logo">
+                    <img src="./assets/imagens/logo_teste.png" alt="Logo GN" class="imgLogoHeader">
+                    <div class="nomeLogoHeader">
+                        <h2>MedServer</h2>
+                        <p>Sentinels</p>
+                    </div>
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
+                        <li class="nav-item"><a href="#servicos" class="nav-link"> Serviços</a></li>
+                        <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                    </ul>
+                </div>
+                <div class="login-button">
+                    <button onclick="perfil()"><a href="#">Perfil</a></button>
+                    <img onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
+                </div>
+
+                <div class="mobile-menu-icon">
+                    <button onclick="abrirMenu()"><img class="icon" src="./assets/imagens/svg/menu_white_36dp.svg"
+                            alt=""></button>
+                </div>
+            </nav>
+            <div class="mobile-menu">
+                <ul>
+                    <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
+                    <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                </ul>
+
+                <div class="login-button">
+                    <button onclick="perfil()"><a href="#">Perfil</a></button>
+                </div>
+            </div>
+        </header>
+
+
+
+    </section>
+    <section class="secaoSobre" id="sobreNos">
+        <div class="imagemOnda">
+        </div>
+        <div class="sobre">
+            <h1 class="tituloInicial">Sobre</h1>
+            <div class="pilares">
+                <div class="pilar">
+                    <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarUm.svg" alt=""
+                        width="150px">
+                    <h1 class="h1Pilar">ÉTICA</h1>
+                    <p class="pPilar" data-aos="zoom-in">Nós valorizamos a integridade e transparência em todas as nossas operações. É fundamental para nós manter a confiança dos nossos clientes, agindo sempre com ética e respeito.</p>
+                </div>
+                <div class="pilar">
+                    <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarDois.svg" alt=""
+                        width="150px">
+                    <h1 class="h1Pilar">HUMILDADE</h1>
+                    <p class="pPilar" data-aos="zoom-in">Reconhecemos a importância de ouvir as necessidades e demandas dos nossos clientes e atuar de forma humilde e colaborativa na busca de soluções que atendam suas expectativas.</p>
+                </div>
+                <div class="pilar">
+                    <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarTres.svg" alt=""
+                        width="150px">
+                    <h1 class="h1Pilar">EFICIÊNCIA</h1>
+                    <p class="pPilar" data-aos="zoom-in">Vamos ajudar nossos clientes a aumentarem a produtividade e reduzirem os atrasos nos atendimentos. Estamos sempre buscando maneiras de aprimorar nossos serviços e fornecer soluções mais eficientes e inovadoras.</p>
+                </div>
+                <div class="pilar">
+                    <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarQuatro.svg" alt=""
+                        width="150px">
+                    <h1 class="h1Pilar">CONFIANÇA</h1>
+                    <p class="pPilar" data-aos="zoom-in">Somos comprometidos com a confiabilidade dos nossos serviços. Trabalhamos para garantir a disponibilidade e a performance, proporcionando uma experiência segura e eficiente.</p>
+                </div>
+            </div>
+            <button class="btnPilares" data-aos="zoom-in">Saiba Mais</button>
+            <hr class="linha" data-aos="zoom-in">
+        </div>
+
+    </section>
+    <section class="secaoPropostaCel">
+        <div class="proposta">
+            <div class="conteudoProposta">
+                <h1 data-aos="zoom-in">Proposta</h1>
+                <img data-aos="fade-right" src="./assets/imagens/svg/desenhoProposta.svg" alt="" width="500px">
+                <div class="textosProposta">
+                    <p data-aos="zoom-in">Com nosso serviço de monitoramento, os atendentes na recepção de hospitais
+                        poderão realizar suas tarefas de forma mais eficiente e rápida, proporcionando um atendimento
+                        mais ágil e satisfatório aos pacientes. Além disso, nosso serviço de monitoramento também
+                        oferece relatórios detalhados sobre o desempenho dos desktops, permitindo que os gestores possam
+                        tomar decisões mais informadas e melhorar continuamente a eficiência dos processos.</p>
+                    <button data-aos="zoom-in">Saiba Mais</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="secaoProposta">
+        <div class="proposta">
+            <div class="conteudoProposta">
+                <img data-aos="fade-right" src="./assets/imagens/svg/desenhoProposta.svg" alt="" width="500px">
+                <div class="textosProposta">
+                    <h1 data-aos="zoom-in">Proposta</h1>
+                    <p data-aos="zoom-in">Com nosso serviço de monitoramento, os atendentes na recepção de hospitais
+                        poderão realizar suas tarefas de forma mais eficiente e rápida, proporcionando um atendimento
+                        mais ágil e satisfatório aos pacientes. Além disso, nosso serviço de monitoramento também
+                        oferece relatórios detalhados sobre o desempenho dos desktops, permitindo que os gestores possam
+                        tomar decisões mais informadas e melhorar continuamente a eficiência dos processos.</p>
+                    <button data-aos="zoom-in">Saiba Mais</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secaoServicos" id="servicos">
+        <div class="servicos">
+            <h1 class="tituloServicos">Serviços</h1>
+            <div class="conteudoServicos">
+                <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/hospital.svg" alt=""
+                    width="700px">
+                <div class="containerBox">
+                    <div class="boxInformacoes" data-aos="zoom-in" data-aos-duration="2000">
+                        <h1>Proposta</h1>
+                        <p>Nossa empresa oferece um serviço completo de monitoramento de desktops na recepção de
+                            hospitais, utilizando ferramentas avançadas para detectar e solucionar problemas de lentidão
+                            e falhas no sistema. Nossa equipe de suporte técnico está disponível 24 horas por dia para
+                            atender às necessidades dos nossos clientes. Com o nosso serviço de monitoramento de desktops, os atendentes podem contar com um ambiente
+                            de trabalho mais estável e rápido, o que aumenta a produtividade e reduz os atrasos e filas
+                            nos atendimentos. Não perca mais tempo e dinheiro com lentidão e falhas nos desktops da
+                            recepção do seu hospital. Entre em contato conosco e solicite um orçamento para o nosso
+                            serviço de monitoramento de desktops na recepção de hospitais. Garantimos resultados
+                            efetivos e um atendimento personalizado para atender às suas necessidades..
+                        </p>
+                    </div>
+                    <div class="containerButtonBolinhas" data-aos="zoom-in" data-aos-duration="2000">
+                        <button>Saiba mais</button>
+                        <div class="bolinha"></div>
+                        <div class="bolinha"></div>
+                        <div class="bolinha"></div>
+                        <div class="bolinha"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secaoFinal" id="contato">
+        <div class="footer">
+            <h1 class="tituloContatos" data-aos="zoom-in" data-aos-duration="2000">Contatos</h1>
+            <div class="conteudoContatos">
+                <div class="contatos1" data-aos="fade-right" data-aos-duration="2000">
+                    <h1>Contato</h1>
+                    <p>Contato</p>
+                    <p>Contato</p>
+                    <p>Contato</p>
+                </div>
+                <div class="contatos1" data-aos="zoom-in" data-aos-duration="2000">
+                    <h1>Contato</h1>
+                    <p>Contato</p>
+                    <p>Contato</p>
+                    <p>Contato</p>
+                </div>
+                <div class="contatos1" data-aos="fade-left" data-aos-duration="2000">
+                    <h1>Contato</h1>
+                    <p>Contato</p>
+                    <p>Contato</p>
+                    <p>Contato</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
+
+<script>
+
+   function entrar() {
+
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        console.log("Login efetuado com sucesso!");
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+    function cadastrarUsuario() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+            console.log("Mensagem de erro para todos os campos em branco");
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log("Fazer alguma coisa")
+
+                console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+                setTimeout(() => {
+                    console.log("redirecione para a tela de cadastro empresa");
+                }, "2000")
+        
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+    function cadastrarEmpresa() {
+
+//Recupere o valor da nova input pelo nome do id
+// Agora vá para o método fetch logo abaixo
+var nomeEmpresaVar = nome_empresa_input.value;
+var emailEmpresaVar = email_empresa_input.value;
+var cnpjEmpresaVar = cnpj_empresa_input.value;
+var telefoneEmpresaVar = telefone_empresa_input.value;
+
+if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+
+    console.log("Mensagem de erro para todos os campos em branco");
+    return false;
+}
+else {
+    setInterval(sumirMensagem, 5000)
+}
+
+// Enviando o valor da nova input
+fetch("/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeEmpresaServer: nomeEmpresaVar,
+        emailEmpresaServer: emailEmpresaVar,
+        cnpjEmpresaServer: cnpjEmpresaVar,
+        telefoneEmpresaServer: telefoneEmpresaVar
+    })
+}).then(function (resposta) {
+
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+        console.log("Fazer alguma coisa")
+
+        console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+        setTimeout(() => {
+            console.log("redirecione para a tela de cadastro empresa");
+        }, "2000")
+
+    } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+    }
+}).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+});
+
+return false;
+}
+
+</script>
