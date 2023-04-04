@@ -25,6 +25,7 @@ function voltarLogin()  {
   telaEmpresa.style.display = "flex"
   telaLogin.style.display = "none"
   telaCadastro.style.display = "none"
+  alert("feito")
 }
 
 function abrirMenu() {

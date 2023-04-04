@@ -29,7 +29,18 @@ function cadastrar(nome, email, senha) {
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
+} 
+function cadastrarEmpresa(nome,cnpj,email,telefone,responsavel){
+    var instrucao = `
+    INSERT INTO usuario (nome, cnpj,email, telefone, responsavel) VALUES ('${nome}', '${email}', '${cnpj}','${telefone}','${responsavel}'
+    `
 }
+function update(fk_empresa){
+    var instrucao = `
+   update usuario set = "${fk_empresa}" where id_usuario = {?}
+    `
+}
+
 
 module.exports = {
     entrar,

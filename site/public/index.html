@@ -65,7 +65,7 @@
                 </div>
                 <div class="buttonInputs">
                     <p href="#telaLogin" onclick="voltarLogin()">Voltar</p>
-                    <button onclick="CadastroFeito()">Criar</button>
+                    <button onclick="CadastrarUser()">Criar</button>
                 </div>
             </div>
             <div class="cadastroLogo">
@@ -88,7 +88,8 @@
                         <p>Nome</p>
                         <input class="iptDado" id="nome_empresa_input" type="text" placeholder="Ex: Caique Gomes">
                         <p>Email</p>
-                        <input class="iptDado" id="email_empresa_input" type="text" placeholder="Ex: caique.gsilva@sptech.school">
+                        <input class="iptDado" id="email_empresa_input" type="text"
+                            placeholder="Ex: caique.gsilva@sptech.school">
                     </div>
                     <div class="duplaInputOne">
                         <p>Cnpj</p>
@@ -96,8 +97,8 @@
                         <p>Telefone</p>
                         <input class="iptDado" id="telefone_empresa_input" type="number" placeholder="Ex: 11 966193319">
                     </div>
-                    <div class="inputUnico">
-                        <p>Dado</p>
+                    <div class="inputUnico">    
+                        <p>Responsavel</p>
                         <input type="text">
                     </div>
 
@@ -214,25 +215,33 @@
                     <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarUm.svg" alt=""
                         width="150px">
                     <h1 class="h1Pilar">ÉTICA</h1>
-                    <p class="pPilar" data-aos="zoom-in">Nós valorizamos a integridade e transparência em todas as nossas operações. É fundamental para nós manter a confiança dos nossos clientes, agindo sempre com ética e respeito.</p>
+                    <p class="pPilar" data-aos="zoom-in">Nós valorizamos a integridade e transparência em todas as
+                        nossas operações. É fundamental para nós manter a confiança dos nossos clientes, agindo sempre
+                        com ética e respeito.</p>
                 </div>
                 <div class="pilar">
                     <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarDois.svg" alt=""
                         width="150px">
                     <h1 class="h1Pilar">HUMILDADE</h1>
-                    <p class="pPilar" data-aos="zoom-in">Reconhecemos a importância de ouvir as necessidades e demandas dos nossos clientes e atuar de forma humilde e colaborativa na busca de soluções que atendam suas expectativas.</p>
+                    <p class="pPilar" data-aos="zoom-in">Reconhecemos a importância de ouvir as necessidades e demandas
+                        dos nossos clientes e atuar de forma humilde e colaborativa na busca de soluções que atendam
+                        suas expectativas.</p>
                 </div>
                 <div class="pilar">
                     <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarTres.svg" alt=""
                         width="150px">
                     <h1 class="h1Pilar">EFICIÊNCIA</h1>
-                    <p class="pPilar" data-aos="zoom-in">Vamos ajudar nossos clientes a aumentarem a produtividade e reduzirem os atrasos nos atendimentos. Estamos sempre buscando maneiras de aprimorar nossos serviços e fornecer soluções mais eficientes e inovadoras.</p>
+                    <p class="pPilar" data-aos="zoom-in">Vamos ajudar nossos clientes a aumentarem a produtividade e
+                        reduzirem os atrasos nos atendimentos. Estamos sempre buscando maneiras de aprimorar nossos
+                        serviços e fornecer soluções mais eficientes e inovadoras.</p>
                 </div>
                 <div class="pilar">
                     <img data-aos="flip-left" data-aos-duration="1000" src="./assets/imagens/svg/pilarQuatro.svg" alt=""
                         width="150px">
                     <h1 class="h1Pilar">CONFIANÇA</h1>
-                    <p class="pPilar" data-aos="zoom-in">Somos comprometidos com a confiabilidade dos nossos serviços. Trabalhamos para garantir a disponibilidade e a performance, proporcionando uma experiência segura e eficiente.</p>
+                    <p class="pPilar" data-aos="zoom-in">Somos comprometidos com a confiabilidade dos nossos serviços.
+                        Trabalhamos para garantir a disponibilidade e a performance, proporcionando uma experiência
+                        segura e eficiente.</p>
                 </div>
             </div>
             <button class="btnPilares" data-aos="zoom-in">Saiba Mais</button>
@@ -285,7 +294,8 @@
                         <p>Nossa empresa oferece um serviço completo de monitoramento de desktops na recepção de
                             hospitais, utilizando ferramentas avançadas para detectar e solucionar problemas de lentidão
                             e falhas no sistema. Nossa equipe de suporte técnico está disponível 24 horas por dia para
-                            atender às necessidades dos nossos clientes. Com o nosso serviço de monitoramento de desktops, os atendentes podem contar com um ambiente
+                            atender às necessidades dos nossos clientes. Com o nosso serviço de monitoramento de
+                            desktops, os atendentes podem contar com um ambiente
                             de trabalho mais estável e rápido, o que aumenta a produtividade e reduz os atrasos e filas
                             nos atendimentos. Não perca mais tempo e dinheiro com lentidão e falhas nos desktops da
                             recepção do seu hospital. Entre em contato conosco e solicite um orçamento para o nosso
@@ -340,7 +350,7 @@
 
 <script>
 
-   function entrar() {
+    function entrar() {
 
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
@@ -396,7 +406,8 @@
     }
 
 
-    function cadastrarUsuario() {
+
+    function CadastrarUser() {
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -410,9 +421,7 @@
             console.log("Mensagem de erro para todos os campos em branco");
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -435,11 +444,12 @@
                 console.log("Fazer alguma coisa")
 
                 console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+                CadastroFeito()
 
                 setTimeout(() => {
                     console.log("redirecione para a tela de cadastro empresa");
                 }, "2000")
-        
+
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
@@ -452,57 +462,58 @@
 
     function cadastrarEmpresa() {
 
-//Recupere o valor da nova input pelo nome do id
-// Agora vá para o método fetch logo abaixo
-var nomeEmpresaVar = nome_empresa_input.value;
-var emailEmpresaVar = email_empresa_input.value;
-var cnpjEmpresaVar = cnpj_empresa_input.value;
-var telefoneEmpresaVar = telefone_empresa_input.value;
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeEmpresaVar = nome_empresa_input.value;
+        var emailEmpresaVar = email_empresa_input.value;
+        var cnpjEmpresaVar = cnpj_empresa_input.value;
+        var telefoneEmpresaVar = telefone_empresa_input.value;
 
-if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
 
-    console.log("Mensagem de erro para todos os campos em branco");
-    return false;
-}
-else {
-    setInterval(sumirMensagem, 5000)
-}
+            console.log("Mensagem de erro para todos os campos em branco");
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
 
-// Enviando o valor da nova input
-fetch("/usuarios/cadastrar", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeEmpresaServer: nomeEmpresaVar,
-        emailEmpresaServer: emailEmpresaVar,
-        cnpjEmpresaServer: cnpjEmpresaVar,
-        telefoneEmpresaServer: telefoneEmpresaVar
-    })
-}).then(function (resposta) {
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeEmpresaServer: nomeEmpresaVar,
+                emailEmpresaServer: emailEmpresaVar,
+                cnpjEmpresaServer: cnpjEmpresaVar,
+                telefoneEmpresaServer: telefoneEmpresaVar,
+                
+            })
+        }).then(function (resposta) {
 
-    console.log("resposta: ", resposta);
+            console.log("resposta: ", resposta);
 
-    if (resposta.ok) {
-        console.log("Fazer alguma coisa")
+            if (resposta.ok) {
+                console.log("Fazer alguma coisa")
 
-        console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+                console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
-        setTimeout(() => {
-            console.log("redirecione para a tela de cadastro empresa");
-        }, "2000")
+                setTimeout(() => {
+                    console.log("redirecione para a tela de cadastro empresa");
+                }, "2000")
 
-    } else {
-        throw ("Houve um erro ao tentar realizar o cadastro!");
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
     }
-}).catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-});
-
-return false;
-}
 
 </script>
