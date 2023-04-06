@@ -93,10 +93,57 @@ function cadastrar(req, res) {
             );
     }
 }
+function empresa(req, res) {
+    console.log("chegou na controller")
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.body.nomeEmpresaServer;
+    var email = req.body.emailEmpresaServer;
+    var cnpj = req.body.cnpjEmpresaServer;
+    var telefone = req.body.telefoneEmpresaServer;
+    var responsavel = req.body.ResponsavelEmpresaServer;
+    
+console.log(nome,email,cnpj,telefone,responsavel)
+
+    // Faça as validações dos valores
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else if (telefone == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    }else if (responsavel == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else {
+        console.log("aqui")
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.empresa(nome, cnpj,email, telefone,responsavel)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o a atualizao! Erro: catch",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    
+}
+    console.log("pulou")
+}
 
 module.exports = {
+    testar,
     entrar,
     cadastrar,
     listar,
-    testar
+    empresa,
+ 
 }

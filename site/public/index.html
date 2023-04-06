@@ -99,15 +99,15 @@
                     </div>
                     <div class="inputUnico">    
                         <p>Responsavel</p>
-                        <input type="text">
+                        <input type="text" id="resposavel_empresa_input">
                     </div>
 
 
                 </div>
 
                 <div class="buttonInputsEmpresa">
-                    <p href="#telaLogin" onclick="voltarLogin()">Login</p>
-                    <button>Criar</button>
+                    <p href="#telaLogin">Login</p>
+                    <button onclick="cadastrarEmpresa()">Criar</button>
                 </div>
             </div>
             <div class="cadastroLogoEmpresa">
@@ -468,18 +468,11 @@
         var emailEmpresaVar = email_empresa_input.value;
         var cnpjEmpresaVar = cnpj_empresa_input.value;
         var telefoneEmpresaVar = telefone_empresa_input.value;
+        var responsavelvar = resposavel_empresa_input.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-
-            console.log("Mensagem de erro para todos os campos em branco");
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
 
         // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
+        fetch("/usuarios/empresa", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -491,6 +484,8 @@
                 emailEmpresaServer: emailEmpresaVar,
                 cnpjEmpresaServer: cnpjEmpresaVar,
                 telefoneEmpresaServer: telefoneEmpresaVar,
+                ResponsavelEmpresaServer: responsavelvar
+                
                 
             })
         }).then(function (resposta) {
@@ -502,9 +497,7 @@
 
                 console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
-                setTimeout(() => {
-                    console.log("redirecione para a tela de cadastro empresa");
-                }, "2000")
+               
 
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
