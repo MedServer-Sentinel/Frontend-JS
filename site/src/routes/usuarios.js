@@ -19,6 +19,9 @@ router.post("/empresa", function (req, res) {
     console.log("chegou na rota");
     usuarioController.empresa(req, res);
 })
+router.put("/updateUsuario", function (req, res) {
+    usuarioController.updateUsuario(req, res);
+})
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });

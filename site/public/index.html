@@ -462,6 +462,7 @@
 
     function cadastrarEmpresa() {
 
+
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeEmpresaVar = nome_empresa_input.value;
@@ -497,7 +498,7 @@
 
                 console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
-               
+               updateUsuario();
 
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -508,5 +509,42 @@
 
         return false;
     }
+    function updateUsuario() {
+
+
+
+
+// Enviando o valor da nova input
+fetch("/usuarios/updateUsuario", {
+    method: "PUT",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+       
+    })
+}).then(function (resposta) {
+
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+        console.log("Fazer alguma coisa")
+
+      
+
+    } else {
+        throw ("Houve um erro ao tentar realizar o update!");
+    }
+}).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+});
+
+return false;
+}
+
+
+
 
 </script>

@@ -33,15 +33,37 @@ function cadastrar(nome, email, senha) {
 
 function empresa(nome, cnpj, email, telefone, responsavel) {
     console.log('chegou aqui na empresa')
+   
 
     var instrucao = `
-    INSERT INTO empresa (nome, cnpj,email, telefone, responsavel) VALUES ('${nome}','${cnpj}', '${email}','${telefone}','${responsavel}')
+    INSERT INTO empresa (nome, cnpj,email, telefone, responsavel) VALUES ('${nome}','${cnpj}', '${email}','${telefone}','${responsavel}');
     `
-
-
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function updateUsuario() {
+    console.log('chegou aqui na empresa')
+   
+
+    var instrucao = `
+    UPDATE usuario SET fkEmpresa = (select max(id_empresa) from empresa)
+    WHERE id_usuario= (select max_id from (select max(id_usuario) as max_id from usuario) as b);
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+ /*function trigger(){
+    var instrucao = `DELIMITER $
+
+    CREATE TRIGGER update_usuario
+    AFTER INSERT ON Empresa 
+    FOR EACH ROW
+    BEGIN
+     update usuario set fkEmpresa = (select max(id_empresa) from empresa) where id_usuario = last_insert_id() ;
+    END$
+    DELIMITER ;`
+    return database.executar(instrucao); 
+}*/
 
 
 
@@ -50,5 +72,7 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
+    updateUsuario,
     empresa,
+
 };

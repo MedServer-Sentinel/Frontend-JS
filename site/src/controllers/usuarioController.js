@@ -80,6 +80,7 @@ function cadastrar(req, res) {
             .then(
                 function (resultado) {
                     res.json(resultado);
+                    
                 }
             ).catch(
                 function (erro) {
@@ -136,8 +137,33 @@ console.log(nome,email,cnpj,telefone,responsavel)
             );
     
 }
-    console.log("pulou")
+    
 }
+function updateUsuario(req, res) {
+    console.log("chegou na controller")
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+
+
+  
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.updateUsuario()
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a atualizao! Erro: catch",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    
+}
+
 
 module.exports = {
     testar,
@@ -145,5 +171,6 @@ module.exports = {
     cadastrar,
     listar,
     empresa,
+    updateUsuario,
  
 }
