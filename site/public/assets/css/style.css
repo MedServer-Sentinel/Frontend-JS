@@ -1102,7 +1102,9 @@ header {
 }
 
 
-
+.iptDado::placeholder, .inputUnico::placeholder {
+    font-size: 14px;
+}
 
 
 .conteudoInicialCel,
