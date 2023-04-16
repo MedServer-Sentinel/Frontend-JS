@@ -42,7 +42,7 @@
                 <img class="loginLogo" src="./assets/imagens/svg/logoLogin.png" alt="">
             </div>
         </div>
-        <div class="cadastroUsuario" id="telaCadastro">
+        <div class="cadastroUsuario" id="telaCadastro" style="display:none;">
             <div class="cadastroContainer">
                 <div class="textosIniciais">
                     <h1 class="textoPrimeira">Primeira</h1>
@@ -76,8 +76,8 @@
                 </span>
                 <img src="assets/imagens/svg/maps_medc.svg" alt="">
             </div>
-
         </div>
+
         <div class="cadastroEmpresa" id="telaEmpresa" style="display: none;">
             <div class="cadastroContainerEmpresa">
                 <div class="textosIniciaisEmpresa">
@@ -99,16 +99,14 @@
                         <p>Telefone</p>
                         <input class="iptDado" id="telefone_empresa_input" type="number" placeholder="Ex: 11 966193319">
                     </div>
-                    <div class="inputUnico">    
+                    <div class="inputUnico">
                         <p>Responsavel</p>
                         <input type="text" id="resposavel_empresa_input">
                     </div>
-
-
                 </div>
 
                 <div class="buttonInputsEmpresa">
-                    <p href="#telaLogin">Login</p>
+                    <p href="#telaMaquina">Login</p>
                     <button onclick="cadastrarEmpresa()">Criar</button>
                 </div>
             </div>
@@ -117,7 +115,40 @@
                     <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
                 </span>
             </div>
+        </div>
 
+        <div class="cadastroMaquina" id="telaMaquina" style="display: none;">
+            <div class="cadastroContainer">
+                <div class="textosIniciais">
+                    <h1 class="textoPrimeira">Primeira</h1>
+                    <h1 class="textoViagem">Viagem?</h1>
+                    <p>Faça seu cadastro</p>
+                </div>
+                <div class="inputsCadastro">
+                    <p>Nome</p>
+                    <input class="inputCad" type="text" id="nome_input" placeholder="Ex: Caique Gomes">
+                    <p>IPv4</p>
+                    <input class="inputCad" type="text" id="email_input" placeholder="Ex: caique.gsilva@sptech.school">
+                    <p>MAC</p>
+                    <input class="inputCad" type="number" id="nome_input" placeholder="Ex: 51798562804">
+                    <p>Tipo</p>
+                    <input class="inputCad" type="password" id="senha_input" placeholder="Ex : Senha@123">
+                    <p>Andar</p>
+                    <input class="inputCad" type="password" id="confirmacao_senha_input" placeholder="Ex: Senha@123">
+                    <p>Setor</p>
+                    <input class="inputCad" type="password" id="confirmacao_senha_input" placeholder="Ex: Senha@123">
+                </div>
+                <div class="buttonInputs">
+                    <p href="#telaEmpresa" onclick="voltarEmpresa()">Voltar</p>
+                    <button onclick="CadastrarUser()">Criar</button>
+                </div>
+            </div>
+            <div class="cadastroLogo">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img src="assets/imagens/svg/maps_medc.svg" alt="">
+            </div>
         </div>
     </div>
 
@@ -488,8 +519,8 @@
                 cnpjEmpresaServer: cnpjEmpresaVar,
                 telefoneEmpresaServer: telefoneEmpresaVar,
                 ResponsavelEmpresaServer: responsavelvar
-                
-                
+
+
             })
         }).then(function (resposta) {
 
@@ -500,7 +531,7 @@
 
                 console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
-               updateUsuario();
+                updateUsuario();
 
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -516,35 +547,35 @@
 
 
 
-// Enviando o valor da nova input
-fetch("/usuarios/updateUsuario", {
-    method: "PUT",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-       
-    })
-}).then(function (resposta) {
+        // Enviando o valor da nova input
+        fetch("/usuarios/updateUsuario", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
 
-    console.log("resposta: ", resposta);
+            })
+        }).then(function (resposta) {
 
-    if (resposta.ok) {
-        console.log("Fazer alguma coisa")
+            console.log("resposta: ", resposta);
 
-      
+            if (resposta.ok) {
+                console.log("Fazer alguma coisa")
 
-    } else {
-        throw ("Houve um erro ao tentar realizar o update!");
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o update!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
     }
-}).catch(function (resposta) {
-    console.log(`#ERRO: ${resposta}`);
-});
-
-return false;
-}
 
 
 
