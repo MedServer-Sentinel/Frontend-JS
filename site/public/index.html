@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="./Js/funcoes.js"></script>
+    <script src="./Js/header.js"></script>
 </head>
 
-<body>
+<body onload="mudarheader()">
     <div class="backgroundTransparent" id="backgroundBlack" style="display: none;">
         <div class="container" id="telaLogin">
             <div class="formulario">
@@ -31,7 +32,7 @@
                 </div>
                 <div class="btns">
                     <a class="btn1" onclick="cadastreSe()" href="#telaCadastro">Cadastre-se</a>
-                    <button class="btn2" onclick="login()"><b>Entrar</b></button>
+                    <button class="btn2" onclick="loginUsuario()"><b>Entrar</b></button>
                 </div>
             </div>
 
@@ -55,7 +56,7 @@
                     <p>Email</p>
                     <input class="inputCad" type="text" id="email_input" placeholder="Ex: caique.gsilva@sptech.school">
                     <p>CPF</p>
-                    <input class="inputCad" type="number" id="nome_input" placeholder="Ex: 51798562804">
+                    <input class="inputCad" type="number" id="cpf_input" placeholder="Ex: 51798562804">
                     <p>Senha</p>
                     <input class="inputCad" type="password" id="senha_input" placeholder="Ex : Senha@123">
                     <p>Confirmar senha</p>
@@ -181,9 +182,9 @@
                         <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
                     </ul>
                 </div>
-                <div class="login-button">
-                    <button onclick="perfil()"><a href="#">Perfil</a></button>
-                    <img onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
+                <div id="div_loginButton" class="login-button">
+                    <button id="button_perfil" onclick="perfil()"><a id="aButton" href="#">Perfil</a></button>
+                    <img id = "img_login" onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
                 </div>
 
                 <div class="mobile-menu-icon">
@@ -198,9 +199,9 @@
                     <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
                 </ul>
 
-                <div class="login-button">
-                    <button onclick="perfil()"><a href="#">Perfil</a></button>
-                </div>
+               <div id="div_loginButtonCel" class="login-button">
+                    <button id="button_perfilCel" onclick="perfil()"><a href="#" id="aButtonCel">Perfil</a></button>
+                </div> 
             </div>
         </header>
 
@@ -415,10 +416,11 @@
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
+        var cpfVar = cpf_input.value;
         var senhaVar = senha_input.value;
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || emailVar == "" || cpfVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
 
             console.log("Mensagem de erro para todos os campos em branco");
             return false;
@@ -436,6 +438,7 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 emailServer: emailVar,
+                cpfServer: cpfVar,
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
@@ -546,7 +549,58 @@ fetch("/usuarios/updateUsuario", {
 return false;
 }
 
+    function loginUsuario(){
 
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/entrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+          console.log(resposta);
+          alert("Login efetuado com sucesso!")
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.id_usuario;
+
+            setTimeout(function () {
+              window.location = "/index.html";
+            }, 1000); // apenas para exibir o loading
+
+          });
+        } else {
+          alert("Seu email ou seu senha está incorreto");
+
+          resposta.text().then((texto) => {
+            console.error(texto);
+            // finalizarAguardar(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+
+    return false;
+    }
 
 
 </script>
