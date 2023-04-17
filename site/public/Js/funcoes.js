@@ -10,7 +10,6 @@ function sairX() {
   telaCadastro.style.display = "none"
   telaEmpresa.style.display = "none"
   telaLogin.style.display = "none"
-  telaMaquina.style.display = "none"
 }
 
 function cadastreSe() {
@@ -27,7 +26,6 @@ function voltarEmpresa(){
   telaCadastro.style.display = "None"
   telaEmpresa.style.display = "flex"
   telaLogin.style.display = "none"
-  telaMaquina.style.display = "none"
 }
 
 function CadastrarUser(){
@@ -39,14 +37,12 @@ function cadastrarEmpresa()  {
   telaCadastro.style.display = "None"
   telaLogin.style.display = "none"
   telaEmpresa.style.display = "none"
-  telaMaquina.style.display = "flex"
 }
 
  function CadastroFeito(){
   telaEmpresa.style.display = "flex"
   telaLogin.style.display = "none"
   telaCadastro.style.display = "none"
-  telaMaquina.style.display = "none"
   alert("feito")
 }
 
