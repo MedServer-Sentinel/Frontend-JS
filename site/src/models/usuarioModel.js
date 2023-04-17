@@ -46,7 +46,7 @@ function updateUsuario() {
    
 
     var instrucao = `
-    UPDATE usuario SET fkEmpresa = (select max(id_empresa) from empresa)
+    UPDATE usuario SET fkEmpresa = (select max(idempresa) from empresa)
     WHERE id_usuario= (select max_id from (select max(id_usuario) as max_id from usuario) as b);
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
