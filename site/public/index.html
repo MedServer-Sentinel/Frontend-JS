@@ -118,7 +118,7 @@
                 </span>
             </div>
         </div>
-<!-- 
+
         <div class="cadastroMaquina" id="telaMaquina" style="display: none;">
             <div class="cadastroContainer">
                 <div class="textosIniciais">
@@ -150,7 +150,51 @@
                 </span>
                 <img src="assets/imagens/svg/maps_medc.svg" alt="">
             </div>
-        </div> -->
+        </div>
+
+        <div class="cadastroTipoUsuario" id="telaTipoUsuario" style="display: flex;">
+            <div class="cadastroContainer">
+                <div class="textosIniciais">
+                    <h1 class="textoPrimeira">Cadastro</h1>
+                    <h1 class="textoViagem">do usúario</h1>
+                    <p>Cadastre-se</p>
+                </div>
+                <div class="inputsCadastro">
+                    <p>Nome</p>
+                    <input class="inputCad" type="text" id="nome_input" placeholder="Caique Gomes">
+                    <p>Email</p>
+                    <input class="inputCad" type="text" id="email_input" placeholder="caique.gsilva@sptech.school">
+                    <p>CPF</p>
+                    <input class="inputCad" type="number" id="cpf_input" placeholder="51798562804">
+                    <p>Tipo de usúario</p>
+                    <div class="selectTipo">
+                        <select name="Tipos">
+                            <option selected disabled>Escolha o tipo:</option>
+                            <option value="comum">Comum</option>
+                            <option value="adm">ADM</option>
+                        </select>
+                    </div>
+                    <p>Senha</p>
+                    <input class="inputCad" type="password" id="senha_input" placeholder="Senha@123">
+                    <p>Confirmar senha</p>
+                    <input class="inputCad" type="password" id="confirmacao_senha_input" placeholder="Senha@123">
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <p>Mostrar senha</p>
+                    </div>
+                </div>
+                <div class="buttonInputs">
+                    <p href="#telaEmpresa" onclick="voltarLogin()">Voltar</p>
+                    <button onclick="CadastrarUser()">Criar</button>
+                </div>
+            </div>
+            <div class="cadastroLogo">
+                <span class="xSaida">
+                    <a href="index.html"><img onclick="sairX()" src="./assets/imagens/svg/xSaida.svg" alt=""></a>
+                </span>
+                <img src="assets/imagens/svg/maps_medc.svg" alt="">
+            </div>
+        </div>
     </div>
 
 
