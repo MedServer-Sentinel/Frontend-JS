@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/dashboard_hospitais.css">
+    <link rel="stylesheet" href="./assets/css/style_all.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./Js/gauge.min.js"></script>
+    <title>Dashboard</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="nav-bar">
+                <div class="logo">
+                    <img src="./assets/imagens/logo_teste.png" alt="Logo GN" class="imgLogoHeader">
+                    <div class="nomeLogoHeader">
+                        <h2>MedServer</h2>
+                        <p>Sentinels</p>
+                    </div>
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
+                        <li class="nav-item"><a href="#servicos" class="nav-link"> Serviços</a></li>
+                        <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                        <li class="nav-item"><a href="#" onclick="mostraParametrizacao()" class="nav-link">
+                                Parametrizar</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="div_loginButton" class="login-button">
+                    <button id="button_perfil" onclick="perfil()"><a id="aButton" href="#">Perfil</a></button>
+                    <img id="img_login" onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
+                </div>
+
+                <div class="mobile-menu-icon">
+                    <button onclick="abrirMenu()"><img class="icon" src="./assets/imagens/svg/menu_white_36dp.svg"
+                            alt=""></button>
+                </div>
+            </nav>
+            <div class="mobile-menu">
+                <ul>
+                    <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
+                    <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                </ul>
+
+                <div id="div_loginButtonCel" class="login-button">
+                    <button id="button_perfilCel" onclick="perfil()"><a href="#" id="aButtonCel">Perfil</a></button>
+                </div>
+            </div>
+        </header>
+        <div class="geral-conteudo">
+            <h1>Hospitais:</h1>
+            <div class="container-hospitais">
+                <div class="fileira-hospital">
+                    <a href="#" class="hospital">
+                        <img src="./assets/imagens/hospital.png">
+                        <h2>Cidade Tiradentes</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="#" class="hospital">
+                        <img src="./assets/imagens/hospital.png">
+                        <h2>Julio Tupi</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="#" class="hospital">
+                        <img src="./assets/imagens/hospital.png">
+                        <h2>São Mateus</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="#" class="hospital">
+                        <img src="./assets/imagens/hospital.png">
+                        <h2>Carlos Chagas</h2>
+                        <span>X Alertas</span>
+                    </a>
+                </div>
+                <div class="fileira-hospital">
+                    <a href="#" class="hospital">
+                        <img src="./assets/imagens/hospital.png">
+                        <h2>Nardine</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="#" class="hospital">
+                        <img src="./assets/imagens/hospital.png">
+                        <h2>Hospital Estadual Sapopemba</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="#" class="hospital">
+                        <img src="./assets/imagens/hospital.png">
+                        <h2>Hospital e maternidade São Lucas</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="#" class="hospital">
+                        <img src="./assets/imagens/hospital.png">
+                        <h2>Santa Marcelina</h2>
+                        <span>X Alertas</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+</script>
