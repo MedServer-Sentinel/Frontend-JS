@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/dashboard_computadores.css">
+    <link rel="stylesheet" href="./assets/css/style_all.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./Js/gauge.min.js"></script>
+    <title>Computadores</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="nav-bar">
+                <div class="logo">
+                    <img src="./assets/imagens/logo_teste.png" alt="Logo GN" class="imgLogoHeader">
+                    <div class="nomeLogoHeader">
+                        <h2>MedServer</h2>
+                        <p>Sentinels</p>
+                    </div>
+                </div>
+                <div class="nav-list">
+                    <ul>
+                        <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
+                        <li class="nav-item"><a href="#servicos" class="nav-link"> Serviços</a></li>
+                        <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                        <li class="nav-item"><a href="#" onclick="mostraParametrizacao()" class="nav-link">
+                                Parametrizar</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="div_loginButton" class="login-button">
+                    <button id="button_perfil" onclick="perfil()"><a id="aButton" href="#">Perfil</a></button>
+                    <img id="img_login" onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
+                </div>
+
+                <div class="mobile-menu-icon">
+                    <button onclick="abrirMenu()"><img class="icon" src="./assets/imagens/svg/menu_white_36dp.svg"
+                            alt=""></button>
+                </div>
+            </nav>
+            <div class="mobile-menu">
+                <ul>
+                    <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
+                    <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
+                    <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                </ul>
+
+                <div id="div_loginButtonCel" class="login-button">
+                    <button id="button_perfilCel" onclick="perfil()"><a href="#" id="aButtonCel">Perfil</a></button>
+                </div>
+            </div>
+        </header>
+        <div class="geral-conteudo">
+            <h1>Computadores deste hospital:</h1>
+            <div class="container-computadores">
+                <div class="fileira-computador">
+                    <a href="./dashboard.html" class="computador" id="emergencial">
+                        <img src="./assets/imagens/computer.png">
+                        <h2>Computador 1<br>(Emergencia)</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="./dashboard.html" class="computador" id="critico">
+                        <img src="./assets/imagens/computer.png">
+                        <h2>Computador 2<br>(Emergencia)</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="./dashboard.html" class="computador"id="critico">
+                        <img src="./assets/imagens/computer.png">
+                        <h2>Computador 3<br>(Pronto-Socorro)</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="./dashboard.html" class="computador" id="significativo">
+                        <img src="./assets/imagens/computer.png">
+                        <h2>Computador 4<br>(Pronto-Socorro)</h2>
+                        <span>X Alertas</span>
+                    </a>
+                </div>
+                <div class="fileira-computador">
+                    <a href="./dashboard.html" class="computador" id="significativo">
+                        <img src="./assets/imagens/computer.png">
+                        <h2>Computador 5<br>(Internação)</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="./dashboard.html" class="computador" id="significativo">
+                        <img src="./assets/imagens/computer.png">
+                        <h2>Computador 6<br>(Exames)</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="./dashboard.html" class="computador" id="moderado">
+                        <img src="./assets/imagens/computer.png">
+                        <h2>Computador 7<br>(Pronto-Socorro)</h2>
+                        <span>X Alertas</span>
+                    </a>
+                    <a href="./dashboard.html" class="computador" id="moderado">
+                        <img src="./assets/imagens/computer.png">
+                        <h2>Computador 8<br>(Cirurgia)</h2>
+                        <span>X Alertas</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+</script>
