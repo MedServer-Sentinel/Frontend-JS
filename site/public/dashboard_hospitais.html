@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="./assets/css/style_all.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./Js/gauge.min.js"></script>
+    <script src="./Js/header.js"></script>
+    <script src="./Js/logout.js"></script>
     <title>Dashboard</title>
 </head>
 
 
-<body>
+<body onload="mudarheader()">
     <div class="container">
         <header>
             <nav class="nav-bar">
@@ -26,9 +28,9 @@
                 </div>
                 <div class="nav-list">
                     <ul>
-                        <li class="nav-item"><a href="#sobreNos" class="nav-link">Sobre nós</a></li>
-                        <li class="nav-item"><a href="#servicos" class="nav-link"> Serviços</a></li>
-                        <li class="nav-item"><a href="#contato" class="nav-link"> Contato</a></li>
+                        <li class="nav-item"><a href="cadastro_funcionario.html" class="nav-link">Cadastrar Funcionário</a></li>
+                        <li class="nav-item"><a href="cadastro_maquina.html" class="nav-link">Cadastrar Máquina</a></li>
+                        <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
                         <li class="nav-item"><a href="#" onclick="mostraParametrizacao()" class="nav-link"> Parametrizar</a>
                         </li>
                     </ul>
@@ -75,7 +77,7 @@
 
                         </div>
                         <div class="card-metrica">
-                            <h3 class="titulo">Quantidade de vezes que<br>sairam do padrão:</h3>
+                            <h3 class="titulo">Quantidade de vezes que<br> hardware saiu do padrão:</h3>
                             <div class="container-metrica">
                                 <div class="conteudo-metrica">
                                     <span>CPU</span>
