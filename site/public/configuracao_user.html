@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="./assets/css/style_all.css">
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
+    <script src="./Js/config_user.js"></script>
     <title>Configurações Usuário</title>
 </head>
-<body onload="mudarheader()">
+<body onload="mudarheader(), getDadosUsuario(), getDadosEmpresaUsuario()">
     <header>
         <nav class="nav-bar">
             <div class="logo">
@@ -57,13 +58,13 @@
     
                     <div class="inputs">
                         <div class="input login">
-                            <h1>pele@gmail.com</h1>
+                            <h1 id="email">pele@gmail.com</h1>
                         </div>
                         <div class="input cpf">
-                            <h1>51127145819</h1>
+                            <h1 id="cpf">51127145819</h1>
                         </div>
                         <div class="input senha">
-                            <h1>ablueblueblue</h1>
+                            <h1 id="senha">ablueblueblue</h1>
                         </div>
                     </div>
                 </div>
@@ -83,20 +84,20 @@
     
                     <div class="inputs">
                         <div class="input nome">
-                            <h1>Hospital Albert Einstein</h1>
+                            <h1 id="nomeHospital">Hospital Albert Einstein</h1>
                         </div>
                         <div class="input responsavel">
-                            <h1>Caique Gomes</h1>
+                            <h1 id="nomeResponsavel">Caique Gomes</h1>
                         </div>
                         <div class="input cnpj">
-                            <h1>51127145819</h1>
+                            <h1 id="cnpj">51127145819</h1>
                         </div>
                         <div class="input cep">
-                            <h1>07243270</h1>
+                            <h1 id="cep">07243270</h1>
                         </div>
                     </div>
                     <div class="titulos2">
-                        <h1 class="telefone">Telefone:</h1>
+                        <h1 class="telefone" id="telefone">Telefone:</h1>
                     </div>
     
                     <div class="inputs2">

@@ -65,7 +65,15 @@ function updateUsuario() {
     return database.executar(instrucao); 
 }*/
 
-
+function listarDadosUsuario(idUsuario) {
+    console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDadosUsuario()");
+    var instrucao = `
+        SELECT * FROM usuario 
+            WHERE id_usuario = '${idUsuario}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 
 module.exports = {
@@ -74,5 +82,5 @@ module.exports = {
     listar,
     updateUsuario,
     empresa,
-
+    listarDadosUsuario
 };
