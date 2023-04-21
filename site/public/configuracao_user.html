@@ -4,10 +4,111 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/config_usuario.css">
+    <link rel="stylesheet" href="./assets/css/style_all.css">
+    <script src="./Js/header.js"></script>
+    <script src="./Js/logout.js"></script>
+    <title>Configurações Usuário</title>
 </head>
-<body>
-    <H1>TESTE</H1>
+<body onload="mudarheader()">
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="./assets/imagens/logo_teste.png" alt="Logo GN" class="imgLogoHeader">
+                <div class="nomeLogoHeader">
+                    <h2>MedServer</h2>
+                    <p>Sentinels</p>
+                </div>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="cadastro_maquina.html" class="nav-link">Cadastrar Máquina</a></li>
+                    <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
+                    <li class="nav-item"><a href="dashboard_hospitais.html" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item" onclick="logout()"><a href="#index.html" class="nav-link">Logout</a></li>
+                </ul>
+            </div>
+            <div id="div_loginButton" class="login-button">
+                <button id="button_perfil" onclick="perfil()"><a id="aButton" href="#">Perfil</a></button>
+                <img id = "img_login" onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="containerConfiguracoes">
+            <div class="tituloInicial">
+                <h1 class="h1Config">Configurações do Usuário</h1>
+            </div>
+           <div class="containerUser">
+            <div class="containerInputs">
+                <div class="tituloUsuario">
+                    <h1>Usuário</h1>
+                </div>
+                <div class="inputsConfig">
+                    <div class="titulos">
+                        <h1 class="tituloLogin">Login(email):</h1>
+                        <button id="buttonEmail">ALTERAR EMAIL</button>
+                        <h1 class="tituloCPF">CPF:</h1>
+                        <h1 class="tituloSenha">Senha:</h1>
+                        <button id="buttonSenha">ALTERAR SENHA</button>
+                    </div>
+    
+                    <div class="inputs">
+                        <div class="input login">
+                            <h1>pele@gmail.com</h1>
+                        </div>
+                        <div class="input cpf">
+                            <h1>51127145819</h1>
+                        </div>
+                        <div class="input senha">
+                            <h1>ablueblueblue</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="containerInputs">
+                <div class="tituloEmpresa">
+                    <h1>Empresa</h1>
+                </div>
+                <div class="inputsConfig">
+                    <div class="titulos">
+                        <h1 class="tituloEmpresaH1">Nome:</h1>
+                        <h1 class="tituloCPF">Responsável:</h1>
+                        <h1 class="tituloCNPJ">CNPJ:</h1>
+                        <h1 class="tituloSenha">CEP:</h1>
+                        <button id="buttonSenha">ALTERAR CEP</button>
+                    </div>
+    
+                    <div class="inputs">
+                        <div class="input nome">
+                            <h1>Hospital Albert Einstein</h1>
+                        </div>
+                        <div class="input responsavel">
+                            <h1>Caique Gomes</h1>
+                        </div>
+                        <div class="input cnpj">
+                            <h1>51127145819</h1>
+                        </div>
+                        <div class="input cep">
+                            <h1>07243270</h1>
+                        </div>
+                    </div>
+                    <div class="titulos2">
+                        <h1 class="telefone">Telefone:</h1>
+                    </div>
+    
+                    <div class="inputs2">
+                        <div class="input telefonediv">
+                            <h1>11 966193319</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
+
 </body>
 </html>
 
