@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style_all.css">
+    <link rel="stylesheet" href="./assets/css/cadastro_funcionario.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="./assets/imagens/logo_teste.png" alt="Logo GN" class="imgLogoHeader">
+                <div class="nomeLogoHeader">
+                    <h2>MedServer</h2>
+                    <p>Sentinels</p>
+                </div>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="cadastro_maquina.html" class="nav-link">Cadastrar Máquina</a></li>
+                    <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
+                    <li class="nav-item"><a href="dashboard_hospitais.html" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item" onclick="logout()"><a href="#index.html" class="nav-link">Logout</a></li>
+                </ul>
+            </div>
+            <div id="div_loginButton" class="login-button">
+                <button id="button_perfil" onclick="perfil()"><a id="aButton" href="#">Perfil</a></button>
+                <img id="img_login" onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
+            </div>
+            </div>
+    </header>
+    <div class="container">
+        <div class="containerConfiguracoes">
+            <div class="tituloInicial">
+                <h1 class="h1Config">Cadastro Funcionário</h1>
+            </div>
+            <div class="containerFuncionario">
+                <div class="containerInputs">
+                    <div class="tituloFuncionario">
+                        <h1>Funcionário</h1>
+                    </div>
+                    <div class="inputsFuncionario">
+                        <div class="titulos">
+                            <div class="input nome">
+                                <h1 class="tituloNome">Nome:</h1>
+                            </div>
+                            <div class="input email">
+                                <h1 class="tituloEmail">Email:</h1>
+                            </div>
+                            <div class="input cpf">
+                                <h1 class="tituloCpf">CPF:</h1>
+                            </div>
+                            <div class="input tipo">
+                                <h1 class="tituloTipo">Tipo Funcionário:</h1>
+                            </div>
+                            <div class="input senha">
+                                <h1 class="tituloSenha">Senha:</h1>
+                            </div>
+                            <div class="input confirmarSenha">
+                                <h1 class="tituloConfirmarSenha">Confirmar Senha:</h1>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox">
+                                <p>Mostrar senha</p>
+                            </div>
+                        </div>
+                        <div class="div_inputs">
+                            <div>
+                                <input type="text" id="nome_input" placeholder="Caique Gomes">
+                            </div>
+                            <div>
+                                <input type="" id="email_input" placeholder="caique.gsilva@sptech.school">
+                            </div>
+                            <div>
+                                <input type="number" id="cpf_input" placeholder="51798562804">
+                            </div>
+                            <select class="selectTipo" id="tipo_input">
+                                <option selected disabled>Tipos Usúarios</option>
+                                <option value="Comum">Comum</option>
+                                <option value="ADM">ADM</option>
+                            </select>
+                            <div>
+                                <input type="" id="senha_input" placeholder="Senha@123">
+                            </div>
+                            <div>
+                                <input type="text" id="confirmarSenha_input" placeholder="Senha@123">
+                            </div>
+                            <div class="div_button">
+                                <button class="button">Cadastrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
