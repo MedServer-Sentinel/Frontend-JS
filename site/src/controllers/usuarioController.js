@@ -184,7 +184,7 @@ console.log(nome,email,cnpj,telefone,responsavel)
 }
     
 }
-
+function updateUsuario(req, res) {
     console.log("chegou na controller")
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
@@ -207,7 +207,7 @@ console.log(nome,email,cnpj,telefone,responsavel)
                 }
             );
     
-
+}
 function atualizarParametroCpu(req, res) {
     console.log("chegou na controller")
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
