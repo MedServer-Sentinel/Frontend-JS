@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat';
+    background-color: var(--color--verdeMed);
+}
+
+.container {
+    width: 100%;
+    height: 112vh;
+    background-color: var(--color--white);
+}
+
+.containerConfiguracoes {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.tituloInicial {
+    -webkit-box-shadow: -2px 9px 5px -8px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: -2px 9px 5px -8px rgba(0, 0, 0, 0.55);
+    box-shadow: -2px 9px 5px -8px rgba(0, 0, 0, 0.55);
+}
+
+.tituloInicial,
+.tituloFuncionario {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    background-color: rgb(210, 210, 210);
+    background-image: linear-gradient(to top, rgb(234, 232, 232), rgb(253, 253, 253));
+}
+
+.tituloFuncionario h1 {
+    font-size: 1.4rem;
+    margin-left: 20px;
+}
+
+.containerFuncionario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* border: solid 1px yellow; */
+}
+
+.containerInputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 98%;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+}
+
+.h1Config {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 1.8rem;
+}
+
+.inputsFuncionario {
+    height: 84vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 80px;
+    align-items: center;
+    /* border: solid 1px red; */
+
+}
+
+.titulos {
+    width: 10%;
+    height: 95%;
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    /* border: solid 1px red; */
+}
+
+.button {
+    width: 30%;
+    margin-bottom: 10px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color--verdeMed);
+    color: var(--color--white);
+    cursor: pointer;
+    font-weight: 700;
+    border: solid 1px black;
+    margin-left: 65px;
+}
+
+.div_button {
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    /* border: solid 1px red; */
+    margin-right: 268px;
+}
+
+.titulos h1,
+.inputs h1 {
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.selectTipo {
+    /* <div> */
+    width: 410px;
+    height: 35px;
+    border: 1px solid white;
+    margin-left: 50px;
+    margin-top: 20px;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    /* border: solid 1px red; */
+}
+
+.selectTipo select {
+    /* <select> */
+    width: 268px;
+    font-size: 16px;
+    line-height: 1;
+    height: 34px;
+    -webkit-appearance: none;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    height: 35px;
+}
+
+.div_inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height:100%;
+    width: 55%;
+    margin-top: 20px;
+    /* border: solid 1px green; */
+}
+
+.checkbox {
+    display: flex;
+    height: 5%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    text-align: center;
+    /* border: solid 1px black; */
+}
+
+.checkbox p {
+    width: 100%;
+    /* border: solid 1px red; */
+    margin-right: 11px;
+}
+
+.checkbox input {
+    width: 10%;
+    height: 100%;
+    box-shadow: none;
+}
+
+input {
+    width: 60%;
+    height: 80%;
+    border: none;
+    margin: 10px;
+    margin-left: 50px;
+    font-size: 17px;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    /* border: solid 1px red; */
+}
+
+.nome,
+.email,
+.cpf,
+.tipo,
+.senha,
+.confirmarSenha {
+    margin: 18px;
+}
