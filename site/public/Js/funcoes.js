@@ -20,7 +20,7 @@ function cadastreSe() {
 function voltarLogin()  {
   telaCadastro.style.display = "None" 
   telaLogin.style.display = "flex"
-  telaEmpresa.style.display = "flex"
+  telaEmpresa.style.display = "none"
 }
 
 function voltarEmpresa(){
