@@ -499,9 +499,13 @@
             if (resposta.ok) {
                 console.log("Fazer alguma coisa")
 
-                console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+                alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
                 updateUsuario();
+                telaCadastro.style.display = "None" 
+  telaLogin.style.display = "flex"
+  telaEmpresa.style.display = "none"
+                
 
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
