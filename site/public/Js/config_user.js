@@ -62,3 +62,8 @@ function getDadosUsuario() {
       console.error(resposta);
     });
    }
+
+
+   function getDadosMatriz(){
+    
+   }
