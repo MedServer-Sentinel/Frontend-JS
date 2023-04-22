@@ -247,6 +247,7 @@ input[type="number"] {
     justify-content: space-around;
     border-radius: 30px;
     box-shadow: 2px 2px 15px #00000088;
+    text-align: center;
 }
 
 .grafico h2 {
