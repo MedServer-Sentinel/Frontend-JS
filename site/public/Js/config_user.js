@@ -31,9 +31,9 @@ function getDadosUsuario() {
 
 
    function getDadosEmpresaUsuario(){
-    var idUsuario = sessionStorage.ID_USUARIO;
+    var idEmpresa = sessionStorage.ID_EMPRESA;
 
-    fetch(`/usuarios/listarDadosUsuario/${idUsuario}`)
+    fetch(`/usuarios/listarDadosEmpresa/${idEmpresa}`)
     .then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
@@ -42,7 +42,7 @@ function getDadosUsuario() {
         var nomeHospital = document.getElementById('nomeHospital')
         var responsavel = document.getElementById('nomeResponsavel');
         var cnpj = document.getElementById('cnpj');
-        var cep = document.getElementById('email');
+        var cep = document.getElementById('cep');
         var telefone = document.getElementById('telefone');
         
         resposta.json().then(function (resposta) {

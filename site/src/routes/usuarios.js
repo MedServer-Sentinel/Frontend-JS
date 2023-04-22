@@ -15,6 +15,10 @@ router.get("/listarDadosUsuario/:idUsuario", function(req, res) {
     usuarioController.listarDadosUsuario(req,res);
 });
 
+router.get("/listarDadosEmpresa/:idEmpresa", function(req, res) {
+    usuarioController.listarDadosEmpresa(req,res);
+});
+
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
