@@ -184,7 +184,7 @@ console.log(nome,email,cnpj,telefone,responsavel)
 }
     
 }
-function updateUsuario(req, res) {
+
     console.log("chegou na controller")
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
@@ -192,6 +192,36 @@ function updateUsuario(req, res) {
   
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.updateUsuario()
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a atualizao! Erro: catch",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    
+
+function atualizarParametroCpu(req, res) {
+    console.log("chegou na controller")
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+
+
+    var significativo = req.body.significativoCpu;
+    var moderadoCpu = req.body.moderadoCpu;
+    var criticoCpu = req.body.criticoCpu;
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    if (significativo == undefined || moderadoCpu == undefined || criticoCpu) {
+        console(undefined)
+    }
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.atualizarParametroCpu()
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -218,5 +248,6 @@ module.exports = {
     empresa,
     updateUsuario,
     listarDadosUsuario,
-    listarDadosEmpresa
+    listarDadosEmpresa,
+    atualizarParametroCpu
 }

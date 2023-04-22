@@ -84,6 +84,17 @@ function listarDadosEmpresa(idEmpresa) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function atualizarParametroCpu(significativo,moderadoCpu,criticoCpu) {
+    console.log('chegou aqui na empresa')
+   
+
+    var instrucao = `
+    UPDATE parametros SET significativo = ${significativo} where idparametro = from empresa)
+    WHERE id_usuario= (select max_id from (select max(id_usuario) as max_id from usuario) as b);
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 
 module.exports = {
@@ -93,5 +104,6 @@ module.exports = {
     updateUsuario,
     empresa,
     listarDadosUsuario,
-    listarDadosEmpresa
+    listarDadosEmpresa,
+    atualizarParametroCpu
 };

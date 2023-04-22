@@ -39,5 +39,8 @@ router.put("/updateUsuario", function (req, res) {
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
+router.post("/parametros", function (req, res) {
+    usuarioController.atualizarParametroCpu(req, res);
+});
 
 module.exports = router;

@@ -28,10 +28,12 @@
                 </div>
                 <div class="nav-list">
                     <ul>
-                        <li class="nav-item"><a href="cadastro_funcionario.html" class="nav-link">Cadastrar Funcionário</a></li>
+                        <li class="nav-item"><a href="cadastro_funcionario.html" class="nav-link">Cadastrar
+                                Funcionário</a></li>
                         <li class="nav-item"><a href="cadastro_maquina.html" class="nav-link">Cadastrar Máquina</a></li>
                         <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
-                        <li class="nav-item"><a href="#" onclick="mostraParametrizacao()" class="nav-link"> Parametrizar</a>
+                        <li class="nav-item"><a href="#" onclick="mostraParametrizacao()" class="nav-link">
+                                Parametrizar</a>
                         </li>
                     </ul>
                 </div>
@@ -169,7 +171,8 @@
                         </div>
                     </div>
                     <div class="btn-parametrizacao">
-                        <button class="btn-cancelar" onclick="mostraParametrizacao()">Cancelar</button>
+                        <button class="btn-cancelar"
+                            onclick="mostraParametrizacao(),atualizarParametro()">Cancelar</button>
                         <button class="btn-confirmar" onclick="parametrizacao()">Confirmar</button>
                     </div>
                 </div>
@@ -195,13 +198,13 @@
 <script>
 
     function mostraParametrizacao() {
-            var parametrizacao = document.querySelector('.parametrizacao');
-            if (parametrizacao.style.display === 'flex') {
-                parametrizacao.style.display = 'none';
-            } else {
-                parametrizacao.style.display = 'flex';
-            }
+        var parametrizacao = document.querySelector('.parametrizacao');
+        if (parametrizacao.style.display === 'flex') {
+            parametrizacao.style.display = 'none';
+        } else {
+            parametrizacao.style.display = 'flex';
         }
+    }
 
     const opts = {
         angle: 0,
@@ -375,6 +378,7 @@
     const grafico3 = document.getElementById('grafico-semana');
 
     new Chart(grafico3, {
+
         type: 'bar',
         data: {
             labels: ['19/04', '20/04', '21/04', '22/04', '23/04', '24/04', '25/04'],
@@ -407,4 +411,60 @@
             }
         }
     });
+
+    function atualizarParametro() {
+
+    }
+    function atualizarParametroCPU() {
+
+
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+
+        var moderadoCpu = alertaModeradoCpu.value;
+        var significativoCpu = alertaSignificativoCpu.value;
+        var criticoCpu = alertaCriticoCpu.value;
+
+        if (moderadoCpu == "" || significativoCpu == "" || criticoCpu == "") {
+            alert(" campo vazios")
+        } else {
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/parametros", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    significativoCpu: significativoCpu,
+                    moderadoCpu: moderadoCpu,
+                    criticoCpu: criticoCpu,
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    console.log("Fazer alguma coisa")
+
+                    alert("parametros atualizados");
+
+                } else {
+                    throw ("erros ao atualizar parametros");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
+    }
+
+
+
+
+
 </script>
