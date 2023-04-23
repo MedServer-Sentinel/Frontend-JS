@@ -43,4 +43,17 @@ router.post("/parametros", function (req, res) {
     usuarioController.atualizarParametroCpu(req, res);
 });
 
+router.put("/update_senha/:user", function (req, res) {
+    usuarioController.update_senha(req, res);
+});
+
+router.put("/update_cep/:user", function (req, res) {
+    usuarioController.update_cep(req, res);
+});
+
+
+router.put("/update_email/:user", function (req, res) {
+    usuarioController.update_email(req, res);
+});
+
 module.exports = router;

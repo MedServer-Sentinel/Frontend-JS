@@ -64,6 +64,116 @@ function getDadosUsuario() {
    }
 
 
-   function getDadosMatriz(){
-    
+   function abrirUpdateEmail(){
+    containerUpdateEmail.style.display = "flex";
+   }
+
+   function fecharUpdateEmail(){
+    containerUpdateEmail.style.display = "none";
+   }
+
+   function abrirUpdateSenha(){
+    containerUpdateSenha.style.display = "flex";
+   }
+
+   function fecharUpdateSenha(){
+    containerUpdateSenha.style.display = "none";
+   }
+
+   function abrirUpdateCEP(){
+    containerUpdateCEP.style.display = "flex";
+   }
+
+   function fecharUpdateCEP(){
+    containerUpdateCEP.style.display = "none";
+   }
+
+   function updateEmail(){
+    var emailUsuario = document.getElementById('email');
+
+    fetch(`/usuarios/update_email/${sessionStorage.getItem("EMAIL_USUARIO")}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: inputEmail.value,
+        idUsuario: sessionStorage.ID_USUARIO
+      })
+    }).then(function (resposta) {
+      
+      if (resposta.ok) {
+        window.alert("Email atualizado com sucesso");
+        window.location = "./configuracao_user.html";
+        
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+    emailUsuario.innerHTML = inputEmail.value;
+   }
+
+   function updateSenha(){
+    var senhaUsuario = document.getElementById('senha');
+
+    fetch(`/usuarios/update_senha/${sessionStorage.getItem("EMAIL_USUARIO")}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        senha: inputSenha.value,
+        idUsuario: sessionStorage.ID_USUARIO
+      })
+    }).then(function (resposta) {
+      
+      if (resposta.ok) {
+        window.alert("Senha atualizada com sucesso");
+        window.location = "./configuracao_user.html";
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+    senhaUsuario.innerHTML = inputSenha.value;
+   }
+
+   function updateCEP(){
+
+    var CEPempresa = document.getElementById("cep");
+
+    fetch(`/usuarios/update_cep/${sessionStorage.getItem("EMAIL_USUARIO")}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cep: inputCEP.value,
+        idEmpresa: sessionStorage.ID_EMPRESA
+      })
+    }).then(function (resposta) {
+      
+      if (resposta.ok) {
+        window.alert("CEP atualizado com sucesso");
+        window.location = "./configuracao_user.html";
+      } else if (resposta.status == 404) {
+        window.alert("Deu 404!");
+      } else {
+        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+    CEPempresa.innerHTML = inputCEP.value;
+
    }

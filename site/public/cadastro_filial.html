@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style_all.css">
-    <link rel="stylesheet" href="./assets/css/cadastro_funcionario.css">
+    <link rel="stylesheet" href="./assets/css/cadastro_filial.css">
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
     <script src="./Js/config_user.js"></script>
-    <title>Cadastro Funcionario</title>
+    <title>Cadastro Filial</title>
 </head>
-
 <body onload="mudarheader()">
     <header>
         <nav class="nav-bar">
@@ -25,7 +23,7 @@
             </div>
             <div class="nav-list">
                 <ul>
-                    <li class="nav-item"><a href="cadastro_filial.html" class="nav-link">Cadastrar Filiais</a></li>
+                    <li class="nav-item"><a href="cadastro_funcionario.html" class="nav-link">Cadastrar Funcionário</a></li>
                     <li class="nav-item"><a href="cadastro_maquina.html" class="nav-link">Cadastrar Máquina</a></li>
                     <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
                     <li class="nav-item"><a href="dashboard_hospitaisInicial.html" class="nav-link">Dashboard</a></li>
@@ -34,61 +32,54 @@
             </div>
             <div id="div_loginButton" class="login-button">
                 <button id="button_perfil" onclick="perfil()"><a id="aButton" href="#">Perfil</a></button>
-                <img id="img_login" onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
+                <img id = "img_login" onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
             </div>
-            </div>
+        </div>
     </header>
+
     <div class="container">
         <div class="containerConfiguracoes">
             <div class="tituloInicial">
-                <h1 class="h1Config">Cadastro Funcionário</h1>
+                <h1 class="h1Config">Cadastro Filial</h1>
             </div>
-            <div class="containerFuncionario">
+            <div class="containerFilial">
                 <div class="containerInputs">
-                    <div class="tituloFuncionario">
-                        <h1>Funcionário</h1>
+                    <div class="tituloFilial">
+                        <h1>Filial</h1>
                     </div>
-                    <div class="inputsFuncionario">
+                    <div class="inputsFilial">
                         <div class="titulos">
                             <div class="input nome">
                                 <h1 class="tituloNome">Nome:</h1>
                             </div>
-                            <div class="input email">
-                                <h1 class="tituloEmail">Email:</h1>
+                            <div class="input responsavel">
+                                <h1 class="tituloResponsavel">Responsável:</h1>
                             </div>
-                            <div class="input cpf">
-                                <h1 class="tituloCpf">CPF:</h1>
+                            <div class="input cnpj">
+                                <h1 class="tituloCPF">CNPJ:</h1>
                             </div>
-                            <div class="input tipo">
-                                <h1 class="tituloTipo">Tipo Funcionário:</h1>
+                            <div class="input cep">
+                                <h1 class="tituloCEP">CEP:</h1>
                             </div>
-                            <div class="input senha">
-                                <h1 class="tituloSenha">Senha:</h1>
-                            </div>
-                            <div class="input confirmarSenha">
-                                <h1 class="tituloConfirmarSenha">Confirmar Senha:</h1>
+                            <div class="input telefone">
+                                <h1 class="tituloTelefone">Telefone:</h1>
                             </div>
                         </div>
                         <div class="div_inputs">
-                                <input type="text" id="nome_input" placeholder="Caique Gomes">
-                                <input type="" id="email_input" placeholder="caique.gsilva@sptech.school">
-                                <input type="number" id="cpf_input" placeholder="51798562804">
-                            <select class="selectTipo" id="tipo_input">
-                                <option selected disabled>Tipos Usúarios</option>
-                                <option value="Comum">Comum</option>
-                                <option value="ADM">Administrador</option>
-                            </select>
-                                <input type="" id="senha_input" placeholder="Senha@123">
-                                <input type="text" id="confirmarSenha_input" placeholder="Senha@123">
-                            <div class="div_button">
-                                <button class="button">Cadastrar</button>
-                            </div>
+                            <input type="text" id="nome_input">
+                            <input type="text" id="responsavel_input">
+                            <input type="number" id="cnpj_input">
+                            <input type="number" id="cep_input">
+                            <input type="number" id="telefone_input">
+                        <div class="div_button">
+                            <button class="button">Cadastrar</button>
                         </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>

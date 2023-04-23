@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style_all.css">
     <link rel="stylesheet" href="./assets/css/cadastro_maquina.css">
-    <title>Document</title>
+    <script src="./Js/header.js"></script>
+    <script src="./Js/logout.js"></script>
+    <script src="./Js/config_user.js"></script>
+    <title>Cadastro Maquina</title>
 </head>
 
-<body>
+<body onload="mudarheader()">
     <header>
         <nav class="nav-bar">
             <div class="logo">
@@ -22,9 +25,10 @@
             </div>
             <div class="nav-list">
                 <ul>
+                    <li class="nav-item"><a href="cadastro_filial.html" class="nav-link">Cadastrar Filiais</a></li>
                     <li class="nav-item"><a href="cadastro_funcionario.html" class="nav-link">Cadastrar Funcionário</a></li>
                     <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
-                    <li class="nav-item"><a href="dashboard_hospitais.html" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="dashboard_hospitaisInicial.html" class="nav-link">Dashboard</a></li>
                     <li class="nav-item" onclick="logout()"><a href="#index.html" class="nav-link">Logout</a></li>
                 </ul>
             </div>
@@ -66,24 +70,12 @@
                             </div>
                         </div>
                         <div class="div_inputs">
-                            <div>
                                 <input type="text" id="nome_input" placeholder="Dell">
-                            </div>
-                            <div>
                                 <input type="number" id="ipv4_input" placeholder="111.222.3.44">
-                            </div>
-                            <div>
                                 <input type="" id="mac_input" placeholder="00:1B:44:11:3A:B7">
-                            </div>
-                            <div>
                                 <input type="text" id="tipo_input" placeholder="Desktops, notebook...">
-                            </div>
-                            <div>
                                 <input type="text" id="andar_input" placeholder="Térrio">
-                            </div>
-                            <div>
                                 <input type="text" id="setor_input" placeholder="Unidade de Internação">
-                            </div>
                             <div class="div_button">
                                 <button class="button">Cadastrar</button>
                             </div>

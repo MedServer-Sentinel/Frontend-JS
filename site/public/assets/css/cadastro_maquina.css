@@ -130,9 +130,9 @@ body {
 
 input {
     width: 60%;
-    height: 80%;
+    height: 3%;
+    padding: 10px;
     border: none;
-    margin: 10px;
     font-size: 17px;
     -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
     -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
@@ -143,11 +143,15 @@ input {
     margin-left: 10px;
 }
 
+.nome {
+    margin-top: 17px;
+}
+
 .nome,
 .ipv4,
 .mac,
 .tipo,
 .andar,
 .setor {
-    margin: 16.3px;
+    margin-bottom: 36px;
 }

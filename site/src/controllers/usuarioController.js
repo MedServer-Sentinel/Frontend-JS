@@ -147,8 +147,9 @@ function empresa(req, res) {
     var cnpj = req.body.cnpjEmpresaServer;
     var telefone = req.body.telefoneEmpresaServer;
     var responsavel = req.body.ResponsavelEmpresaServer;
+    var cep = req.body.cepEmpresaServer;
     
-console.log(nome,email,cnpj,telefone,responsavel)
+console.log(nome,email,cnpj,telefone,responsavel,cep)
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -239,6 +240,78 @@ function atualizarParametroCpu(req, res) {
     
 }
 
+function update_email(){
+    var email = req.body.email;
+    var idUsuario = req.body.idUsuario;
+    if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else {
+        usuarioModel.update_email(email, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+}
+
+function update_senha(){
+    var senha = req.body.senha;
+    var idUsuario = req.body.idUsuario;
+    if (email == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else {
+        usuarioModel.update_senha(senha, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+}
+
+function update_cep(){
+    var cep = req.body.cep;
+    var idEmpresa = req.body.idEmpresa;
+    if (cep == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    } else {
+        usuarioModel.update_cep(cep, idEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+}
+
 
 module.exports = {
     testar,
@@ -249,5 +322,8 @@ module.exports = {
     updateUsuario,
     listarDadosUsuario,
     listarDadosEmpresa,
-    atualizarParametroCpu
+    atualizarParametroCpu,
+    update_email,
+    update_senha,
+    update_cep
 }

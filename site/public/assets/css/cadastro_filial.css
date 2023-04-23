@@ -10,6 +10,7 @@ body {
     background-color: var(--color--verdeMed);
 }
 
+
 .container {
     width: 100%;
     height: 112vh;
@@ -29,7 +30,7 @@ body {
 }
 
 .tituloInicial,
-.tituloFuncionario {
+.tituloFilial {
     display: flex;
     align-items: center;
     height: 10vh;
@@ -37,18 +38,17 @@ body {
     background-image: linear-gradient(to top, rgb(234, 232, 232), rgb(253, 253, 253));
 }
 
-.tituloFuncionario h1 {
+.tituloFilial h1 {
     font-size: 1.4rem;
     margin-left: 20px;
 }
 
-.containerFuncionario {
+.containerFilial {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    /* border: solid 1px yellow; */
 }
 
 .containerInputs {
@@ -67,15 +67,13 @@ body {
     font-size: 1.8rem;
 }
 
-.inputsFuncionario {
+.inputsFilial {
     height: 84vh;
     display: flex;
     flex-direction: row;
     margin-top: 10px;
     margin-left: 80px;
     align-items: center;
-    /* border: solid 1px red; */
-
 }
 
 .titulos {
@@ -84,7 +82,6 @@ body {
     display: flex;
     margin-top: 20px;
     flex-direction: column;
-    /* border: solid 1px red; */
 }
 
 .button {
@@ -104,7 +101,6 @@ body {
     display: flex;
     height: 70px;
     justify-content: center;
-    /* border: solid 1px red; */
     margin-right: 268px;
 }
 
@@ -112,27 +108,6 @@ body {
 .inputs h1 {
     font-size: 1.2rem;
     margin: 10px;
-}
-
-.selectTipo {
-    /* <div> */
-    width: 150px;
-    height: 40px;
-    border: 1px solid white;
-    margin-left: 50px;
-    margin-top: 20px;
-    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
-    -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
-    /* border: solid 1px red; */
-}
-
-.selectTipo select {
-    width: 268px;
-    font-size: 16px;
-    line-height: 1;
-    height: 34px;
-    -webkit-appearance: none;
 }
 
 .input {
@@ -148,7 +123,6 @@ body {
     height:100%;
     width: 55%;
     margin-top: 20px;
-    /* border: solid 1px green; */
 }
 
 input {
@@ -165,14 +139,9 @@ input {
 }
 
 .nome {
-    margin-top: 10px;
+    margin-top: 13px;
 }
 
-.nome,
-.email,
-.cpf,
-.tipo,
-.senha,
-.confirmarSenha {
-    margin-bottom: 48px;
+.nome, .responsavel, .cnpj, .cep, .telefone {
+    margin-bottom: 65px;
 }

@@ -23,6 +23,7 @@
             </div>
             <div class="nav-list">
                 <ul>
+                    <li class="nav-item"><a href="cadastro_filial.html" class="nav-link">Cadastrar Filiais</a></li>
                     <li class="nav-item"><a href="cadastro_funcionario.html" class="nav-link">Cadastrar Funcionário</a></li>
                     <li class="nav-item"><a href="cadastro_maquina.html" class="nav-link">Cadastrar Máquina</a></li>
                     <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
@@ -39,6 +40,39 @@
 
     <div class="container">
         <div class="containerConfiguracoes">
+            <div class="containerInputsAlterar" id="containerUpdateEmail">
+                <div class="InputsUpdate">
+                    <div class="TituloEFechar">
+                        <p>Alterar Email</p>
+                        <img src="./assets/imagens/button.png" onclick="fecharUpdateEmail()" width="30px" height="30px">
+                    </div>
+                    <p class="novoEmail">Novo email:</p>
+                    <input type="text" placeholder="" id="inputEmail"></input>
+                </div>
+                <button onclick="updateEmail()">Confirmar</button>
+            </div>
+            <div class="containerInputsAlterar" id="containerUpdateSenha">
+                <div class="InputsUpdate">
+                    <div class="TituloEFechar">
+                        <p>Alterar Senha</p>
+                        <img src="./assets/imagens/button.png" onclick="fecharUpdateSenha()" width="30px" height="30px">
+                    </div>
+                    <p class="novaSenha">Nova Senha:</p>
+                    <input type="text" placeholder="" id="inputSenha"></input>
+                </div>
+                <button onclick="updateSenha()">Confirmar</button>
+            </div>
+            <div class="containerInputsAlterar" id="containerUpdateCEP">
+                <div class="InputsUpdate">
+                    <div class="TituloEFechar">
+                        <p>Alterar CEP</p>
+                        <img src="./assets/imagens/button.png" onclick="fecharUpdateCEP()" width="30px" height="30px">
+                    </div>
+                    <p class="novoCEP">Novo CEP:</p>
+                    <input type="number" placeholder="" id="inputCEP"></input>
+                </div>
+                <button onclick="updateCEP()">Confirmar</button>
+            </div>
             <div class="tituloInicial">
                 <h1 class="h1Config">Configurações do Usuário</h1>
             </div>
@@ -50,10 +84,10 @@
                 <div class="inputsConfig">
                     <div class="titulos">
                         <h1 class="tituloLogin">Login(email):</h1>
-                        <button id="buttonEmail">ALTERAR EMAIL</button>
+                        <button id="buttonEmail" onclick="abrirUpdateEmail()">ALTERAR EMAIL</button>
                         <h1 class="tituloCPF">CPF:</h1>
                         <h1 class="tituloSenha">Senha:</h1>
-                        <button id="buttonSenha">ALTERAR SENHA</button>
+                        <button id="buttonSenha" onclick="abrirUpdateSenha()">ALTERAR SENHA</button>
                     </div>
     
                     <div class="inputs">
@@ -79,7 +113,7 @@
                         <h1 class="tituloCPF">Responsável:</h1>
                         <h1 class="tituloCNPJ">CNPJ:</h1>
                         <h1 class="tituloSenha">CEP:</h1>
-                        <button id="buttonSenha">ALTERAR CEP</button>
+                        <button id="buttonSenha" onclick="abrirUpdateCEP()">ALTERAR CEP</button>
                     </div>
     
                     <div class="inputs">
@@ -109,6 +143,7 @@
             </div>
            </div>
         </div>
+
     </div>
 
 </body>

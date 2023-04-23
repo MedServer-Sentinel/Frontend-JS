@@ -94,16 +94,16 @@
                         <p>Email</p>
                         <input class="iptDado" id="email_empresa_input" type="text"
                             placeholder="Ex: auratex@latam.auratex.com">
+                        <p>CEP</p>
+                        <input class="iptDado" id="cep_empresa_input" type="number" placeholder="Ex: 07243270">
                     </div>
                     <div class="duplaInputOne">
                         <p>Cnpj</p>
                         <input class="iptDado" id="cnpj_empresa_input" type="number" placeholder="Ex : 12345678901234">
                         <p>Telefone</p>
                         <input class="iptDado" id="telefone_empresa_input" type="number" placeholder="Ex: 11 966193319">
-                    </div>
-                    <div class="inputUnico">
                         <p>Responsavel</p>
-                        <input type="text" id="resposavel_empresa_input" placeholder="José Carlos">
+                        <input class="iptDado" id="resposavel_empresa_input" placeholder="Ex : José Carlos">
                     </div>
                 </div>
 
@@ -474,7 +474,7 @@
         var cnpjEmpresaVar = cnpj_empresa_input.value;
         var telefoneEmpresaVar = telefone_empresa_input.value;
         var responsavelvar = resposavel_empresa_input.value;
-
+        var cepVar = cep_empresa_input.value;
 
         // Enviando o valor da nova input
         fetch("/usuarios/empresa", {
@@ -489,8 +489,8 @@
                 emailEmpresaServer: emailEmpresaVar,
                 cnpjEmpresaServer: cnpjEmpresaVar,
                 telefoneEmpresaServer: telefoneEmpresaVar,
-                ResponsavelEmpresaServer: responsavelvar
-
+                ResponsavelEmpresaServer: responsavelvar,
+                cepEmpresaServer: cepVar
 
             })
         }).then(function (resposta) {

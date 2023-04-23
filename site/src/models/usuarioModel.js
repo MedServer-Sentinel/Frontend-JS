@@ -25,18 +25,18 @@ function cadastrar(nome, email, cpf, senha) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO usuario (nome, email, cpf, senha, tipo) VALUES ('${nome}', '${email}', '${cpf}', '${senha}','admin');
+        INSERT INTO usuario (nome, email, cpf, senha, tipo) VALUES ('${nome}', '${email}', '${cpf}', '${senha}','Padrão');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function empresa(nome, cnpj, email, telefone, responsavel) {
+function empresa(nome, cnpj, email, telefone, responsavel, cep) {
     console.log('chegou aqui na empresa')
    
 
     var instrucao = `
-    INSERT INTO empresa (nome, cnpj,email, telefone, responsavel) VALUES ('${nome}','${cnpj}', '${email}','${telefone}','${responsavel}');
+    INSERT INTO empresa (nome, cnpj,email, telefone, responsavel, cep) VALUES ('${nome}','${cnpj}', '${email}','${telefone}','${responsavel}', '${cep}');
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -96,6 +96,33 @@ function atualizarParametroCpu(significativo,moderadoCpu,criticoCpu) {
     return database.executar(instrucao);
 }
 
+async function update_email(email, idUsuario) {
+    console.log("ACESSEI O Usuario MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alterar(): ")
+
+    var instrucao = `UPDATE usuario SET usuario.email = '${email}'
+    WHERE id_usuario = ${idUsuario}`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return await database.executar(instrucao);
+}
+
+async function update_senha(senha, idUsuario) {
+    console.log("ACESSEI O Usuario MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alterar(): ")
+
+    var instrucao = `UPDATE usuario SET senha = '${senha}'
+    WHERE id_usuario = ${idUsuario}`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return await database.executar(instrucao);
+}
+
+async function update_cep(cep, idEmpresa) {
+    console.log("ACESSEI O Usuario MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function alterar(): ")
+
+    var instrucao = `UPDATE Empresa SET cep = '${cep}'
+    WHERE idEmpresa = ${idEmpresa}`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return await database.executar(instrucao);
+}
+
 
 module.exports = {
     entrar,
@@ -105,5 +132,8 @@ module.exports = {
     empresa,
     listarDadosUsuario,
     listarDadosEmpresa,
-    atualizarParametroCpu
+    atualizarParametroCpu,
+    update_email,
+    update_senha,
+    update_cep
 };
