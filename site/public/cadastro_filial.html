@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/cadastro_filial.css">
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
-    <script src="./Js/config_user.js"></script>
+    <script src="./Js/cadastro_filial.js"></script>
     <title>Cadastro Filial</title>
 </head>
 <body onload="mudarheader()">
@@ -55,8 +55,8 @@
                             <div class="input responsavel">
                                 <h1 class="tituloResponsavel">Responsável:</h1>
                             </div>
-                            <div class="input cnpj">
-                                <h1 class="tituloCPF">CNPJ:</h1>
+                            <div class="input email">
+                                <h1 class="tituloEMAIL">EMAIL:</h1>
                             </div>
                             <div class="input cep">
                                 <h1 class="tituloCEP">CEP:</h1>
@@ -68,11 +68,11 @@
                         <div class="div_inputs">
                             <input type="text" id="nome_input">
                             <input type="text" id="responsavel_input">
-                            <input type="number" id="cnpj_input">
+                            <input type="text" id="email_input">
                             <input type="number" id="cep_input">
                             <input type="number" id="telefone_input">
                         <div class="div_button">
-                            <button class="button">Cadastrar</button>
+                            <button class="button" onclick="cadastroFilial()">Cadastrar</button>
                         </div>
                         </div>
 

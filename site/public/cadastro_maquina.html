@@ -10,10 +10,11 @@
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
     <script src="./Js/config_user.js"></script>
+    <script src="./Js/cadastro_maquina.js"></script>
     <title>Cadastro Maquina</title>
 </head>
 
-<body onload="mudarheader()">
+<body onload="mudarheader(), getQuantidadeFiliais()">
     <header>
         <nav class="nav-bar">
             <div class="logo">
@@ -59,6 +60,9 @@
                             <div class="input mac">
                                 <h1 class="tituloMac">MAC:</h1>
                             </div>
+                            <div class="input FilialMatriz">
+                               <h1 class="tituloFilialMatriz">Hospital:</h1>
+                            </div>
                             <div class="input tipo">
                                 <h1 class="tituloTipo">Tipo:</h1>
                             </div>
@@ -71,13 +75,17 @@
                         </div>
                         <div class="div_inputs">
                                 <input type="text" id="nome_input" placeholder="Dell">
-                                <input type="number" id="ipv4_input" placeholder="111.222.3.44">
-                                <input type="" id="mac_input" placeholder="00:1B:44:11:3A:B7">
+                                <input type="text" id="ipv4_input" placeholder="111.222.3.44">
+                                <input type="text" id="mac_input" placeholder="00:1B:44:11:3A:B7">
+                                <select name="MatrizOuFilial" id="MatrizOuFilial">
+                                    <option selected disabled>Matriz ou Filiais</option>
+                                    <option value="" id="matriz">Matriz</option>
+                                </select>
                                 <input type="text" id="tipo_input" placeholder="Desktops, notebook...">
-                                <input type="text" id="andar_input" placeholder="Térrio">
+                                <input type="text" id="andar_input" placeholder="Térreo">
                                 <input type="text" id="setor_input" placeholder="Unidade de Internação">
                             <div class="div_button">
-                                <button class="button">Cadastrar</button>
+                                <button class="button" onclick="cadastroMaquina()">Cadastrar</button>
                             </div>
                         </div>
                     </div>

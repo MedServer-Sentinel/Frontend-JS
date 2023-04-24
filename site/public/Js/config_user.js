@@ -91,7 +91,7 @@ function getDadosUsuario() {
    function updateEmail(){
     var emailUsuario = document.getElementById('email');
 
-    fetch(`/usuarios/update_email/${sessionStorage.getItem("EMAIL_USUARIO")}`, {
+    fetch(`/usuarios/updateEmail`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -121,7 +121,7 @@ function getDadosUsuario() {
    function updateSenha(){
     var senhaUsuario = document.getElementById('senha');
 
-    fetch(`/usuarios/update_senha/${sessionStorage.getItem("EMAIL_USUARIO")}`, {
+    fetch(`/usuarios/updateSenha`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -151,7 +151,7 @@ function getDadosUsuario() {
 
     var CEPempresa = document.getElementById("cep");
 
-    fetch(`/usuarios/update_cep/${sessionStorage.getItem("EMAIL_USUARIO")}`, {
+    fetch(`/usuarios/updateCep`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -175,5 +175,44 @@ function getDadosUsuario() {
     });
 
     CEPempresa.innerHTML = inputCEP.value;
+
+   }
+
+
+   function getQuantidadeFiliais(){
+    
+    var idEmpresa = sessionStorage.ID_EMPRESA;
+    var Matriz = document.getElementById('matriz');
+    Matriz.value = idEmpresa;
+    fetch(`/usuarios/listarEmpresas/${idEmpresa}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+        if (resposta.status == 204) {
+          alert("Nenhum resultado encontrado.");
+        }
+        var selectFiliais = document.getElementById('MatrizOuFilial')
+        
+        
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+         
+          for(var i = 0; i < resposta.length; i++){
+
+            var option = document.createElement('option'); 
+
+            option.id = `option${i}`;
+            option.innerHTML = resposta[i].nome;
+            option.value = resposta[i].idempresa;
+            selectFiliais.appendChild(option);
+          }
+
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
 
    }

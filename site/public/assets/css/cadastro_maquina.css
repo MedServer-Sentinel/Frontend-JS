@@ -152,6 +152,16 @@ input {
 .mac,
 .tipo,
 .andar,
-.setor {
-    margin-bottom: 36px;
+.setor, 
+.FilialMatriz{
+    margin-bottom: 26px;
+}
+
+select {
+    width: 20%;
+    height: 7%;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    border: none;
 }

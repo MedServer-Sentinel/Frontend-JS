@@ -19,14 +19,26 @@ router.get("/listarDadosEmpresa/:idEmpresa", function(req, res) {
     usuarioController.listarDadosEmpresa(req,res);
 });
 
+router.get("/listarEmpresas/:idEmpresa", function(req, res) {
+    usuarioController.listarEmpresas(req,res);
+});
+
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+router.post("/cadastroMaquina", function (req, res) {
+    usuarioController.cadastroMaquina(req, res);
+})
+
 router.post("/empresa", function (req, res) {
     console.log("chegou na rota");
     usuarioController.empresa(req, res);
+})
+
+router.post("/filial/:idEmpresa", function (req, res) {
+    usuarioController.filial(req, res);
 })
 
 router.post("/entrar", function (req, res) {
@@ -43,17 +55,17 @@ router.post("/parametros", function (req, res) {
     usuarioController.atualizarParametroCpu(req, res);
 });
 
-router.put("/update_senha/:user", function (req, res) {
-    usuarioController.update_senha(req, res);
+router.put("/updateSenha", function (req, res) {
+    usuarioController.updateSenha(req, res);
 });
 
-router.put("/update_cep/:user", function (req, res) {
-    usuarioController.update_cep(req, res);
+router.put("/updateCep", function (req, res) {
+    usuarioController.updateCep(req, res);
 });
 
 
-router.put("/update_email/:user", function (req, res) {
-    usuarioController.update_email(req, res);
+router.put("/updateEmail", function (req, res) {
+    usuarioController.updateEmail(req, res);
 });
 
 module.exports = router;

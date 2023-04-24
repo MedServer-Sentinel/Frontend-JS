@@ -142,6 +142,6 @@ input {
     margin-top: 13px;
 }
 
-.nome, .responsavel, .cnpj, .cep, .telefone {
+.nome, .responsavel, .email, .cep, .telefone {
     margin-bottom: 65px;
 }
