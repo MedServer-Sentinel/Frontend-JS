@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style_all.css">
+    <link rel="stylesheet" href="./assets/css/cadastro_filial.css">
+    <script src="./Js/header.js"></script>
+    <script src="./Js/logout.js"></script>
+    <script src="./Js/cadastro_filial.js"></script>
+    <title>Cadastro Filial</title>
+</head>
+<body onload="mudarheader()">
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <img src="./assets/imagens/logo_teste.png" alt="Logo GN" class="imgLogoHeader">
+                <div class="nomeLogoHeader">
+                    <h2>MedServer</h2>
+                    <p>Sentinels</p>
+                </div>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li class="nav-item"><a href="cadastro_funcionario.html" class="nav-link">Cadastrar Funcionário</a></li>
+                    <li class="nav-item"><a href="cadastro_maquina.html" class="nav-link">Cadastrar Máquina</a></li>
+                    <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
+                    <li class="nav-item"><a href="dashboard_hospitaisInicial.html" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item" onclick="logout()"><a href="#index.html" class="nav-link">Logout</a></li>
+                </ul>
+            </div>
+            <div id="div_loginButton" class="login-button">
+                <button id="button_perfil" onclick="perfil()"><a id="aButton" href="#">Perfil</a></button>
+                <img id = "img_login" onclick="perfil()" src="./assets/imagens/svg/perfil.svg" width="30px" alt="">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="containerConfiguracoes">
+            <div class="tituloInicial">
+                <h1 class="h1Config">Cadastro Filial</h1>
+            </div>
+            <div class="containerFilial">
+                <div class="containerInputs">
+                    <div class="tituloFilial">
+                        <h1>Filial</h1>
+                    </div>
+                    <div class="inputsFilial">
+                        <div class="titulos">
+                            <div class="input nome">
+                                <h1 class="tituloNome">Nome:</h1>
+                            </div>
+                            <div class="input responsavel">
+                                <h1 class="tituloResponsavel">Responsável:</h1>
+                            </div>
+                            <div class="input email">
+                                <h1 class="tituloEMAIL">EMAIL:</h1>
+                            </div>
+                            <div class="input cep">
+                                <h1 class="tituloCEP">CEP:</h1>
+                            </div>
+                            <div class="input telefone">
+                                <h1 class="tituloTelefone">Telefone:</h1>
+                            </div>
+                        </div>
+                        <div class="div_inputs">
+                            <input type="text" id="nome_input">
+                            <input type="text" id="responsavel_input">
+                            <input type="text" id="email_input">
+                            <input type="number" id="cep_input">
+                            <input type="number" id="telefone_input">
+                        <div class="div_button">
+                            <button class="button" onclick="cadastroFilial()">Cadastrar</button>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

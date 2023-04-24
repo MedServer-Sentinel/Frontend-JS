@@ -1,0 +1,100 @@
+/* Váriaveis de cores */
+:root {
+    --color--white: #FFFF;
+    --color--azulClaro: #A1E0EF;
+    --color--azulAcqua: #73CFD9;
+    --color--azulMed: #015F79;
+    --color--azulEsc: #014E6A;
+    --color--verdeMed: #017D7D;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.40);
+    position: relative;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 85px;
+}
+
+.nomeLogoHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5vh;
+    color: var(--color--white);
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.15rem;
+    color: var(--color--white);
+    font-weight: 700;
+}
+
+.nav-link:hover {
+    color: var(--color--azulAcqua);
+}
+
+.login-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login-button img {
+    cursor: pointer;
+}
+
+.login-button button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.login-button button a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+
+/* FIM DO HEADER */

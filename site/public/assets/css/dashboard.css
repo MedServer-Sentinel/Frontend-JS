@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.container {
+    height: 110vh;
+    width: 100vw;
+    background-color: #017d7d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.geral-conteudo {
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.area-conteudo {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aquamarine; */
+}
+
+.grafico-principal {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.metricas {
+    height: 24%;
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-metrica-gauge {
+    height: 100%;
+    width: 59%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+    box-shadow: 2px 2px 15px #00000088;
+}
+
+.card-metrica {
+    height: 100%;
+    width: 39%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+    box-shadow: 2px 2px 15px #00000088;
+}
+
+.container-gauge {
+    /* background-color: rosybrown; */
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0% 1%;
+}
+
+.container-gauge canvas {
+    width: 120%;
+    /* background-color: red; */
+    margin-top: 0%;
+}
+
+#gaugeCpu,
+#gaugeRam,
+#gaugeDisco {
+    height: 130px;
+    width: 140px;
+    /* background-color: red; */
+}
+
+.container-metrica {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.card-metrica .titulo {
+    font-weight: 900;
+    text-align: center;
+}
+
+.conteudo-metrica {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.conteudo-metrica h1 {
+    font-size: 50px;
+}
+
+.parametrizacao {
+    width: 35%;
+    height: 40%;
+    background-color: #fff;
+    padding: 1%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+    border-radius: 30px;
+    box-shadow: 2px 2px 15px #00000088;
+}
+
+.container-alerta {
+    /* background-color: royalblue; */
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.alerta {
+    display: flex;
+}
+
+.alerta input {
+    width: 30%;
+}
+
+.caixa-input {
+    /* background-color: rgb(220, 20, 20); */
+    width: 35%;
+}
+
+.caixa-input-critico {
+    width: 35%;
+    display: flex;
+}
+
+.btn-parametrizacao {
+    width: 100%;
+    height: 10%;
+    /* background-color: gold; */
+    display: flex;
+    justify-content: right;
+}
+
+.btn-parametrizacao button {
+    border-radius: 30px;
+    width: 30%;
+    margin-left: 5%;
+    border: none;
+    box-shadow: 0px 0px 4px #00000036;
+}
+
+.btn-parametrizacao .btn-cancelar {
+    background-color: #fff;
+    border: solid 1px #017d7d;
+    cursor: pointer;
+}
+
+.btn-parametrizacao .btn-confirmar {
+    background-color: #017d7d;
+    margin-right: 100px;
+    border: solid 1px #fff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dashboard {
+    height: 74%;
+    width: 99%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 2px 2px 15px #00000088;
+}
+/*
+.grafico-linha {
+    background-color: red;
+    width: 99%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}*/
+
+
+
+.graficos-secundarios {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.grafico {
+    height: 49%;
+    width: 99%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+    box-shadow: 2px 2px 15px #00000088;
+    text-align: center;
+}
+
+.grafico h2 {
+    font-weight: 900;
+}
+
+#grafico-dia,
+#grafico-semana {
+    width: 50px;
+    height: 80px;
+}
+
+.caixa-input-critico span{
+    margin-right: 5px;
+}

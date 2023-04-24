@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat';
+    background-color: var(--color--verdeMed);
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color--white);
+}
+
+.containerConfiguracoes {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.tituloInicial {
+    -webkit-box-shadow: -2px 9px 5px -8px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: -2px 9px 5px -8px rgba(0, 0, 0, 0.55);
+    box-shadow: -2px 9px 5px -8px rgba(0, 0, 0, 0.55);
+}
+
+.tituloInicial,
+.tituloMaquina {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    background-color: rgb(210, 210, 210);
+    background-image: linear-gradient(to top, rgb(234, 232, 232), rgb(253, 253, 253));
+}
+
+.tituloMaquina h1 {
+    font-size: 1.4rem;
+    margin-left: 20px;
+}
+
+.containerMaquina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* border: solid 1px yellow; */
+}
+
+.containerInputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 98%;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+}
+
+.h1Config {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 1.8rem;
+}
+
+.inputsMaquina {
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 80px;
+    align-items: center;
+    /* border: solid 1px red; */
+
+}
+
+.titulos {
+    width: 9%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px red; */
+}
+
+.button {
+    width: 30%;
+    margin-bottom: 10px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color--verdeMed);
+    color: var(--color--white);
+    cursor: pointer;
+    font-weight: 700;
+    /* border: solid 1px black; */
+}
+
+.div_button {
+    display: flex;
+    justify-content: center;
+    /* border: solid 1px red; */
+    margin-right: 268px;
+}
+
+.titulos h1,
+.inputs h1 {
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    height: 35px;
+}
+
+.div_inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 55%;
+    margin-top: 3.2px;
+    /* border: solid 1px green; */
+}
+
+input {
+    width: 60%;
+    height: 3%;
+    padding: 10px;
+    border: none;
+    font-size: 17px;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+}
+
+.input h1 {
+    margin-left: 10px;
+}
+
+.nome {
+    margin-top: 17px;
+}
+
+.nome,
+.ipv4,
+.mac,
+.tipo,
+.andar,
+.setor, 
+.FilialMatriz{
+    margin-bottom: 26px;
+}
+
+select {
+    width: 20%;
+    height: 7%;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.30);
+    border: none;
+}
