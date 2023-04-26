@@ -17,7 +17,7 @@ function getDadosUsuario() {
           console.log("Dados recebidos: ", JSON.stringify(resposta));
          
             email.innerHTML = resposta[0].email;        
-            cpf.innerHTML = resposta[0].Cpf;
+            cpf.innerHTML = resposta[0].cpf;
             senha.innerHTML = resposta[0].senha
         });
       } else {
@@ -49,7 +49,7 @@ function getDadosUsuario() {
           console.log("Dados recebidos: ", JSON.stringify(resposta));
          
             nomeHospital.innerHTML = resposta[0].nome        
-            responsavel.innerHTML = resposta[0].Responsavel;
+            responsavel.innerHTML = resposta[0].responsavel;
             cnpj.innerHTML = resposta[0].cnpj
             cep.innerHTML = resposta[0].cep;
             telefone.innerHTML = resposta[0].telefone;

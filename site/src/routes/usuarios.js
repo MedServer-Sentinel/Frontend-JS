@@ -27,6 +27,9 @@ router.get("/listarEmpresas/:idEmpresa", function(req, res) {
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
+router.post("/cadastrarUsuario/:idEmpresa", function (req, res) {
+    usuarioController.cadastrarUsuario(req, res);
+})
 
 router.post("/cadastroMaquina", function (req, res) {
     usuarioController.cadastroMaquina(req, res);
@@ -67,5 +70,6 @@ router.put("/updateCep", function (req, res) {
 router.put("/updateEmail", function (req, res) {
     usuarioController.updateEmail(req, res);
 });
+
 
 module.exports = router;

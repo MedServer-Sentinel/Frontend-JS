@@ -1,9 +1,9 @@
 function verificaUser(){
     let tipo = sessionStorage.TIPO;
     if(tipo != 'admin'){
-        let significativo = Document.getElementById('significativo');
-        let emergencial = Document.getElementById('emergencial');
-        let critico = Document.getElementById('critico'); 
+        let significativo = document.getElementById('significativo');
+        let emergencial = document.getElementById('emergencial');
+        let critico = document.getElementById('critico'); 
         significativo.href = "";
         emergencial.href = "";
         critico.href = "";

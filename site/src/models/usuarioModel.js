@@ -25,7 +25,18 @@ function cadastrar(nome, email, cpf, senha) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO usuario (nome, email, cpf, senha, tipo) VALUES ('${nome}', '${email}', '${cpf}', '${senha}','Padrão');
+        INSERT INTO usuario (nome, email, cpf, senha, tipo) VALUES ('${nome}', '${email}', '${cpf}', '${senha}','admin');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function cadastrarUsuario(nome, email, cpf,tipo, senha, idEmpresa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, cpf,tipo, senha);
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO usuario (nome, email, cpf, senha, tipo, fkempresa) VALUES ('${nome}', '${email}', '${cpf}', '${senha}','${tipo}', '${idEmpresa}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -45,6 +56,7 @@ function cadastroMaquina(nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor) {
 
 function empresa(nome, cnpj, email, telefone, responsavel, cep) {
     console.log('chegou aqui na empresa')
+    console.log(nome, cnpj, email, telefone, responsavel, cep)
    
 
     var instrucao = `
@@ -162,6 +174,7 @@ async function updateCep(cep, idEmpresa) {
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarUsuario,
     listar,
     updateUsuario,
     empresa,
