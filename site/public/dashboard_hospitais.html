@@ -33,9 +33,8 @@
                                 Funcionário</a></li>
                         <li class="nav-item"><a href="cadastro_maquina.html" class="nav-link">Cadastrar Máquina</a></li>
                         <li class="nav-item"><a href="configuracao_user.html" class="nav-link">Configurações</a></li>
-                        <li class="nav-item"><a href="#" onclick="mostraParametrizacao()" class="nav-link">
-                                Parametrizar</a>
-                        </li>
+                        <li class="nav-item"><a href="#" onclick="mostraParametrizacao()"
+                                class="nav-link">Parametrizar</a></li>
                     </ul>
                 </div>
                 <div id="div_loginButton" class="login-button">
@@ -171,6 +170,23 @@
                             </div>
                         </div>
                     </div>
+                    <h2>Parametrize o tempo</h2>
+                    <div class="container-alerta-tempo">
+                        <h4>Tempo:</h4>
+                        <div class="alerta">
+                            <div class="caixa-input-alerta">
+                                <span>Intervalo de captura de dados:</span>
+                                <select>
+                                    <option value="2" selected>2 minutos</option>
+                                    <option value="4">4 minutos</option>
+                                    <option value="6">6 minutos</option>
+                                    <option value="8">8 minutos</option>
+                                    <option value="10">10 minutos</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="btn-parametrizacao">
                         <button class="btn-cancelar"
                             onclick="mostraParametrizacao(),atualizarParametro()">Cancelar</button>
@@ -189,6 +205,9 @@
 
                 </div>
 
+            </div>
+            <div class="baixar-relatorio">
+                <a href="">Baixar relatório</a>
             </div>
         </div>
     </div>

@@ -131,7 +131,7 @@ input[type="number"] {
 
 .parametrizacao {
     width: 35%;
-    height: 40%;
+    height: 50%;
     background-color: #fff;
     padding: 1%;
     position: absolute;
@@ -150,8 +150,27 @@ input[type="number"] {
     height: 15%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-evenly; */
     /* align-items: center; */
+}
+
+.container-alerta-tempo {
+    /* background-color: royalblue; */
+    width: 100%;
+    /* height: 15%; */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+
+.container-alerta-tempo .alerta {
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-alerta-tempo .alerta input{
+    width: 35%;
 }
 
 .alerta {
@@ -260,4 +279,23 @@ input[type="number"] {
 
 .caixa-input-critico span{
     margin-right: 5px;
+}
+
+.baixar-relatorio{
+    width: 10%;
+    height: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8BC34A;
+    pointer-events: stroke;
+    margin: 1%;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.baixar-relatorio a{
+    text-decoration: none;
+    color: white;
 }
