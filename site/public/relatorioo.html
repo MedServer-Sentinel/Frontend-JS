@@ -1,0 +1,337 @@
+<html>
+
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    .tudo {
+      font-family: 'Montserrat';
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h4 {
+      display: flex;
+      justify-content: center;
+    }
+
+    h2 {
+      display: flex;
+      justify-content: center;
+      color: #098383;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: auto;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    #nomeHosp,
+    #nomeComp,
+    #periodoAnalise {
+      border: none;
+      margin: 10px;
+      -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+      -moz-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+      box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.37);
+    }
+
+    .inputsIniciais input {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin-left: 10px;
+      align-items: center;
+      font-size: 25px;
+      /* border: solid 1px blue; */
+    }
+
+    .inputsIniciais {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      text-align: center;
+      /* border: solid 1px red; */
+    }
+
+    table input {
+      border: none;
+      width: 20%;
+      /* border: solid 1px red;*/
+    }
+
+    .infoRel {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      border-bottom: solid 1px black;
+      /* border: solid 1px red; */
+    }
+
+    .embrulhoInfoRel {
+      display: flex;
+      justify-content: center;
+      /* border: solid 1px blue; */
+    }
+
+    .infoHardware {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* border: solid 1px blue; */
+    }
+
+    .textR,
+    .textC,
+    .textD {
+      width: 60%;
+      margin-top: 50px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px, rgb(51, 51, 51) 0px 0px 0px 2px;
+      /* border: solid 1px red; */
+    }
+
+    .infoHardware p {
+      font-size: 25px;
+      text-align: center;
+    }
+
+    ul {
+      list-style-image: url("seta.gif");
+    }
+  </style>
+</head>
+<title>Relatório de Hardware</title>
+
+<body>
+  <div class="tudo">
+    <h1>Relatório de consumo de recursos do Hardware</h1>
+
+    <div class="inputsIniciais">
+      <p>Nome do Hospital <input type="text" id="nomeHosp"></p>
+      <p>Nome do Computador <input type="text" id="nomeComp"></p>
+      <p>Período de análise <input type="text" id="periodoAnalise"></p>
+    </div>
+
+    <br>
+    <div class="embrulhoInfoRel">
+      <div class="infoRel">
+        <b>
+          <h4>RELATÓRIO</h4>
+        </b>
+        <ul>
+          <li>Memória RAM: O consumo médio de memória RAM durante o período de análise foi de 3,5 GBS, com um pico
+            máximo
+            de
+            6
+            GB.</li>
+          <br>
+          <li>CPU: A utilização média da CPU foi de 50%, com picos máximos de 80%.</li>
+          <br>
+          <li>Disco: A utilização média do disco foi de 60%, com picos máximos de 90%.</li>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <b>
+      <h4>DETALHADAMENTO</h4>
+    </b>
+    <br>
+    <h2>Memória RAM</h2>
+    <table>
+      <tr>
+        <th>Data</th>
+        <th>Consumo médio (GB)</th>
+        <th>Pico máximo (GB)</th>
+      </tr>
+      <tr>
+        <td>Dia 01/05/2023</td>
+        <td><input type="text" id="RAMMedia"></td>
+        <td><input type="text" id="RAMPico"></td>
+      </tr>
+      <tr>
+        <td>Dia 02/05/2023</td>
+        <td><input type="text" id="RAMMedia2"></td>
+        <td><input type="text" id="RAMPico2"></td>
+      </tr>
+
+      <!-- Adicione mais linhas conforme necessário -->
+
+      <tr>
+        <td>Dia 10/05/2023</td>
+        <td><input type="text" id="RAMMedia3"></td>
+        <td><input type="text" id="RAMPico3"></td>
+      </tr>
+
+    </table>
+
+    <h2>CPU</h2>
+
+    <table>
+
+      <tr>
+
+        <th>Data</th>
+
+        <th>Utilização média (%)</th>
+
+        <th>Pico máximo (%)</th>
+
+      </tr>
+
+      <tr>
+
+        <td>Dia 01/05/2023</td>
+
+        <td><input type="text" id="CPUMedia"></td>
+
+        <td><input type="text" id="CPUPico"></td>
+
+      </tr>
+
+      <tr>
+
+        <td>Dia 02/05/2023</td>
+
+        <td><input type="text" id="CPUMedia2"></td>
+
+        <td><input type="text" id="CPUPico2"></td>
+
+      </tr>
+
+      <!-- Adicione mais linhas conforme necessário -->
+
+      <tr>
+
+        <td>Dia 10/05/2023</td>
+
+        <td><input type="text" id="CPUMedia3"></td>
+
+        <td><input type="text" id="CPUPico3"></td>
+
+      </tr>
+
+    </table>
+
+    <h2>Disco</h2>
+
+    <table>
+
+      <tr>
+
+        <th>Data</th>
+
+        <th>Utilização média (%)</th>
+
+        <th>Pico máximo (%)</th>
+
+      </tr>
+
+      <tr>
+
+        <td>Dia 01/05/2023</td>
+
+        <td><input type="text" id="DiscoMedia"></td>
+
+        <td><input type="text" id="DiscoPico"></td>
+
+      </tr>
+
+      <tr>
+
+        <td>Dia 02/05/2023</td>
+
+        <td><input type="text" id="DiscoMedia2"></td>
+
+        <td><input type="text" id="DiscoPico2"></td>
+
+      </tr>
+      <!-- Adicione mais linhas conforme necessário -->
+      <tr>
+
+
+        <td>Dia 10/05/2023</td>
+
+        <td><input type="text" id="DiscoMedia3"></td>
+
+        <td><input type="text" id="DiscoPico3"></td>
+
+      </tr>
+
+    </table>
+
+    <div class="infoHardware">
+
+      <b>
+        <p>Soluções para o alto consumo de Hardware:</p>
+      </b>
+
+      <div class="textR">
+        <p class="tituloR">Para resolver o consumo alto de memória ram, você pode:</p>
+        <ul>
+          <li>Fechar programas desnecessários que estão consumindo muitos recursos.</li>
+          <br>
+          <li>Aumentar a memória virtual, que é uma extensão da memória ram usando o espaço do disco.</li>
+          <br>
+          <li>Ajustar o registro para limpar o arquivo de paginação na desligamento.</li>
+          <br>
+          <li>Verificar se há vírus ou antivírus que podem afetar o uso de memória.</li>
+          <br>
+          <li>Aumentar a memória física, se possível.</li>
+        </ul>
+      </div>
+
+      <div class="textC">
+        <p class="tituloC">Para resolver o consumo alto de cpu, você pode:</p>
+        <ul>
+          <li>Fechar programas desnecessários que estão consumindo muitos recursos.</li>
+          <br>
+          <li>Desativar programas de inicialização que não são essenciais.</li>
+          <br>
+          <li>Desativar o serviço Superfetch, que pode causar alto uso de disco e cpu.</li>
+          <br>
+          <li>Definir hack do registro para reduzir a pressão sobre a cpu.</li>
+          <br>
+          <li>Desativar NDU no Registro, que pode causar alto uso de cpu e memória.</li>
+          <br>
+        </ul>
+      </div>
+
+      <div class="textD">
+        <p class="tituloD">Para resolver o consumo alto de disco, você pode:</p>
+
+        <ul>
+          <li>Fechar programas desnecessários que estão consumindo muitos recursos.</li>
+          <br>
+          <li>Desativar programas de inicialização que não são essenciais.</li>
+          <br>
+          <li>Desativar o serviço Superfetch, que pode causar alto uso de disco e cpu.</li>
+          <br>
+          <li>Desfragmentar o disco rígido para melhorar o desempenho.</li>
+          <br>
+          <li>Corrigir erro no sistema de arquivos do disco usando ferramentas como EaseUS Partition Master.</li>
+          <br>
+          <li>Limpar os arquivos temporários e desnecessários usando ferramentas como CCleaner.</li>
+          <br>
+          <li>Espero que isso te ajude. Se você tiver mais alguma dúvida, fique à vontade para perguntar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
