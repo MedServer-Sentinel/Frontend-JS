@@ -29,27 +29,30 @@
     font-size: 45px;
 }
 .container-hospitais{
-    width: 70%;
-    height: 70%;
-    padding: 1%;
+    max-width: 70%;
+    height: 80%;
+    padding: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    overflow: scroll;
+    overflow-x: hidden;
     /* border: 1px solid #017d7d; */
 }
 
 .fileira-hospital{
     width: 100%;
-    height: 50%;
+    height: 100%;
     /* background-color: red; */
     display: flex;
-    justify-content: space-between;
-    margin: 1% 0%;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+    
 }
 
 .hospital{
     width: 24%;
-    height: 100%;
+    height: 50%;
     /* background-color: aqua; */
     display: flex;
     flex-direction: column;

@@ -15,6 +15,13 @@ router.get("/listarDadosUsuario/:idUsuario", function(req, res) {
     usuarioController.listarDadosUsuario(req,res);
 });
 
+router.get("/listarComputadores/:nomeEmpresa", function(req, res) {
+    usuarioController.listarComputadores(req,res);
+});
+router.get("/listarHospitais/:cnpj", function(req, res) {
+    usuarioController.listarHospitais(req,res);
+});
+
 router.get("/listarDadosEmpresa/:idEmpresa", function(req, res) {
     usuarioController.listarDadosEmpresa(req,res);
 });

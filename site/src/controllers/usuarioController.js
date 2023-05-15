@@ -43,6 +43,45 @@ function listarDadosUsuario(req, res) {
             }
         );
 }
+function listarComputadores(req, res) {
+
+    var nomeEmpresa = req.params.nomeEmpresa
+
+    usuarioModel.listarComputadores(nomeEmpresa)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+function listarHospitais(req, res) {
+
+    var cnpj = req.params.cnpj
+    
+
+    usuarioModel.listarHospitais(cnpj)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 function listarDadosEmpresa(req, res) {
 
@@ -482,6 +521,8 @@ module.exports = {
     empresa,
     updateUsuario,
     listarDadosUsuario,
+    listarComputadores,
+    listarHospitais,
     listarDadosEmpresa,
     atualizarParametroCpu,
     updateEmail,
