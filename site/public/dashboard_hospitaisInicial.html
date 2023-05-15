@@ -11,11 +11,12 @@
     <script src="./Js/gauge.min.js"></script>
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
+    <script src="./Js/dash_hospital.js"></script>
     <title>Hospitais</title>
 </head>
 
 
-<body onload="mudarheader()">
+<body onload="mudarheader(),getHospital()">
     <div class="container">
         <header>
             <nav class="nav-bar">
@@ -61,49 +62,9 @@
         <div class="geral-conteudo">
             <h1>Hospitais:</h1>
             <div class="container-hospitais">
-                <div class="fileira-hospital">
-                    <a href="./dashboard_computadores.html" class="hospital">
-                        <img src="./assets/imagens/hospital.png">
-                        <h2>Cidade Tiradentes</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_computadores.html" class="hospital">
-                        <img src="./assets/imagens/hospital.png">
-                        <h2>Julio Tupi</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_computadores.html" class="hospital">
-                        <img src="./assets/imagens/hospital.png">
-                        <h2>São Mateus</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_computadores.html" class="hospital">
-                        <img src="./assets/imagens/hospital.png">
-                        <h2>Carlos Chagas</h2>
-                        <span>X Alertas</span>
-                    </a>
-                </div>
-                <div class="fileira-hospital">
-                    <a href="./dashboard_computadores.html" class="hospital">
-                        <img src="./assets/imagens/hospital.png">
-                        <h2>Nardine</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_computadores.html" class="hospital">
-                        <img src="./assets/imagens/hospital.png">
-                        <h2>Hospital Estadual Sapopemba</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_computadores.html" class="hospital">
-                        <img src="./assets/imagens/hospital.png">
-                        <h2>Hospital e maternidade São Lucas</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_computadores.html" class="hospital">
-                        <img src="./assets/imagens/hospital.png">
-                        <h2>Santa Marcelina</h2>
-                        <span>X Alertas</span>
-                    </a>
+                <div class="fileira-hospital" id="hospital">
+                    
+               
                 </div>
             </div>
         </div>

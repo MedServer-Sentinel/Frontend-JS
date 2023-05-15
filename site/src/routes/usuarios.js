@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
-
 router.get("/", function (req, res) {
     usuarioController.testar(req, res);
 });
@@ -13,6 +12,13 @@ router.get("/listar", function (req, res) {
 
 router.get("/listarDadosUsuario/:idUsuario", function(req, res) {
     usuarioController.listarDadosUsuario(req,res);
+});
+
+router.get("/listarComputadores/:nomeEmpresa", function(req, res) {
+    usuarioController.listarComputadores(req,res);
+});
+router.get("/listarHospitais/:cnpj", function(req, res) {
+    usuarioController.listarHospitais(req,res);
 });
 
 router.get("/listarDadosEmpresa/:idEmpresa", function(req, res) {
@@ -70,6 +76,5 @@ router.put("/updateCep", function (req, res) {
 router.put("/updateEmail", function (req, res) {
     usuarioController.updateEmail(req, res);
 });
-
 
 module.exports = router;

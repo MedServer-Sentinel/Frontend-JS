@@ -12,12 +12,12 @@
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
     <script src="./Js/dash_computadores.js"></script>
-    <script src="./Js/verificar_tipo_usuario.js"></script>
+ 
     <title>Computadores</title>
 </head>
 
 
-<body onload="mudarheader(),verificaUser()">
+<body onload="mudarheader(),getComputer()">
     <div class="container">
         <header>
             <nav class="nav-bar">
@@ -63,49 +63,9 @@
         <div class="geral-conteudo">
             <h1>Computadores em estado de atenção: </h1>
             <div class="container-computadores">
-                <div class="fileira-computador">
-                    <a href="./dashboard_hospitais.html" class="computador" id="emergencial">
-                        <img src="./assets/imagens/computer.png">
-                        <h2>Computador 1<br>(Emergencia)</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_hospitais.html" class="computador" id="emergencial">
-                        <img src="./assets/imagens/computer.png">
-                        <h2>Computador 2<br>(Emergencia)</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_hospitais.html" class="computador"id="critico">
-                        <img src="./assets/imagens/computer.png">
-                        <h2>Computador 3<br>(Pronto-Socorro)</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_hospitais.html" class="computador" id="critico">
-                        <img src="./assets/imagens/computer.png">
-                        <h2>Computador 4<br>(Pronto-Socorro)</h2>
-                        <span>X Alertas</span>
-                    </a>
-                </div>
-                <div class="fileira-computador">
-                    <a href="./dashboard_hospitais.html" class="computador" id="critico">
-                        <img src="./assets/imagens/computer.png">
-                        <h2>Computador 5<br>(Internação)</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_hospitais.html" class="computador" id="significativo">
-                        <img src="./assets/imagens/computer.png">
-                        <h2>Computador 6<br>(Exames)</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_hospitais.html" class="computador" id="significativo">
-                        <img src="./assets/imagens/computer.png">
-                        <h2>Computador 7<br>(Pronto-Socorro)</h2>
-                        <span>X Alertas</span>
-                    </a>
-                    <a href="./dashboard_hospitais.html" class="computador" id="significativo">
-                        <img src="./assets/imagens/computer.png">
-                        <h2>Computador 8<br>(Cirurgia)</h2>
-                        <span>X Alertas</span>
-                    </a>
+                <div class="fileira-computador" id="fileira-computador">
+                    
+                   
                 </div>
             </div>
         </div>
