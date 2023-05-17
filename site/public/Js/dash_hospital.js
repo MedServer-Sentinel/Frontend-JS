@@ -20,6 +20,7 @@ function getHospital() {
                  
 
                     }
+                    
                 });
             } else {
                 throw "Houve um erro na API!";
@@ -33,4 +34,3 @@ function i(nome){
     console.log(nome)
      sessionStorage.NOMEHOSPITAL = nome 
 }
-

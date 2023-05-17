@@ -113,7 +113,7 @@ function listarDadosUsuario(idUsuario) {
 function listarComputadores(nomeEmpresa) {
     console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDadosUsuario()");
     var instrucao = `
-    select  m.nome from  empresa join  Maquina as m on m.fk_empresa = idempresa where empresa.nome = '${nomeEmpresa}';
+    select  m.nome,cod_MAC from  empresa join  Maquina as m on m.fk_empresa = idempresa where empresa.nome = '${nomeEmpresa}';
 ;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);

@@ -10,6 +10,7 @@ function verificaUser() {
     }
 }
 function getComputer() {
+    console.log(sessionStorage.NOMEHOSPITAL);
     var nomeEmpresa = sessionStorage.NOMEHOSPITAL;
 
     fetch(`/usuarios/listarComputadores/${nomeEmpresa}`)
@@ -34,7 +35,7 @@ function getComputer() {
                         } else {
                             computador.innerHTML += `    
             <a href="./dashboard_hospitais.html" class="computador"  id="emergencial">
-            <img src="./assets/imagens/computer.png">
+            <img src="./assets/imagens/computer.png"  onclick="m('${resposta[i].cod_MAC}')">
             <h2>${resposta[i].nome}<br>(Emergencia)</h2>
             <span>X Alertas</span>
         </a>`;
@@ -42,7 +43,7 @@ function getComputer() {
 
                     }
 
-
+                   
 
                 });
             } else {
@@ -53,4 +54,9 @@ function getComputer() {
             console.error(resposta);
         });
        
+}
+function m(mac){
+    
+    console.log(mac)
+     sessionStorage.MAC = mac 
 }

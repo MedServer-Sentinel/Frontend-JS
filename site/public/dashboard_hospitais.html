@@ -11,11 +11,13 @@
     <script src="./Js/gauge.min.js"></script>
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
+    <script src="./Js/dashboard.js"></script>
+
     <title>Dashboard</title>
 </head>
 
 
-<body onload="mudarheader()">
+<body onload="mudarheader(),obterDadosGrafico()">
     <div class="container">
         <header>
             <nav class="nav-bar">
@@ -323,41 +325,7 @@
         gaugeDisco.setOptions(optsDisco);
     }
 
-    const grafico1 = document.getElementById('grafico-linha');
-
-    new Chart(grafico1, {
-        type: 'line',
-        data: {
-            labels: ['20:55', '20:56', '20:57', '20:58', '20:59', '21:00',],
-            datasets: [
-                {
-                    label: 'CPU',
-                    data: [87, 43, 65, 92, 28, 77],
-                    borderColor: '#FF5733',
-                    backgroundColor: '#FF5733',
-                },
-                {
-                    label: 'RAM',
-                    data: [78, 42, 93, 27, 65, 89],
-                    borderColor: '#33FF6B',
-                    backgroundColor: '#33FF6B',
-                },
-                {
-                    label: 'Disco',
-                    data: [82, 78, 76, 85, 73, 88],
-                    borderColor: '#339CFF',
-                    backgroundColor: '#339CFF',
-                }
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+  
 
     const grafico2 = document.getElementById('grafico-dia');
 
