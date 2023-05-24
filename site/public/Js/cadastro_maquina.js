@@ -27,11 +27,38 @@ function cadastroMaquina(){
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
+           var fkmaquina = resposta.id_maquina;
+           inserirParametro(fkmaquina);
             alert("Cadastro realizado com sucesso! Redirecionando para tela de Cadastro Máquina");
             window.location = "./cadastro_maquina.html";
 
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+}
+function inserirParametro(fkmaquina){
+    // Enviando o valor da nova input
+    fetch(`/usuarios/inserirParametro/${fkmaquina}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+        
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+       
+        } else {
+            throw ("Houve um erro ao tentar realizar o insert do parametro!");
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);

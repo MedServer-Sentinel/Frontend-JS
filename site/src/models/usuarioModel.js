@@ -30,8 +30,8 @@ function cadastrar(nome, email, cpf, senha) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function cadastrarUsuario(nome, email, cpf,tipo, senha, idEmpresa) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, cpf,tipo, senha);
+function cadastrarUsuario(nome, email, cpf, tipo, senha, idEmpresa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, cpf, tipo, senha);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
@@ -51,13 +51,61 @@ function cadastroMaquina(nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor) {
         INSERT INTO  Maquina (nome, ipv4, Tipo, cod_MAC, andar, setor, fk_empresa) VALUES ('${nome}', '${ipv4}', '${tipo}', '${mac}','${andar}', '${setor}', '${MatrizOuFilial}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
+    
+    return database.executar(instrucao);
+}
+
+function inserirParametro(fkmaquina) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor);
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO  parametro (significativo, moderado, critico, fk_maquina) VALUES ('30', '60', '80','${fkmaquina}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function parametroRam(significativo, moderado, critico,id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    moderadoRam(moderado,id);
+    criticoRam(critico,id)
+    var instrucao = `
+    update parametro set  significativo = '${significativo}' where id_parametro = '${id}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function moderadoRam( moderado,id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    update parametro set  moderado= '${moderado}' where id_parametro = '${id}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function criticoRam( critico,id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    update parametro set critico = '${critico}' where id_parametro = '${id}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 function empresa(nome, cnpj, email, telefone, responsavel, cep) {
     console.log('chegou aqui na empresa')
     console.log(nome, cnpj, email, telefone, responsavel, cep)
-   
+
 
     var instrucao = `
     INSERT INTO empresa (nome, cnpj , email, telefone, responsavel, cep) VALUES ('${nome}','${cnpj}', '${email}','${telefone}','${responsavel}', '${cep}');
@@ -66,9 +114,9 @@ function empresa(nome, cnpj, email, telefone, responsavel, cep) {
     return database.executar(instrucao);
 }
 
-function filial(nome, email,cnpj, telefone, responsavel, cep, idEmpresa) {
+function filial(nome, email, cnpj, telefone, responsavel, cep, idEmpresa) {
     console.log('chegou aqui na empresa')
-   
+
 
     var instrucao = `
     INSERT INTO empresa (nome, email, cnpj, telefone, responsavel, cep, Matriz) VALUES ('${nome}','${email}', '${cnpj}','${telefone}','${responsavel}', '${cep}', '${idEmpresa}');
@@ -79,7 +127,7 @@ function filial(nome, email,cnpj, telefone, responsavel, cep, idEmpresa) {
 
 function updateUsuario() {
     console.log('chegou aqui na empresa')
-   
+
 
     var instrucao = `
     UPDATE usuario SET fkEmpresa = (select max(idempresa) from empresa)
@@ -88,17 +136,17 @@ function updateUsuario() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
- /*function trigger(){
-    var instrucao = `DELIMITER $
+/*function trigger(){
+   var instrucao = `DELIMITER $
 
-    CREATE TRIGGER update_usuario
-    AFTER INSERT ON Empresa 
-    FOR EACH ROW
-    BEGIN
-     update usuario set fkEmpresa = (select max(id_empresa) from empresa) where id_usuario = last_insert_id() ;
-    END$
-    DELIMITER ;`
-    return database.executar(instrucao); 
+   CREATE TRIGGER update_usuario
+   AFTER INSERT ON Empresa 
+   FOR EACH ROW
+   BEGIN
+    update usuario set fkEmpresa = (select max(id_empresa) from empresa) where id_usuario = last_insert_id() ;
+   END$
+   DELIMITER ;`
+   return database.executar(instrucao); 
 }*/
 
 function listarDadosUsuario(idUsuario) {
@@ -106,6 +154,25 @@ function listarDadosUsuario(idUsuario) {
     var instrucao = `
         SELECT * FROM usuario 
             WHERE id_usuario = '${idUsuario}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function listarComputadores(nomeEmpresa) {
+    console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDadosUsuario()");
+    var instrucao = `
+    select  m.nome,cod_MAC,id_maquina from  empresa join  Maquina as m on m.fk_empresa = idempresa where empresa.nome = '${nomeEmpresa}';
+;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function listarHospitais(cnpj) {
+    console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDadosUsuario()");
+    var instrucao = `
+    select m.nome from empresa as m where cnpj = '${cnpj}';
+   
+;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -131,9 +198,9 @@ function listarEmpresas(idEmpresa) {
     return database.executar(instrucao);
 }
 
-function atualizarParametroCpu(significativo,moderadoCpu,criticoCpu) {
+function atualizarParametroRam(significativo, moderadoCpu, criticoCpu) {
     console.log('chegou aqui na empresa')
-   
+
 
     var instrucao = `
     UPDATE parametros SET significativo = ${significativo} where idparametro = from empresa)
@@ -179,12 +246,15 @@ module.exports = {
     updateUsuario,
     empresa,
     listarDadosUsuario,
+    listarComputadores,
+    listarHospitais,
     listarDadosEmpresa,
-    atualizarParametroCpu,
+    parametroRam,
     updateEmail,
     updateSenha,
     updateCep,
     filial,
     cadastroMaquina,
-    listarEmpresas
+    listarEmpresas,
+    inserirParametro
 };

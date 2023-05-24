@@ -43,6 +43,45 @@ function listarDadosUsuario(req, res) {
             }
         );
 }
+function listarComputadores(req, res) {
+
+    var nomeEmpresa = req.params.nomeEmpresa
+
+    usuarioModel.listarComputadores(nomeEmpresa)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+function listarHospitais(req, res) {
+
+    var cnpj = req.params.cnpj
+    
+
+    usuarioModel.listarHospitais(cnpj)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 function listarDadosEmpresa(req, res) {
 
@@ -368,20 +407,46 @@ function updateUsuario(req, res) {
             );
     
 }
-function atualizarParametroCpu(req, res) {
+function inserirParametro(req, res) {
+    console.log("chegou na controller")
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+
+    var fkmaquina = req.params.fkmaquina;
+    console.log("o id da maquina é" + fkmaquina)
+   
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.inserirParametro(fkmaquina)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a atualizacao! Erro: catch",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    
+}
+function atualizarParametroRam(req, res) {
     console.log("chegou na controller")
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
 
-    var significativo = req.body.significativoCpu;
-    var moderadoCpu = req.body.moderadoCpu;
-    var criticoCpu = req.body.criticoCpu;
+    var significativo = req.body.significativoRam;
+    var moderado = req.body.moderadoRam;
+    var critico = req.body.criticoRam;
+    var id = req.params.id;
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    if (significativo == undefined || moderadoCpu == undefined || criticoCpu) {
-        console(undefined)
+    if (significativo == undefined || moderado == undefined || critico == undefined || id == undefined) {
+        console.log(undefined)
     }
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.atualizarParametroCpu()
+        usuarioModel.parametroRam(significativo,moderado,critico,id)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -482,11 +547,14 @@ module.exports = {
     empresa,
     updateUsuario,
     listarDadosUsuario,
+    listarComputadores,
+    listarHospitais,
     listarDadosEmpresa,
-    atualizarParametroCpu,
+    atualizarParametroRam,
     updateEmail,
     updateSenha,
     updateCep,
     cadastroMaquina,
-    listarEmpresas
+    listarEmpresas,
+    inserirParametro
 }

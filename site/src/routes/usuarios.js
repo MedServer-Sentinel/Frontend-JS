@@ -15,6 +15,13 @@ router.get("/listarDadosUsuario/:idUsuario", function(req, res) {
     usuarioController.listarDadosUsuario(req,res);
 });
 
+router.get("/listarComputadores/:nomeEmpresa", function(req, res) {
+    usuarioController.listarComputadores(req,res);
+});
+router.get("/listarHospitais/:cnpj", function(req, res) {
+    usuarioController.listarHospitais(req,res);
+});
+
 router.get("/listarDadosEmpresa/:idEmpresa", function(req, res) {
     usuarioController.listarDadosEmpresa(req,res);
 });
@@ -54,8 +61,11 @@ router.put("/updateUsuario", function (req, res) {
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
-router.post("/parametros", function (req, res) {
-    usuarioController.atualizarParametroCpu(req, res);
+router.post("/usuarios/inserirParametro/:fkmaquina", function (req, res) {
+    usuarioController.inserirParametro(req, res);
+});
+router.put("/parametros/:id", function (req, res) {
+    usuarioController.atualizarParametroRam(req, res);
 });
 
 router.put("/updateSenha", function (req, res) {

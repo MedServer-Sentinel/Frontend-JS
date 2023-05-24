@@ -30,28 +30,33 @@
 }
 
 .container-computadores{
-    width: 70%;
-    height: 70%;
-    padding: 1%;
+    max-width: 70%;
+    height: 80%;
+    padding: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    overflow: scroll;
+    overflow-x: hidden;
+   
+   
     /* border: 1px solid #017d7d; */
     /* background-color: aquamarine; */
 } 
 
 .fileira-computador{
     width: 100%;
-    height: 50%;
+    height: 100%;
     /* background-color: red; */
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
     margin: 1% 0%;
 }
 
 .computador{
     width: 24%;
-    height: 100%;
+    height: 50%;
     /* background-color: aqua; */
     display: flex;
     flex-direction: column;
@@ -64,6 +69,23 @@
     font-size: 12px;
     text-align: center;
 }
+.not-active {
+    width: 24%;
+    height: 50%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #017d7d;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #161616;
+    font-size: 12px;
+    text-align: center;
+    pointer-events: none;
+    cursor: default;
+}
 
 .computador:hover{
     transition: 0.2s;
@@ -72,7 +94,18 @@
     box-shadow: 2px 2px 3px #00000038;
 }
 
-.computador img{
+.computador  img{
+    width: 60%;
+    /* background-color: red; */
+}
+.not-active:hover{
+    transition: 0.2s;
+    background-color: #017d7d;
+    color: #fff;
+    box-shadow: 2px 2px 3px #00000038;
+}
+
+.not-active  img{
     width: 60%;
     /* background-color: red; */
 }
