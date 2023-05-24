@@ -109,7 +109,7 @@ function buscarMedidasEmTempoRealDisco(req, res) {
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(mac).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoRealDisco(mac).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -121,6 +121,102 @@ function buscarMedidasEmTempoRealDisco(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+function buscarParemetros(req, res) {
+    console.log(`Recuperando parametros em tempo real`);
+
+    var mac = req.params.mac;
+    medidaModel.buscarParemetros(mac).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+            console.log(resultado+"parametros");
+            
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscaralertsTempoRealram(req, res) {
+    console.log(`Recuperando alerts`);
+    var mac = req.params.mac;
+    var critico = req.params.criticoParams
+   
+
+    medidaModel.buscaralertsTempoRealram(mac,critico).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+            
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+        
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas buscar alerts.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function MaxRam(req, res) {
+    console.log(`Recuperando alerts`);
+    var mac = req.params.mac;
+    var critico = req.params.criticoParams
+
+    medidaModel.MaxRam(mac,critico).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+          
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas buscar max ram.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function buscaralertsTempoRealDisco(req, res) {
+    console.log(`Recuperando alerts do discooooooooooooooooo`);
+    var mac = req.params.mac;
+    var critico = req.params.criticoParams
+    console.log(critico + "e o mac e " + mac)
+
+    medidaModel.buscaralertsTempoRealDisco(mac,critico).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+            
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+        
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas buscar alerts.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function MaxDisco(req, res) {
+    console.log(`Recuperando alerts`);
+    var mac = req.params.mac;
+    var critico = req.params.criticoParams
+
+    medidaModel.MaxDisco(mac,critico).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+          
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas buscar max ram.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 module.exports = {
     buscarUltimasMedidas,
@@ -129,6 +225,12 @@ module.exports = {
 
     buscarMedidasEmTempoReal,
     buscarMedidasEmTempoRealCPU,
-    buscarMedidasEmTempoRealDisco
+    buscarMedidasEmTempoRealDisco,
+
+    buscarParemetros,
+    buscaralertsTempoRealram,
+    buscaralertsTempoRealDisco,
+    MaxRam,
+    MaxDisco,
 
 }

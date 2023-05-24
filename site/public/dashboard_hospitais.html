@@ -17,7 +17,7 @@
 </head>
 
 
-<body onload="mudarheader(),obterDadosGrafico()">
+<body onload="mudarheader(),obterDadosGrafico(),buscarParemetros()">
     <div class="container">
         <header>
             <nav class="nav-bar">
@@ -66,10 +66,10 @@
                 <div class="grafico-principal">
                     <div class="metricas">
                         <div class="card-metrica-gauge">
-                            <div class="container-gauge">
+                            <!-- <div class="container-gauge">
                                 <h3>CPU</h3>
                                 <canvas id="gaugeCpu"></canvas>
-                            </div>
+                            </div> -->
                             <div class="container-gauge">
                                 <h3>RAM</h3>
                                 <canvas id="gaugeRam"></canvas>
@@ -83,24 +83,24 @@
                         <div class="card-metrica">
                             <h3 class="titulo">Quantidade de vezes que<br> hardware saiu do padrão:</h3>
                             <div class="container-metrica">
-                                <div class="conteudo-metrica">
+                                <!-- <div class="conteudo-metrica">
                                     <span>CPU</span>
                                     <h1>0</h1>
-                                </div>
+                                </div> -->
                                 <div class="conteudo-metrica">
                                     <span>RAM</span>
-                                    <h1>0</h1>
+                                    <h1 id="alertRAM">0</h1>
                                 </div>
                                 <div class="conteudo-metrica">
                                     <span>Disco</span>
-                                    <h1>0</h1>
+                                    <h1 id="alertDisco">0</h1>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                     <div class="dashboard">
-                        <H1>Consumo de hardware - a cada X minutos</H1>
+                        <H1>Consumo de hardware - a cada 10 segundos</H1>
                         <!-- <div class="grafico-linha" style="width: 950px; height: 420px;"> -->
                         <div class="grafico-linha">
                             <canvas id="grafico-linha" style="width: 950px; height: 410px;"></canvas>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="parametrizacao">
                     <h2>Parametrize os limites</h2>
-                    <div class="container-alerta">
+                    <!-- <div class="container-alerta">
                         <h4>CPU:</h4>
                         <div class="alerta">
 
@@ -131,26 +131,26 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
                     <div class="container-alerta">
                         <h4>RAM:</h4>
                         <div class="alerta">
 
                             <div class="caixa-input">
                                 <span>Moderado:</span>
-                                <input type="number" id="alertaModeradoRam">
+                                <input type="number" id="alertaModeradoRam" value='30'>
                             </div>
 
 
                             <div class="caixa-input">
                                 <span>Significativo:</span>
-                                <input type="number" id="alertaSignificativoRam">
+                                <input type="number" id="alertaSignificativoRam" value='60'>
                             </div>
 
 
                             <div class="caixa-input-critico">
                                 <span>Crítico: </span>
-                                <input type="number" id="alertaCriticoRam">
+                                <input type="number" id="alertaCriticoRam" value='80'>
                             </div>
 
                         </div>
@@ -160,15 +160,15 @@
                         <div class="alerta">
                             <div class="caixa-input">
                                 <span>Moderado:</span>
-                                <input type="number" id="alertaModeradoDisco">
+                                <input type="number" id="alertaModeradoDisco" value='30'>
                             </div>
                             <div class="caixa-input">
                                 <span>Significativo:</span>
-                                <input type="number" id="alertaSignificativoDisco">
+                                <input type="number" id="alertaSignificativoDisco" value='30'>
                             </div>
                             <div class="caixa-input-critico">
                                 <span>Crítico: </span>
-                                <input type="number" id="alertaCriticoDisco">
+                                <input type="number" id="alertaCriticoDisco" value='30'>
                             </div>
                         </div>
                     </div>
@@ -191,17 +191,17 @@
 
                     <div class="btn-parametrizacao">
                         <button class="btn-cancelar"
-                            onclick="mostraParametrizacao(),atualizarParametro()">Cancelar</button>
-                        <button class="btn-confirmar" onclick="parametrizacao()">Confirmar</button>
+                            onclick="mostraParametrizacao()">Cancelar</button>
+                        <button class="btn-confirmar" onclick="atualizarParametroRam()">Confirmar</button>
                     </div>
                 </div>
                 <div class="graficos-secundarios">
                     <div class="grafico">
-                        <h3>Registro diário do consumo<br>de hardware</h3>
+                        <h3>Pico maximo de consumo diario<br>de hardware</h3>
                         <canvas id="grafico-dia" style="width: 260px; height: 165px;"></canvas>
                     </div>
                     <div class="grafico">
-                        <h3>Registro semanal do consumo<br>de hardware</h3>
+                        <h3>Pico maximo de consumo semanal<br>de hardware</h3>
                         <canvas id="grafico-semana" style="width: 260px; height: 165px;"></canvas>
                     </div>
 
@@ -251,42 +251,27 @@
         }
     };
 
-    const gaugeCpu = new Gauge(document.getElementById("gaugeCpu")).setOptions(opts);
-    gaugeCpu.maxValue = 100;
-    gaugeCpu.minValue = 0;
-    gaugeCpu.animationSpeed = 65;
-    gaugeCpu.set(25);
+    // const gaugeCpu = new Gauge(document.getElementById("gaugeCpu")).setOptions(opts);
+    // gaugeCpu.maxValue = 100;
+    // gaugeCpu.minValue = 0;
+    // gaugeCpu.animationSpeed = 65;
+    // gaugeCpu.set(25);
 
     const gaugeRam = new Gauge(document.getElementById("gaugeRam")).setOptions(opts);
     gaugeRam.maxValue = 100;
     gaugeRam.minValue = 0;
     gaugeRam.animationSpeed = 65;
-    gaugeRam.set(60);
+    gaugeRam.set(ramMax);
 
     const gaugeDisco = new Gauge(document.getElementById("gaugeDisco")).setOptions(opts);
     gaugeDisco.maxValue = 100;
     gaugeDisco.minValue = 0;
     gaugeDisco.animationSpeed = 65;
-    gaugeDisco.set(95);
+    gaugeDisco.set(discoMax);
 
     function parametrizacao() {
-        const moderadoCpu = Number(alertaModeradoCpu.value);
-        const significativoCpu = Number(alertaSignificativoCpu.value);
-        const criticoCpu = Number(alertaCriticoCpu.value);
-        const optsCpu = {
-            staticZones: [
-                { strokeStyle: "#8BC34A", min: 0, max: moderadoCpu },
-                { strokeStyle: "#FFEB3B", min: moderadoCpu, max: significativoCpu },
-                { strokeStyle: "#FF9800", min: significativoCpu, max: criticoCpu },
-                { strokeStyle: "#F44336", min: criticoCpu, max: 100 }
-            ],
-            staticLabels: {
-                font: "10px Montserrat",
-                labels: [moderadoCpu, significativoCpu, criticoCpu],
-
-            }
-        };
-        gaugeCpu.setOptions(optsCpu);
+    
+        gaugeCpu.setOptions(optsRam);
 
         const moderadoRam = Number(alertaModeradoRam.value);
         const significativoRam = Number(alertaSignificativoRam.value);
@@ -304,7 +289,7 @@
 
             }
         };
-        gaugeRam.setOptions(optsRam);
+        gaugeRam.setOptions(optsDisco);
 
         const moderadoDisco = Number(alertaModeradoDisco.value);
         const significativoDisco = Number(alertaSignificativoDisco.value);
@@ -400,26 +385,25 @@
         }
     });
 
-    function atualizarParametro() {
-
-    }
-    function atualizarParametroCPU() {
-
+    function atualizarParametroRam() {
 
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
 
-        var moderadoCpu = alertaModeradoCpu.value;
-        var significativoCpu = alertaSignificativoCpu.value;
-        var criticoCpu = alertaCriticoCpu.value;
+        var moderadoRam = alertaModeradoRam.value;
+        var significativoRam = alertaSignificativoRam.value;
+        var criticoRam = alertaCriticoRam.value;
+     
+        var id = sessionStorage.ID_MAQUINA;
+        console.log(id)
 
-        if (moderadoCpu == "" || significativoCpu == "" || criticoCpu == "") {
+        if (moderadoRam == "" || significativoRam == "") {
             alert(" campo vazios")
         } else {
 
             // Enviando o valor da nova input
-            fetch("/usuarios/parametros", {
+            fetch(`/usuarios/parametros/${id}`,{
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -427,9 +411,10 @@
                 body: JSON.stringify({
                     // crie um atributo que recebe o valor recuperado aqui
                     // Agora vá para o arquivo routes/usuario.js
-                    significativoCpu: significativoCpu,
-                    moderadoCpu: moderadoCpu,
-                    criticoCpu: criticoCpu,
+                    significativoRam: significativoRam,
+                    moderadoRam: moderadoRam,
+                    criticoRam: criticoRam,
+                    
                 })
             }).then(function (resposta) {
 

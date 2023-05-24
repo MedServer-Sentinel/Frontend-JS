@@ -35,10 +35,11 @@ function getComputer() {
                         } else {
                             computador.innerHTML += `    
             <a href="./dashboard_hospitais.html" class="computador"  id="emergencial">
-            <img src="./assets/imagens/computer.png"  onclick="m('${resposta[i].cod_MAC}')">
+            <img src="./assets/imagens/computer.png"  onclick="m('${resposta[i].id_maquina}','${resposta[i].cod_MAC}')">
             <h2>${resposta[i].nome}<br>(Emergencia)</h2>
             <span>X Alertas</span>
         </a>`;
+        console.log(resposta[i].id_maquina)
                         }
 
                     }
@@ -55,8 +56,10 @@ function getComputer() {
         });
        
 }
-function m(mac){
+function m(id_maquina,mac){
     
     console.log(mac)
-     sessionStorage.MAC = mac 
+    console.log(id_maquina)
+     sessionStorage.MAC = mac;
+     sessionStorage.ID_MAQUINA = id_maquina;
 }

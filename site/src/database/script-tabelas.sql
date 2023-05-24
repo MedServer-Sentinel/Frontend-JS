@@ -2,8 +2,9 @@
 CREATE TABLE Empresa (
   idempresa INT NOT NULL IDENTITY(1,1),
   nome VARCHAR(45) NULL,
-  Responsavel VARCHAR(45) NULL,
+  responsavel VARCHAR(45) NULL,
   cnpj CHAR(45) NULL,
+  cep char(20),
   email varchar(40) NULL,
   telefone CHAR(11) NULL,
    PRIMARY KEY (idEmpresa),
@@ -16,249 +17,287 @@ CREATE TABLE usuario (
   id_usuario INT NOT NULL IDENTITY(1,1),
   nome VARCHAR(45) NULL,
   email VARCHAR(45) NULL,
-  senha CHAR(8) NULL,
+  senha CHAR(20) NULL,
   Cpf VARCHAR(45) NULL,
+  tipo varchar(20),
   fkempresa INT,  foreign key (fkempresa) references Empresa(idEmpresa),
   PRIMARY KEY (id_usuario)
   );
 
 
 
--- -----------------------------------------------------
--- Table MedServer.Maquina
--- -----------------------------------------------------
-CREATE TABLE Maquina (
-  idMaquina INT NOT NULL IDENTITY(1,1),
-  Nome VARCHAR(45) NULL,
-  Tipo VARCHAR(45) NULL,
-  ipv4 VARCHAR(30) NULL,
-  cod_MAC VARCHAR(45) NULL,
-  andar INT NULL,
-  setor VARCHAR(45) NULL,
-	fk_empresa INT,  foreign key (fk_empresa) references Empresa(idEmpresa),
-  PRIMARY KEY (idMaquina)
-  );
-
-CREATE TABLE ram (
-  idram INT NOT NULL IDENTITY(1,1),
-  tipo VARCHAR(45) NULL,
-  capacidade_total VARCHAR(45) NULL,
-  fkmaquina INT, foreign key (fkmaquina) references maquina(idmaquina),
-  PRIMARY KEY (idram)
-  );
+  CREATE TABLE Maquina (
+id_maquina INT NOT NULL IDENTITY(1,1),
+nome VARCHAR(45),
+tipo VARCHAR(45),
+cod_MAC VARCHAR(45) NOT NULL,
+andar VARCHAR(45),
+setor VARCHAR(45),
+PRIMARY KEY (id_maquina)
+);
 
 
-CREATE TABLE dados_ram (
-  idDados_Ram INT NOT NULL IDENTITY(1,1),
-  uso FLOAT,
-  reserva INT ,
-  disponivel FLOAT NULL,
-  velocidade INT NULL,
-  data_hora DATETIME NULL,
-  fkram INT ,foreign key (fkram) references ram(idram),
-  PRIMARY KEY (idDados_Ram)
-  );
+CREATE TABLE MemoriaRam (
+id_ram INT NOT NULL IDENTITY(1,1),
+capacidade_total VARCHAR(45) NOT NULL,
+fk_maquina INT UNIQUE NOT NULL,
+PRIMARY KEY (id_ram),
+CONSTRAINT fk_ram_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
+
+CREATE TABLE DadosRam (
+id_dados_ram INT NOT NULL IDENTITY(1,1),
+em_uso VARCHAR(45) NOT NULL,
+disponivel VARCHAR(45)NOT NULL,
+data_hora DATETIME NOT NULL,
+fk_ram INT NOT NULL,
+PRIMARY KEY (id_dados_ram),
+CONSTRAINT fk_dados_ram_ram1
+FOREIGN KEY (fk_ram)
+REFERENCES MemoriaRam (id_ram)
+);
+
+CREATE TABLE Processador (
+id_processador INT NOT NULL IDENTITY(1,1),
+nome_processador VARCHAR(200) NOT NULL,
+frequencia VARCHAR(45) NOT NULL,
+num_nucleo INT NOT NULL,
+fk_maquina INT UNIQUE NOT NULL,
+PRIMARY KEY (id_processador),
+CONSTRAINT fk_cpu_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
+
+CREATE TABLE Processo (
+id_processo INT NOT NULL IDENTITY(1,1),
+pid INT NOT NULL,
+nome VARCHAR(45) NOT NULL,
+uso_cpu DOUBLE NOT NULL,
+uso_ram DOUBLE NOT NULL,
+fk_processador INT NOT NULL,
+PRIMARY KEY (id_processo),
+CONSTRAINT fk_pross_cpu1
+FOREIGN KEY (fk_processador)
+REFERENCES Processador (id_processador)
+);
+
+CREATE TABLE Janela (
+id_janela INT NOT NULL IDENTITY(1,1),
+pid INT NOT NULL,
+titulo VARCHAR(200) NOT NULL,
+comando VARCHAR(200) NOT NULL,
+fk_processador INT NOT NULL,
+PRIMARY KEY (id_janela),
+CONSTRAINT fk_janela_cpu1
+FOREIGN KEY (fk_processador)
+REFERENCES Processador (id_processador)
+);
+
+CREATE TABLE Disco (
+id_disco INT NOT NULL IDENTITY(1,1),
+nome VARCHAR(45) NOT NULL,
+tipo VARCHAR(45) NOT NULL,
+total VARCHAR(45) NOT NULL,
+disponivel VARCHAR(45) NOT NULL,
+uuid VARCHAR(45) NOT NULL,
+fk_maquina INT NOT NULL,
+PRIMARY KEY (id_disco),
+CONSTRAINT fk_disco_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
+
+CREATE TABLE DadosDisco (
+id_dados_disco INT NOT NULL IDENTITY(1,1),
+velocida_escrita VARCHAR(45) NOT NULL,
+velocidade_leitura VARCHAR(45) NOT NULL,
+tempo_escrita VARCHAR(45) NOT NULL,
+data_hora DATETIME NOT NULL,
+fk_disco INT NOT NULL,
+PRIMARY KEY (id_dados_disco),
+CONSTRAINT fk_Disco_disco1
+FOREIGN KEY (fk_disco)
+REFERENCES Disco (id_disco)
+);
+
+CREATE TABLE Parametro (
+id_parametro int IDENTITY(1,1) not null,
+significativo INT NOT NULL,
+moderado INT NOT NULL,
+critico INT NOT NULL,
+fk_maquina INT NOT NULL,
+PRIMARY KEY (id_parametro),
+CONSTRAINT fk_parametros_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
+
+CREATE TABLE SistemaOperacional (
+id_sistema INT NOT NULL IDENTITY(1,1),
+fabricante VARCHAR(45) NOT NULL,
+tipo_sistema VARCHAR(45) NOT NULL,
+arquitetura VARCHAR(45) NOT NULL,
+tempo_atividade VARCHAR(45) NOT NULL,
+fk_maquina INT UNIQUE NOT NULL,
+PRIMARY KEY (id_sistema),
+CONSTRAINT fk_SISTEMA_OPERACIONAL_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
 
 
-CREATE TABLE cpu (
-  idcpu INT NOT NULL IDENTITY(1,1),
-  nome_processador VARCHAR(45) NULL,
-  marca VARCHAR(45) NULL,
-  num_nucleo INT NULL,
-  fkmaquina INT NOT NULL, foreign key (fkmaquina) references maquina(idmaquina),
-  PRIMARY KEY (idcpu)
-  );
-
-
-
-CREATE TABLE dados_CPU (
-  idDados_cpu INT NOT NULL IDENTITY(1,1),
-  utilização FLOAT NULL,
-  processos INT NULL,
-  tempoAtividade TIME NULL,
-  threads INT NULL,
-  velocidade FLOAT NULL,
-  data_hora DATETIME NULL,
-  quantidade_janela INT NULL,
-  fkcpu INT NOT NULL,foreign key (fkcpu) references cpu(idcpu),
-  PRIMARY KEY (idDados_cpu)
-  );
-
-
-
-CREATE TABLE disco (
-  iddisco INT IDENTITY(1,1),
-  tipo VARCHAR(45) NULL,
-  capacidade_total INT NULL,
-   fkdisco INT NOT NULL,foreign key (fkdisco) references maquina(idmaquina),
-  PRIMARY KEY (iddisco)
-  );
-
-CREATE TABLE dados_Disco (
-  idDados_disco INT NOT NULL IDENTITY(1,1),
-  tempRespota FLOAT,
-  velGravacao FLOAT,
-  velLeitura FLOAT,
-  data_hora DATETIME NULL,
-  fkdisco INT NOT NULL,foreign key (fkdisco) references disco(iddisco),
-  PRIMARY KEY (idDados_disco)
-  );
-
-
-
-
-CREATE TABLE parametros (
-  id_parametro INT NOT NULL,
-  min INT NULL,
-  max INT NULL,
-  cor VARCHAR(45) NULL,
-  fkMaquina INT NOT NULL, foreign key (fkmaquina) references maquina(idmaquina),
-  PRIMARY KEY (fkMaquina)
-  );
-
-
-CREATE TABLE SISTEMA_OPERACIONAL (
-  id_sis INT NOT NULL IDENTITY(1,1),
-  FABRICANTE VARCHAR(45) NULL,
-  tipo_sistema VARCHAR(45) NULL,
-  arquitetura VARCHAR(45) NULL,
-  tempo_atividade VARCHAR(45) NULL,
-  fkmaquina INT NOT NULL, foreign key (fkmaquina) references maquina(idmaquina),
-  PRIMARY KEY (id_sis)
-  );
-
-
-select * from usuario;
-select * from empresa;
 
 
 CREATE TABLE Empresa (
   idempresa INT NOT NULL IDENTITY(1,1),
   nome VARCHAR(45) NULL,
-  Responsavel VARCHAR(45) NULL,
+  responsavel VARCHAR(45) NULL,
   cnpj CHAR(45) NULL,
+  cep char(20),
   email varchar(40) NULL,
   telefone CHAR(11) NULL,
    PRIMARY KEY (idEmpresa),
     Matriz INT,  foreign key (Matriz) references Empresa(idEmpresa),
   );
-
-
-
 CREATE TABLE usuario (
   id_usuario INT NOT NULL IDENTITY(1,1),
   nome VARCHAR(45) NULL,
   email VARCHAR(45) NULL,
-  senha CHAR(8) NULL,
+  senha CHAR(20) NULL,
   Cpf VARCHAR(45) NULL,
+  tipo varchar(20),
   fkempresa INT,  foreign key (fkempresa) references Empresa(idEmpresa),
   PRIMARY KEY (id_usuario)
   );
 
 
 
--- -----------------------------------------------------
--- Table MedServer.Maquina
--- -----------------------------------------------------
-CREATE TABLE Maquina (
-  idMaquina INT NOT NULL IDENTITY(1,1),
-  Nome VARCHAR(45) NULL,
-  Tipo VARCHAR(45) NULL,
-  ipv4 VARCHAR(30) NULL,
-  cod_MAC VARCHAR(45) NULL,
-  andar INT NULL,
-  setor VARCHAR(45) NULL,
-	fk_empresa INT,  foreign key (fk_empresa) references Empresa(idEmpresa),
-  PRIMARY KEY (idMaquina)
-  );
-
-CREATE TABLE ram (
-  idram INT NOT NULL IDENTITY(1,1),
-  tipo VARCHAR(45) NULL,
-  capacidade_total VARCHAR(45) NULL,
-  fkmaquina INT, foreign key (fkmaquina) references maquina(idmaquina),
-  PRIMARY KEY (idram)
-  );
+  CREATE TABLE Maquina (
+id_maquina INT NOT NULL IDENTITY(1,1),
+nome VARCHAR(45),
+tipo VARCHAR(45),
+cod_MAC VARCHAR(45) NOT NULL,
+andar VARCHAR(45),
+setor VARCHAR(45),
+fk_empresa int, foreign key (fk_empresa) references empresa(idempresa),
+ipv4 varchar(32),
+PRIMARY KEY (id_maquina)
+);
 
 
-CREATE TABLE dados_ram (
-  idDados_Ram INT NOT NULL IDENTITY(1,1),
-  uso FLOAT,
-  reserva INT ,
-  disponivel FLOAT NULL,
-  velocidade INT NULL,
-  data_hora DATETIME NULL,
-  fkram INT ,foreign key (fkram) references ram(idram),
-  PRIMARY KEY (idDados_Ram)
-  );
+CREATE TABLE MemoriaRam (
+id_ram INT NOT NULL IDENTITY(1,1),
+capacidade_total VARCHAR(45) NOT NULL,
+fk_maquina INT UNIQUE NOT NULL,
+PRIMARY KEY (id_ram),
+CONSTRAINT fk_ram_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
 
+CREATE TABLE DadosRam (
+id_dados_ram INT NOT NULL IDENTITY(1,1),
+em_uso VARCHAR(45) NOT NULL,
+disponivel VARCHAR(45)NOT NULL,
+data_hora DATETIME NOT NULL,
+fk_ram INT NOT NULL,
+PRIMARY KEY (id_dados_ram),
+CONSTRAINT fk_dados_ram_ram1
+FOREIGN KEY (fk_ram)
+REFERENCES MemoriaRam (id_ram)
+);
 
-CREATE TABLE cpu (
-  idcpu INT NOT NULL IDENTITY(1,1),
-  nome_processador VARCHAR(45) NULL,
-  marca VARCHAR(45) NULL,
-  num_nucleo INT NULL,
-  fkmaquina INT NOT NULL, foreign key (fkmaquina) references maquina(idmaquina),
-  PRIMARY KEY (idcpu)
-  );
+CREATE TABLE Processador (
+id_processador INT NOT NULL IDENTITY(1,1),
+nome_processador VARCHAR(200) NOT NULL,
+frequencia VARCHAR(45) NOT NULL,
+num_nucleo INT NOT NULL,
+fk_maquina INT UNIQUE NOT NULL,
+PRIMARY KEY (id_processador),
+CONSTRAINT fk_cpu_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
 
+CREATE TABLE Processo (
+id_processo INT NOT NULL IDENTITY(1,1),
+pid INT NOT NULL,
+nome VARCHAR(45) NOT NULL,
+uso_cpu float NOT NULL,
+uso_ram float NOT NULL,
+fk_processador INT NOT NULL,
+PRIMARY KEY (id_processo),
+CONSTRAINT fk_pross_cpu1
+FOREIGN KEY (fk_processador)
+REFERENCES Processador (id_processador)
+);
 
+CREATE TABLE Janela (
+id_janela INT NOT NULL IDENTITY(1,1),
+pid INT NOT NULL,
+titulo VARCHAR(200) NOT NULL,
+comando VARCHAR(200) NOT NULL,
+fk_processador INT NOT NULL,
+PRIMARY KEY (id_janela),
+CONSTRAINT fk_janela_cpu1
+FOREIGN KEY (fk_processador)
+REFERENCES Processador (id_processador)
+);
 
-CREATE TABLE dados_CPU (
-  idDados_cpu INT NOT NULL IDENTITY(1,1),
-  utilização FLOAT NULL,
-  processos INT NULL,
-  tempoAtividade TIME NULL,
-  threads INT NULL,
-  velocidade FLOAT NULL,
-  data_hora DATETIME NULL,
-  quantidade_janela INT NULL,
-  fkcpu INT NOT NULL,foreign key (fkcpu) references cpu(idcpu),
-  PRIMARY KEY (idDados_cpu)
-  );
+CREATE TABLE Disco (
+id_disco INT NOT NULL IDENTITY(1,1),
+nome VARCHAR(45) NOT NULL,
+tipo VARCHAR(45) NOT NULL,
+total VARCHAR(45) NOT NULL,
+disponivel VARCHAR(45) NOT NULL,
+uuid VARCHAR(45) NOT NULL,
+fk_maquina INT NOT NULL,
+PRIMARY KEY (id_disco),
+CONSTRAINT fk_disco_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
 
+CREATE TABLE DadosDisco (
+id_dados_disco INT NOT NULL IDENTITY(1,1),
+velocida_escrita VARCHAR(45) NOT NULL,
+velocidade_leitura VARCHAR(45) NOT NULL,
+tempo_escrita VARCHAR(45) NOT NULL,
+data_hora DATETIME NOT NULL,
+fk_disco INT NOT NULL,
+PRIMARY KEY (id_dados_disco),
+CONSTRAINT fk_Disco_disco1
+FOREIGN KEY (fk_disco)
+REFERENCES Disco (id_disco)
+);
 
+CREATE TABLE Parametro (
+id_parametro int IDENTITY(1,1) not null,
+significativo INT NOT NULL,
+moderado INT NOT NULL,
+critico INT NOT NULL,
+fk_maquina INT NOT NULL,
+PRIMARY KEY (id_parametro),
+CONSTRAINT fk_parametros_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);
 
-CREATE TABLE disco (
-  iddisco INT IDENTITY(1,1),
-  tipo VARCHAR(45) NULL,
-  capacidade_total INT NULL,
-   fkdisco INT NOT NULL,foreign key (fkdisco) references maquina(idmaquina),
-  PRIMARY KEY (iddisco)
-  );
-
-CREATE TABLE dados_Disco (
-  idDados_disco INT NOT NULL IDENTITY(1,1),
-  tempRespota FLOAT,
-  velGravacao FLOAT,
-  velLeitura FLOAT,
-  data_hora DATETIME NULL,
-  fkdisco INT NOT NULL,foreign key (fkdisco) references disco(iddisco),
-  PRIMARY KEY (idDados_disco)
-  );
-
-
-
-
-CREATE TABLE parametros (
-  id_parametro INT NOT NULL,
-  min INT NULL,
-  max INT NULL,
-  cor VARCHAR(45) NULL,
-  fkMaquina INT NOT NULL, foreign key (fkmaquina) references maquina(idmaquina),
-  PRIMARY KEY (fkMaquina)
-  );
-
-
-CREATE TABLE SISTEMA_OPERACIONAL (
-  id_sis INT NOT NULL IDENTITY(1,1),
-  FABRICANTE VARCHAR(45) NULL,
-  tipo_sistema VARCHAR(45) NULL,
-  arquitetura VARCHAR(45) NULL,
-  tempo_atividade VARCHAR(45) NULL,
-  fkmaquina INT NOT NULL, foreign key (fkmaquina) references maquina(idmaquina),
-  PRIMARY KEY (id_sis)
-  );
+CREATE TABLE SistemaOperacional (
+id_sistema INT NOT NULL IDENTITY(1,1),
+fabricante VARCHAR(45) NOT NULL,
+tipo_sistema VARCHAR(45) NOT NULL,
+arquitetura VARCHAR(45) NOT NULL,
+tempo_atividade VARCHAR(45) NOT NULL,
+fk_maquina INT UNIQUE NOT NULL,
+PRIMARY KEY (id_sistema),
+CONSTRAINT fk_SISTEMA_OPERACIONAL_Maquina1
+FOREIGN KEY (fk_maquina)
+REFERENCES Maquina (id_maquina)
+);'
 
 
 select * from usuario;
@@ -293,7 +332,7 @@ select * from empresa;
 create database medServer;
 use medServer;
 create table Empresa(
-id_Empresa int primary key auto_increment,
+id_Empresa int primary key IDENTITY(1,1),
 nome varchar(40),
 email varchar(40),
 cnpj char(14),
@@ -302,7 +341,7 @@ responsavel varchar(30)
 );
 
 create table usuario(
-id_usuario int primary key auto_increment,
+id_usuario int primary key IDENTITY(1,1),
 nome varchar(40),
 senha varchar(40),
 email varchar(40),
@@ -326,7 +365,7 @@ select * from empresa;
 create database medServer;
 use medServer;
 create table Empresa(
-id_Empresa int primary key auto_increment,
+id_Empresa int primary key IDENTITY(1,1),
 nome varchar(40),
 email varchar(40),
 cnpj char(14),
@@ -335,7 +374,7 @@ responsavel varchar(30)
 );
 
 create table usuario(
-id_usuario int primary key auto_increment,
+id_usuario int primary key IDENTITY(1,1),
 nome varchar(40),
 senha varchar(40),
 email varchar(40),

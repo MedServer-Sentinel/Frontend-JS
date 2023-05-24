@@ -51,6 +51,54 @@ function cadastroMaquina(nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor) {
         INSERT INTO  Maquina (nome, ipv4, Tipo, cod_MAC, andar, setor, fk_empresa) VALUES ('${nome}', '${ipv4}', '${tipo}', '${mac}','${andar}', '${setor}', '${MatrizOuFilial}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
+    
+    return database.executar(instrucao);
+}
+
+function inserirParametro(fkmaquina) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor);
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO  parametro (significativo, moderado, critico, fk_maquina) VALUES ('30', '60', '80','${fkmaquina}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function parametroRam(significativo, moderado, critico,id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    moderadoRam(moderado,id);
+    criticoRam(critico,id)
+    var instrucao = `
+    update parametro set  significativo = '${significativo}' where id_parametro = '${id}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function moderadoRam( moderado,id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    update parametro set  moderado= '${moderado}' where id_parametro = '${id}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function criticoRam( critico,id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    update parametro set critico = '${critico}' where id_parametro = '${id}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
@@ -113,7 +161,7 @@ function listarDadosUsuario(idUsuario) {
 function listarComputadores(nomeEmpresa) {
     console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDadosUsuario()");
     var instrucao = `
-    select  m.nome,cod_MAC from  empresa join  Maquina as m on m.fk_empresa = idempresa where empresa.nome = '${nomeEmpresa}';
+    select  m.nome,cod_MAC,id_maquina from  empresa join  Maquina as m on m.fk_empresa = idempresa where empresa.nome = '${nomeEmpresa}';
 ;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -150,7 +198,7 @@ function listarEmpresas(idEmpresa) {
     return database.executar(instrucao);
 }
 
-function atualizarParametroCpu(significativo, moderadoCpu, criticoCpu) {
+function atualizarParametroRam(significativo, moderadoCpu, criticoCpu) {
     console.log('chegou aqui na empresa')
 
 
@@ -201,11 +249,12 @@ module.exports = {
     listarComputadores,
     listarHospitais,
     listarDadosEmpresa,
-    atualizarParametroCpu,
+    parametroRam,
     updateEmail,
     updateSenha,
     updateCep,
     filial,
     cadastroMaquina,
-    listarEmpresas
+    listarEmpresas,
+    inserirParametro
 };

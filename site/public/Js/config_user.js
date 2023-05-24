@@ -187,9 +187,7 @@ function getDadosUsuario() {
     fetch(`/usuarios/listarEmpresas/${idEmpresa}`)
     .then(function (resposta) {
       if (resposta.ok) {
-        if (resposta.status == 204) {
-          alert("Nenhum resultado encontrado.");
-        }
+       
         var selectFiliais = document.getElementById('MatrizOuFilial')
         
         
