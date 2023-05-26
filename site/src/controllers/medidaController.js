@@ -63,6 +63,71 @@ function buscarUltimasMedidasDisco(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+function buscarBarraRam(req, res) {
+
+    var mac = req.params.mac;
+
+
+    medidaModel.buscarBarraRam(mac).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado nas barras da ram!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function buscarBarraDisco(req, res) {
+    var mac = req.params.mac;
+
+    medidaModel.buscarBarraDisco(mac).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado nas barras do disco!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function buscarBarraRam2(req, res) {
+
+    var mac = req.params.mac;
+
+
+    medidaModel.buscarBarraRam2(mac).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado nas barras da ram!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function buscarBarraDisco2(req, res) {
+    var mac = req.params.mac;
+
+    medidaModel.buscarBarraDisco2(mac).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado nas barras do disco!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 
 function buscarMedidasEmTempoReal(req, res) {
@@ -141,7 +206,7 @@ function buscarParemetros(req, res) {
 }
 
 function buscaralertsTempoRealram(req, res) {
-    console.log(`Recuperando alerts`);
+    console.log(`Recuperando alerts da ram`);
     var mac = req.params.mac;
     var critico = req.params.criticoParams
    
@@ -162,7 +227,7 @@ function buscaralertsTempoRealram(req, res) {
 }
 
 function MaxRam(req, res) {
-    console.log(`Recuperando alerts`);
+    console.log(` entrei no max da ram`);
     var mac = req.params.mac;
     var critico = req.params.criticoParams
 
@@ -180,10 +245,10 @@ function MaxRam(req, res) {
     });
 }
 function buscaralertsTempoRealDisco(req, res) {
-    console.log(`Recuperando alerts do discooooooooooooooooo`);
+   
     var mac = req.params.mac;
-    var critico = req.params.criticoParams
-    console.log(critico + "e o mac e " + mac)
+    var critico = req.params.critico;
+    console.log(`Recuperando alerts da ram`);
 
     medidaModel.buscaralertsTempoRealDisco(mac,critico).then(function (resultado) {
         if (resultado.length > 0) {
@@ -195,12 +260,12 @@ function buscaralertsTempoRealDisco(req, res) {
         
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas buscar alerts.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar as ultimas medidas buscar alerts da ram.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
 function MaxDisco(req, res) {
-    console.log(`Recuperando alerts`);
+    console.log(`entrei no max da Disco`);
     var mac = req.params.mac;
     var critico = req.params.criticoParams
 
@@ -222,6 +287,10 @@ module.exports = {
     buscarUltimasMedidas,
     buscarUltimasMedidasCPU,
     buscarUltimasMedidasDisco,
+    buscarBarraRam,
+    buscarBarraRam2,
+    buscarBarraDisco,
+    buscarBarraDisco2,
 
     buscarMedidasEmTempoReal,
     buscarMedidasEmTempoRealCPU,

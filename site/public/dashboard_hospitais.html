@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/dashboard.css">
     <link rel="stylesheet" href="./assets/css/style_all.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./Js/gauge.min.js"></script>
     <script src="./Js/header.js"></script>
@@ -17,7 +18,7 @@
 </head>
 
 
-<body onload="mudarheader(),obterDadosGrafico(),buscarParemetros()">
+<body onload="mudarheader(),obterDadosGrafico(),buscarParemetros(),obterDadosGraficoEmBarra(),obterDadosGraficoEmBarrahora()">
     <div class="container">
         <header>
             <nav class="nav-bar">
@@ -197,7 +198,7 @@
                 </div>
                 <div class="graficos-secundarios">
                     <div class="grafico">
-                        <h3>Pico maximo de consumo diario<br>de hardware</h3>
+                        <h3>Pico maximo de consumo por hora<br>do hardware</h3>
                         <canvas id="grafico-dia" style="width: 260px; height: 165px;"></canvas>
                     </div>
                     <div class="grafico">
@@ -312,79 +313,12 @@
 
   
 
-    const grafico2 = document.getElementById('grafico-dia');
+    
 
-    new Chart(grafico2, {
-        type: 'bar',
-        data: {
-            labels: ['00h', '03h', '06h', '09h', '12h', '15h', '18h', '21h'],
-            datasets: [
-                {
-                    label: 'CPU',
-                    data: [87, 43, 65, 92, 28, 77, 54, 68],
-                    borderColor: '#FF5733',
-                    backgroundColor: '#FF5733',
-                },
-                {
-                    label: 'RAM',
-                    data: [78, 42, 93, 27, 65, 89, 59, 81],
-                    borderColor: '#33FF6B',
-                    backgroundColor: '#33FF6B',
-                },
-                {
-                    label: 'Disco',
-                    data: [82, 78, 76, 85, 73, 88, 61, 75],
-                    borderColor: '#339CFF',
-                    backgroundColor: '#339CFF',
-                }
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    
 
-    const grafico3 = document.getElementById('grafico-semana');
-
-    new Chart(grafico3, {
-
-        type: 'bar',
-        data: {
-            labels: ['19/04', '20/04', '21/04', '22/04', '23/04', '24/04', '25/04'],
-            datasets: [
-                {
-                    label: 'CPU',
-                    data: [87, 43, 65, 92, 28, 77, 54, 68],
-                    borderColor: '#FF5733',
-                    backgroundColor: '#FF5733',
-                },
-                {
-                    label: 'RAM',
-                    data: [78, 42, 93, 27, 65, 89, 59, 81],
-                    borderColor: '#33FF6B',
-                    backgroundColor: '#33FF6B',
-                },
-                {
-                    label: 'Disco',
-                    data: [82, 78, 76, 85, 73, 88, 61, 75],
-                    borderColor: '#339CFF',
-                    backgroundColor: '#339CFF',
-                }
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
+   
+    
     function atualizarParametroRam() {
 
 

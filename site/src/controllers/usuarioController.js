@@ -256,12 +256,10 @@ function cadastroMaquina(req, res) {
     var andar = req.body.andarServer;
     var setor = req.body.setorServer;
     
-    console.log(nome,ipv4,mac,MatrizOuFilial,tipo,andar,setor)
+    console.log(nome,mac,MatrizOuFilial,tipo,andar,setor)
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } else if (ipv4 == undefined) {
-        res.status(400).send("Seu ipv4 está undefined!");
     } else if (mac == undefined) {
         res.status(400).send("Seu mac está undefined!");
     } else if (MatrizOuFilial == undefined){
@@ -276,7 +274,7 @@ function cadastroMaquina(req, res) {
      else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastroMaquina(nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor)
+        usuarioModel.cadastroMaquina(nome,  mac, MatrizOuFilial, tipo, andar, setor)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -535,6 +533,38 @@ function updateCep(req, res){
         );
 }
 }
+function updateCor(req, res){
+    console.log("CORESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSDKJLHLKJFHDSIUFHLDSJHL")
+    var cor = req.body.soma;
+    var id = req.body.mac
+    console.log(cor)
+    if (cor == undefined) {
+        res.status(400).send("sua cor esta indefinada");
+    } else if(cor < 3){
+        cor = 'green'
+    }else if(cor < 7){
+        cor = 'yellow'
+    }else if(cor > 7){
+        cor = 'red'
+    }
+        console.log('khaskjdhasjsakdjsabdjskndsjdsjk')
+        usuarioModel.updateCor(cor,id)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
 
 
 module.exports = {
@@ -557,4 +587,5 @@ module.exports = {
     cadastroMaquina,
     listarEmpresas,
     inserirParametro
+    ,updateCor
 }

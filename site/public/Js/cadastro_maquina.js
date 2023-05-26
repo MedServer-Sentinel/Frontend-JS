@@ -5,6 +5,7 @@ function cadastroMaquina(){
     var tipoVar = tipo_input.value;
     var andarVar = andar_input.value;
     var setorVar = setor_input.value;
+    console.log(macVar+ "e o " + "");
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastroMaquina", {

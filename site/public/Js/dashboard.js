@@ -27,7 +27,7 @@ function buscarParemetros() {
 function atualizarAlertRam(criticoParams) {
   var mac = sessionStorage.MAC;
 
-  console.log(criticoParams + "criticooooooooooooo Ram")
+  console.log(criticoParams + "criticooooooooooooo")
   fetch(`medidas/alertsRam/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
 
     if (response.ok) {
@@ -49,7 +49,7 @@ function maxRam(criticoParams) {
   var mac = sessionStorage.MAC;
 
   console.log(criticoParams + "criticooooooooooooo")
-  fetch(`medidas/MaxRam/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/medidas/MaxRam/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
 
     if (response.ok) {
       response.json().then(function (repostaAlert) {
@@ -71,12 +71,12 @@ function atualizarAlertDisco(criticoParams) {
   var mac = sessionStorage.MAC;
 
   console.log(criticoParams + "criticooooooooooooo disco")
-  fetch(`medidas/alertsDisco/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`/medidas/alertsDisco/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
 
     if (response.ok) {
       response.json().then(function (repostaAlert) {
         console.log(`Dados recebidos do alerta: ${JSON.stringify(repostaAlert)}`);
-        console.log(`Dados atuais dos alerts do disco:`);
+        console.log(`Dados atuais dos alerts:`);
         alertDisco.innerHTML = repostaAlert[0].critico;
         proximaAtualizacaoRam = setTimeout(() => atualizarAlertDisco(criticoParams), 5000);
       });
@@ -110,6 +110,298 @@ function maxDisco(criticoParams) {
   })
 
 }
+function obterDadosGraficoEmBarrahora(mac) {
+
+  var mac = sessionStorage.MAC
+  console.log("chegou?")
+  //  alterarTitulo(idSensor)
+
+
+
+  fetch(`/medidas/hora/Ram/${mac}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+
+
+      response.json().then(function (resposta) {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        resposta.reverse();
+        for (var i = 0; i < resposta.length; i++) {
+          resposta[i].em_uso = resposta[i].em_uso.replace("GiB", "");
+          resposta[i].em_uso = resposta[i].em_uso.replace(",", ".");
+          resposta[i].em_uso = parseFloat(resposta[i].em_uso);
+          console.log(resposta[i].em_uso);
+        }
+        fetch(`/medidas/hora/disco/${mac}`, { cache: 'no-store' }).then(function (response) {
+          if (response.ok) {
+
+
+            response.json().then(function (respostaDisco) {
+              console.log(`Dados recebidos: ${JSON.stringify(respostaDisco)}`);
+           
+              for (var i = 0; i < respostaDisco.length; i++) {
+              
+              // respostaDisco[i].velocidade_leitura = respostaDisco[i].velocidade_leitura.replace(",", ".");
+              // resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("MIB", "");
+              // resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("kib", "");
+                respostaDisco[i].escrita = Number(respostaDisco[i].escrita);
+               if(Number(respostaDisco[i].escrita) <= 0){
+                respostaDisco[i].escrita = Number(respostaDisco[i].escrita) += 2;
+               }
+                console.log(respostaDisco[i].escrita);
+              }
+              plotarGraficoBarra2(resposta, respostaDisco);
+            });
+          } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+          }
+        })
+
+      });
+    } else {
+      console.error('Nenhum dado encontrado ou erro na API');
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico ram: ${error.message}`);
+    });
+}
+function plotarGraficoBarra2(resposta, respostaDisco) {
+  console.log('iniciando plotagem do gráfico em barra...');
+  
+  // Criando estrutura para plotar gráfico - labels
+  let labels = [];
+
+  let dados = {
+    labels: labels,
+    datasets: [
+      // {
+      //   label: 'CPU',
+      //   data: [],
+      //   borderColor: '#FF5733',
+      //   backgroundColor: '#FF5733',
+      // },
+      {
+        label: 'RAM',
+        data: [],
+        borderColor: '#33FF6B',
+        backgroundColor: '#33FF6B',
+      },
+      {
+        label: 'Disco',
+        data: [],
+        borderColor: '#339CFF',
+        backgroundColor: '#339CFF',
+      }
+    ]
+  }
+
+
+
+  console.log('----------------------------------------------')
+  console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico em barra" e passados para "plotarGraficobraa":')
+  console.log(resposta)
+  console.log('----------------------------------------------')
+  console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" em barra passados para "plotarGraficobarra":')
+  console.log(respostaDisco)
+
+  
+
+  // Inserindo valores recebidos em estrutura para plotar o gráfico
+  for (i = 0; i < resposta.length; i++) {
+    var momento = resposta[i].hora;
+    var valor = resposta[i].em_uso;
+    labels.push(momento);
+    dados.datasets[0].data.push(valor);
+  
+  }
+  for (i = 0; i < respostaDisco.length; i++) {
+
+    var valorDisco = respostaDisco[i].escrita;
+    dados.datasets[1].data.push(valorDisco);
+  }
+
+
+
+  console.log('----------------------------------------------')
+  console.log('O gráfico  em barra será plotado com os respectivos valores:')
+  console.log('Labels:')
+  console.log(labels)
+  console.log('Dados RAM:')
+  console.log(dados.datasets[0])
+  console.log('----------------------------------------------')
+  console.log('Dados DISCO:')
+  console.log(dados.datasets[1])
+  console.log('----------------------------------------------')
+  // const grafico1 = document.getElementById('grafico-linha');
+ 
+
+  // Criando estrutura para plotar gráfico - config
+
+
+  const config3 = {
+    type: 'bar',
+    data: dados,
+  };
+
+
+  // Adicionando gráfico criado em div na tela
+  let myChart = new Chart(
+    document.getElementById('grafico-dia'),
+    config3
+
+  );
+  
+
+  
+
+}
+function obterDadosGraficoEmBarra(mac) {
+
+  var mac = sessionStorage.MAC
+  console.log("chegou?")
+  //  alterarTitulo(idSensor)
+
+
+
+  fetch(`/medidas/Dias/Ram/${mac}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+
+
+      response.json().then(function (resposta) {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        resposta.reverse();
+        for (var i = 0; i < resposta.length; i++) {
+          resposta[i].em_uso = resposta[i].em_uso.replace("GiB", "");
+          resposta[i].em_uso = resposta[i].em_uso.replace(",", ".");
+          resposta[i].em_uso = parseFloat(resposta[i].em_uso);
+          console.log(resposta[i].em_uso);
+        }
+        fetch(`/medidas/Dias/disco/${mac}`, { cache: 'no-store' }).then(function (response) {
+          if (response.ok) {
+
+
+            response.json().then(function (respostaDisco) {
+              console.log(`Dados recebidos: ${JSON.stringify(respostaDisco)}`);
+           
+              for (var i = 0; i < respostaDisco.length; i++) {
+              
+              // respostaDisco[i].velocidade_leitura = respostaDisco[i].velocidade_leitura.replace(",", ".");
+              // resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("MIB", "");
+              // resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("kib", "");
+                respostaDisco[i].escrita = Number(respostaDisco[i].escrita);
+               if(Number(respostaDisco[i].escrita) <= 0){
+                respostaDisco[i].escrita = Number(respostaDisco[i].escrita) += 2;
+               }
+                console.log(respostaDisco[i].escrita);
+              }
+              plotarGraficoBarra(resposta, respostaDisco);
+            });
+          } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+          }
+        })
+
+      });
+    } else {
+      console.error('Nenhum dado encontrado ou erro na API');
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico ram: ${error.message}`);
+    });
+}
+
+function plotarGraficoBarra(resposta, respostaDisco) {
+  console.log('iniciando plotagem do gráfico em barra...');
+  
+  // Criando estrutura para plotar gráfico - labels
+  let labels = [];
+
+  let dados = {
+    labels: labels,
+    datasets: [
+      // {
+      //   label: 'CPU',
+      //   data: [],
+      //   borderColor: '#FF5733',
+      //   backgroundColor: '#FF5733',
+      // },
+      {
+        label: 'RAM',
+        data: [],
+        borderColor: '#33FF6B',
+        backgroundColor: '#33FF6B',
+      },
+      {
+        label: 'Disco',
+        data: [],
+        borderColor: '#339CFF',
+        backgroundColor: '#339CFF',
+      }
+    ]
+  }
+
+
+
+  console.log('----------------------------------------------')
+  console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico em barra" e passados para "plotarGraficobraa":')
+  console.log(resposta)
+  console.log('----------------------------------------------')
+  console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" em barra passados para "plotarGraficobarra":')
+  console.log(respostaDisco)
+
+  
+
+  // Inserindo valores recebidos em estrutura para plotar o gráfico
+  for (i = 0; i < resposta.length; i++) {
+    var momento = resposta[i].dia;
+    var valor = resposta[i].em_uso;
+    labels.push(momento);
+    dados.datasets[0].data.push(valor);
+  
+  }
+  for (i = 0; i < respostaDisco.length; i++) {
+
+    var valorDisco = respostaDisco[i].escrita;
+    dados.datasets[1].data.push(valorDisco);
+  }
+
+
+
+  console.log('----------------------------------------------')
+  console.log('O gráfico  em barra será plotado com os respectivos valores:')
+  console.log('Labels:')
+  console.log(labels)
+  console.log('Dados RAM:')
+  console.log(dados.datasets[0])
+  console.log('----------------------------------------------')
+  console.log('Dados DISCO:')
+  console.log(dados.datasets[1])
+  console.log('----------------------------------------------')
+  // const grafico1 = document.getElementById('grafico-linha');
+
+
+  // Criando estrutura para plotar gráfico - config
+
+
+  const config2 = {
+    type: 'bar',
+    data: dados,
+  };
+
+
+  // Adicionando gráfico criado em div na tela
+  let myChart = new Chart(
+    document.getElementById('grafico-semana'),
+    config2
+
+  );
+  
+
+  
+
+}
+
 function obterDadosGrafico(mac) {
 
   var mac = sessionStorage.MAC
@@ -139,9 +431,12 @@ function obterDadosGrafico(mac) {
               console.log(`Dados recebidos: ${JSON.stringify(respostaDisco)}`);
               respostaDisco.reverse();
               for (var i = 0; i < respostaDisco.length; i++) {
-                respostaDisco[i].velocidade_leitura = respostaDisco[i].velocidade_leitura.replace("KiB", "");
-                respostaDisco[i].velocidade_leitura = respostaDisco[i].velocidade_leitura.replace(",", ".");
-                respostaDisco[i].velocidade_leitura = parseFloat(respostaDisco[i].velocidade_leitura / 1000);
+              
+              // respostaDisco[i].velocidade_leitura = respostaDisco[i].velocidade_leitura.replace(",", ".");
+              // resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("MIB", "");
+              // resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("kib", "");
+                respostaDisco[i].velocidade_leitura = parseFloat(respostaDisco[i].velocidade_leitura);
+               
                 console.log(respostaDisco[i].velocidade_leitura);
               }
               plotarGrafico(resposta, respostaDisco);
@@ -185,24 +480,7 @@ function obterDadosGrafico(mac) {
   // fetch(`/medidas/ultimas/cpu/${mac}`, { cache: 'no-store' }).then(function (response) {
   //   if (response.ok) {
 
-  //     response.json().then(function (resposta) {
-  //       console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-  //       resposta.reverse();
-  //       for (var i = 0; i < resposta.length; i++) {
-  //         resposta[i].em_uso = resposta[i].em_uso.replace("GiB", "");
-  //         resposta[i].em_uso = resposta[i].em_uso.replace(",", "");
-  //         resposta[i].em_uso = parseFloat(resposta[i].em_uso * 100);
-  //         console.log(resposta[i].em_uso);
-  //       }        plotarGrafico(resposta, mac);
-  //     });
-  //   } else {
-  //     console.error('Nenhum dado encontrado ou erro na API');
-  //   }
-  // })
-  //   .catch(function (error) {
-  //     console.error(`Erro na obtenção dos dados p/ gráfico ram: ${error.message}`);
-  //   });
-
+  
 }
 function plotarGrafico(resposta, respostaDisco) {
   console.log('iniciando plotagem do gráfico...');
@@ -347,14 +625,13 @@ function atualizarGrafico(dados, myChart) {
 
 
                 for (var i = 0; i < resposta.length; i++) {
-                  resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace(",", ".");
-                  console.log(resposta[i].velocidade_leitura);
-                  resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("KiB", "");
-
-                  resposta[i].velocidade_leitura = parseFloat(resposta[i].velocidade_leitura / 1000);
-                  console.log(resposta[i].velocidade_leitura);
-                }
-
+              
+                  // respostaDisco[i].velocidade_leitura = respostaDisco[i].velocidade_leitura.replace(",", ".");
+                  // resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("MIB", "");
+                  // resposta[i].velocidade_leitura = resposta[i].velocidade_leitura.replace("kib", "");
+                    resposta[i].velocidade_leitura = parseFloat(resposta[i].velocidade_leitura);
+                    console.log(resposta[i].velocidade_leitura);
+                  }
 
                 dados.datasets[1].data.shift();  //  <!-- apagar o primeiro de temperatura -->
                 dados.datasets[1].data.push(resposta[0].velocidade_leitura); // <!-- incluir uma nova medida de temperatura -->

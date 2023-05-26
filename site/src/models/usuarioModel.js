@@ -42,26 +42,38 @@ function cadastrarUsuario(nome, email, cpf, tipo, senha, idEmpresa) {
     return database.executar(instrucao);
 }
 
-function cadastroMaquina(nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor);
+function cadastroMaquina(nome,  mac, MatrizOuFilial, tipo, andar, setor) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome,  mac, MatrizOuFilial, tipo, andar, setor);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO  Maquina (nome, ipv4, Tipo, cod_MAC, andar, setor, fk_empresa) VALUES ('${nome}', '${ipv4}', '${tipo}', '${mac}','${andar}', '${setor}', '${MatrizOuFilial}');
+        INSERT INTO  Maquina (nome,  Tipo, cod_MAC, andar, setor, fk_empresa) VALUES ('${nome}', '${tipo}', '${mac}','${andar}', '${setor}', '${MatrizOuFilial}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     
     return database.executar(instrucao);
 }
-
 function inserirParametro(fkmaquina) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, ipv4, mac, MatrizOuFilial, tipo, andar, setor);
+    console.log('chegou aqui na empresa')
+    updateParametro(fkmaquina)
+
+    var instrucao = `
+    UPDATE Parametro SET fk_maquina = (select max(id_maquina) from maquina)
+    WHERE id_parametro= (select max_id from (select max(id_parametro) as max_id from Parametro) as b);
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function updateParametro(fkmaquina) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():");
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO  parametro (significativo, moderado, critico, fk_maquina) VALUES ('30', '60', '80','${fkmaquina}');
+        INSERT INTO  parametro (significativo, moderado, critico, fk_maquina,nivel_critico
+            ) VALUES ('30', '60', '80','${1}','green');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -125,6 +137,7 @@ function filial(nome, email, cnpj, telefone, responsavel, cep, idEmpresa) {
     return database.executar(instrucao);
 }
 
+
 function updateUsuario() {
     console.log('chegou aqui na empresa')
 
@@ -161,8 +174,8 @@ function listarDadosUsuario(idUsuario) {
 function listarComputadores(nomeEmpresa) {
     console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDadosUsuario()");
     var instrucao = `
-    select  m.nome,cod_MAC,id_maquina from  empresa join  Maquina as m on m.fk_empresa = idempresa where empresa.nome = '${nomeEmpresa}';
-;
+    select  m.nome,cod_MAC,id_maquina, nivel_critico from  empresa join  Maquina as m on m.fk_empresa = idempresa join [dbo].[Parametro] on fk_maquina = id_maquina where empresa.nome = '${nomeEmpresa}';
+  
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -236,6 +249,13 @@ async function updateCep(cep, idEmpresa) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return await database.executar(instrucao);
 }
+ function updateCor(cor, id) {
+    console.log("atualizando cor para +  " + cor)
+    var instrucao = `
+    update Parametro set nivel_critico = '${cor}' where fk_maquina = ${id};`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 
 module.exports = {
@@ -253,6 +273,7 @@ module.exports = {
     updateEmail,
     updateSenha,
     updateCep,
+    updateCor,
     filial,
     cadastroMaquina,
     listarEmpresas,

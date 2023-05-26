@@ -61,7 +61,7 @@ router.put("/updateUsuario", function (req, res) {
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
-router.post("/usuarios/inserirParametro/:fkmaquina", function (req, res) {
+router.post("/inserirParametro/:fkmaquina", function (req, res) {
     usuarioController.inserirParametro(req, res);
 });
 router.put("/parametros/:id", function (req, res) {
@@ -79,6 +79,9 @@ router.put("/updateCep", function (req, res) {
 
 router.put("/updateEmail", function (req, res) {
     usuarioController.updateEmail(req, res);
+});
+router.put("/updateCor", function (req, res) {
+    usuarioController.updateCor(req, res);
 });
 
 
