@@ -1,9 +1,98 @@
+const { selectComputadores } = require("../controllers/usuarioController");
 var database = require("../database/config")
 
 function listar() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
         SELECT * FROM usuario;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function listarDias(mac) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    select top 7 max(em_uso) as maximo,max(tempo_escrita) as maximoDisco,ROUND(avg(try_convert(float, replace(replace(replace(em_uso,'GIB',''),',','.'),'Mib',''))),2) as media, 
+    ROUND(avg(try_convert(float, replace(replace(replace(tempo_escrita,'GIB',''),',','.'),'Mib',''))),2) as mediaDisco,
+    day(r.data_hora) as dia from [dbo].[DadosRam] as r join [dbo].[MemoriaRam] on fk_ram = id_ram join
+     [dbo].[Maquina] on fk_maquina = id_maquina  join disco as d on d.fk_maquina = id_maquina  join [dbo].[DadosDisco] 
+        on fk_disco = id_disco  where cod_mac = '${mac}' group by day(r.data_hora) order by day(r.data_hora);
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function buscarMaior(mac) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    SELECT TOP 7 MAX(r.em_uso) AS maximo, DAY(r.data_hora) AS dia
+    FROM [dbo].[DadosRam] AS r
+    JOIN [dbo].[MemoriaRam] ON r.fk_ram = MemoriaRam.id_ram
+    JOIN [dbo].[Maquina] ON Maquina.id_maquina = MemoriaRam.fk_maquina
+    JOIN [dbo].[Disco] AS d ON d.fk_maquina = Maquina.id_maquina
+    JOIN [dbo].[DadosDisco] ON DadosDisco.fk_disco = d.id_disco
+    WHERE Maquina.cod_mac = '${mac}'
+    GROUP BY DAY(r.data_hora)
+    ORDER BY maximo DESC;
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function mediasRam(mac) {
+    console.log("acessei moodel com  o mac = " + mac);
+    var instrucao = `
+    SELECT TOP 7 max(em_uso) as em_uso,ROUND(AVG(TRY_CONVERT(FLOAT, REPLACE(REPLACE(REPLACE(em_uso, 'GIB', ''), ',', '.'), 'Mib', ''))), 2) AS media, 
+    CONVERT(VARCHAR(10), data_hora, 120) AS dia
+FROM [dbo].[DadosRam]
+JOIN [dbo].[MemoriaRam] ON fk_ram = id_ram
+JOIN [dbo].[Maquina] ON fk_maquina = id_maquina
+WHERE cod_mac = '${mac}'
+GROUP BY CONVERT(VARCHAR(10), data_hora, 120)
+ORDER BY CONVERT(VARCHAR(10), data_hora, 120);
+
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function mediasCPU(mac) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+    SELECT CONVERT(VARCHAR(10), p.data_hora, 120) AS dia, p.nome, MAX(uso_cpu) AS maximo
+    FROM [dbo].[Processo] AS p
+    JOIN [dbo].[Processador] ON fk_processador = id_Processador
+    JOIN maquina ON fk_maquina = id_maquina where cod_MAC = '${mac}'
+    GROUP BY CONVERT(VARCHAR(10), p.data_hora, 120), p.nome
+    HAVING MAX(uso_cpu) = (
+        SELECT MAX(uso_cpu)
+        FROM [dbo].[Processo] AS p2
+        WHERE CONVERT(VARCHAR(10), p2.data_hora, 120) = CONVERT(VARCHAR(10), p.data_hora, 120)
+    )
+    ORDER BY CONVERT(VARCHAR(10), p.data_hora, 120) DESC;
+    
+    
+
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function mediasDisco(mac) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+
+    SELECT TOP 7 max(TRY_CONVERT(FLOAT, REPLACE(REPLACE(REPLACE(tempo_escrita, 'KIB', ''), ',', '.'), 'Mib', ''))) as escrita
+,ROUND(AVG(TRY_CONVERT(FLOAT, REPLACE(REPLACE(REPLACE(tempo_escrita, 'KIB', ''), ',', '.'), 'Mib', ''))), 2) AS media, 
+    CONVERT(VARCHAR(10), data_hora, 120) AS dia
+FROM [dbo].[DadosDisco]
+JOIN [dbo].[Disco] ON fk_disco = id_disco
+JOIN [dbo].[Maquina] ON fk_maquina = id_maquina
+WHERE cod_mac = '${mac}'
+    GROUP BY CONVERT(VARCHAR(10), data_hora, 120)
+    ORDER BY CONVERT(VARCHAR(10), data_hora, 120) desc;
+
+    
+
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -42,8 +131,8 @@ function cadastrarUsuario(nome, email, cpf, tipo, senha, idEmpresa) {
     return database.executar(instrucao);
 }
 
-function cadastroMaquina(nome,  mac, MatrizOuFilial, tipo, andar, setor) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome,  mac, MatrizOuFilial, tipo, andar, setor);
+function cadastroMaquina(nome, mac, MatrizOuFilial, tipo, andar, setor) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, mac, MatrizOuFilial, tipo, andar, setor);
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
@@ -51,7 +140,7 @@ function cadastroMaquina(nome,  mac, MatrizOuFilial, tipo, andar, setor) {
         INSERT INTO  Maquina (nome,  Tipo, cod_MAC, andar, setor, fk_empresa) VALUES ('${nome}', '${tipo}', '${mac}','${andar}', '${setor}', '${MatrizOuFilial}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
-    
+
     return database.executar(instrucao);
 }
 function inserirParametro(fkmaquina) {
@@ -73,42 +162,42 @@ function updateParametro(fkmaquina) {
     //  e na ordem de inserção dos dados.
     var instrucao = `
         INSERT INTO  parametro (significativo, moderado, critico, fk_maquina,nivel_critico
-            ) VALUES ('30', '60', '80','${1}','green');
+            ) VALUES ('30', '60', '80','${fkmaquina}','green');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function parametroRam(significativo, moderado, critico,id) {
+function parametroRam(significativo, moderado, critico, id) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    moderadoRam(moderado,id);
-    criticoRam(critico,id)
+    moderadoRam(moderado, id);
+    criticoRam(critico, id)
     var instrucao = `
-    update parametro set  significativo = '${significativo}' where id_parametro = '${id}'
+    update parametro set  significativo = '${significativo}' where fk_maquina = '${id}'
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function moderadoRam( moderado,id) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
-
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
-    var instrucao = `
-    update parametro set  moderado= '${moderado}' where id_parametro = '${id}'
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
-function criticoRam( critico,id) {
+function moderadoRam(moderado, id) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-    update parametro set critico = '${critico}' where id_parametro = '${id}'
+    update parametro set  moderado= '${moderado}' where fk_maquina = '${id}'
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function criticoRam(critico, id) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
+
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    update parametro set critico = '${critico}' where fk_maquina = '${id}'
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -175,6 +264,15 @@ function listarComputadores(nomeEmpresa) {
     console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDadosUsuario()");
     var instrucao = `
     select  m.nome,cod_MAC,id_maquina, nivel_critico from  empresa join  Maquina as m on m.fk_empresa = idempresa join [dbo].[Parametro] on fk_maquina = id_maquina where empresa.nome = '${nomeEmpresa}';
+  
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function selectComputadores1(nomeEmpresa) {
+    console.log("ACESSEI O Perfil MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarDadosUsuario()");
+    var instrucao = `
+    select m.* from  empresa join  Maquina as m on m.fk_empresa = idempresa join [dbo].[Parametro] on fk_maquina = id_maquina where empresa.nome = '${nomeEmpresa}';
   
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -249,7 +347,7 @@ async function updateCep(cep, idEmpresa) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return await database.executar(instrucao);
 }
- function updateCor(cor, id) {
+function updateCor(cor, id) {
     console.log("atualizando cor para +  " + cor)
     var instrucao = `
     update Parametro set nivel_critico = '${cor}' where fk_maquina = ${id};`;
@@ -277,5 +375,11 @@ module.exports = {
     filial,
     cadastroMaquina,
     listarEmpresas,
-    inserirParametro
+    inserirParametro,
+    listarDias,
+    buscarMaior,
+    mediasRam,
+    mediasCPU,
+    mediasDisco,
+    selectComputadores1,
 };

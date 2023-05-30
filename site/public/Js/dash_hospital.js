@@ -2,6 +2,7 @@
 function getHospital() {
     var cnpj = sessionStorage.CNPJ;
     console.log(cnpj)
+    
 
     fetch(`/usuarios/listarHospitais/${cnpj}`)
         .then(function (resposta) {

@@ -305,7 +305,7 @@ function buscaralertsTempoRealDisco(mac, critico) {
         instrucaoSql = `
         select count(try_convert(float,replace(replace(replace(velocidade_leitura,'KIB',''),',','.'),'Mib',''))) as critico from [dbo].[DadosDisco] join [dbo].[Disco] 
         on fk_disco = id_disco join [dbo].[Maquina] on fk_maquina = id_maquina where try_convert(float,replace(replace(replace(velocidade_leitura,'KIB',''),',','.'),'Mib',''))  > 
-	 ${critico/0.1204} and cod_Mac = '${mac}';
+	 ${critico*2.5} and cod_Mac = '${mac}';
         `;
     } 
     
@@ -337,8 +337,8 @@ function  MaxDisco(mac, critico){
     if (process.env.AMBIENTE_PROCESSO == "producao") {
 
         instrucaoSql = `
-            select CAST (replace(replace(replace(capacidade_total,'GIB',''),',','.'),'MIB','')
-            AS float) * ${critico/100} as total from [dbo].[MemoriaRam] join maquina on fk_maquina =id_maquina where cod_Mac = '${mac}';
+            select CAST (replace(replace(replace(total,'GIB',''),',','.'),'MIB','')
+            AS float) * ${critico/100} as total from [dbo].[Disco] join maquina on fk_maquina =id_maquina where cod_Mac = '${mac}';
         `;
     } 
 
