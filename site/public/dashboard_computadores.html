@@ -12,7 +12,7 @@
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
     <script src="./Js/dash_computadores.js"></script>
-   
+
     <title>Computadores</title>
 </head>
 
@@ -63,15 +63,45 @@
             </div>
         </header>
         <div class="geral-conteudo">
-            <h1>Computadores em estado de atenção: </h1>
-            <div class="container-computadores">
-                <div class="fileira-computador" id="fileira-computador">
-                
-                   
-            
+            <div class="principal">
+
+                <h1>Computadores em estado de atenção:</h1>
+                <div class="conteudo-principal">
+                    <div class="container-computadores">
+                        <div class="fileira-computador" id="fileira-computador">
+                        </div>
+                    </div>
+                    <div class="legenda">
+                        <h2>Legenda</h2>
+                        <div class="fileira-computador-legenda">
+                            <div class="container-computador-legenda">
+                                <img src="./assets/imagens/computer.png" class="computador-legenda" alt=""
+                                    style="background-color: green;">
+                                <span>Moderado: <span id="qtdModerado"></span></span>
+                            </div>
+                            <div class="container-computador-legenda">
+                                <img src="./assets/imagens/computer.png" class="computador-legenda" alt=""
+                                    style="background-color: yellow;">
+                                <span>Significativo: <span id="qtdSignificativo"></span></span>
+                            </div>
+                        </div>
+                        <div class="fileira-computador-legenda">
+                            <div class="container-computador-legenda">
+                                <img src="./assets/imagens/computer.png" class="computador-legenda" alt=""
+                                    style="background-color: orange;">
+                                <span>Crítico: <span id="qtdCritico"></span></span>
+                            </div>
+                            <div class="container-computador-legenda">
+                                <img src="./assets/imagens/computer.png" class="computador-legenda" alt=""
+                                    style="background-color: red;">
+                                <span>Emergencial: <span id="qtdEmergencial"></span></span>
+                            </div>
+                        </div>
+                        <button class="botao-exibir-computadores">Exibir todos os Computadores</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 
