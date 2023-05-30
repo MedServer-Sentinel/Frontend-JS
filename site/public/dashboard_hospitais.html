@@ -12,6 +12,7 @@
     <script src="./Js/gauge.min.js"></script>
     <script src="./Js/header.js"></script>
     <script src="./Js/logout.js"></script>
+    <script src="./js/relatorio.js"></script>
     <script src="./Js/dashboard.js"></script>
 
     <title>Dashboard</title>
@@ -210,7 +211,7 @@
 
             </div>
             <div class="baixar-relatorio">
-                <a href="">Baixar relatório</a>
+                <a href="relatorioo.html" onclick="gerarPDF()">Baixar relatório</a>
             </div>
         </div>
     </div>
@@ -358,6 +359,7 @@
                     console.log("Fazer alguma coisa")
 
                     alert("parametros atualizados");
+                    window.location = '/dashboard_hospitaisInicial.html'
 
                 } else {
                     throw ("erros ao atualizar parametros");

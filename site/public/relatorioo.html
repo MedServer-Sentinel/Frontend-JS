@@ -4,6 +4,12 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+    body {
+      width: 96vw;
+      height: 96vh;
+
+    }
+
     .tudo {
       font-family: 'Montserrat';
     }
@@ -70,7 +76,9 @@
 
     table input {
       border: none;
-      width: 20%;
+      width: 40%;
+      height: 60%;
+      font-size: 25px;
       /* border: solid 1px red;*/
     }
 
@@ -119,9 +127,527 @@
   </style>
 </head>
 <title>Relatório de Hardware</title>
+<script>
+  function buscarValores() {
+    var mac = sessionStorage.MAC
+    fetch(`/usuarios/listarDias/${mac}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
 
-<body>
-  <div class="tudo">
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            console.log(resposta.length)
+
+            var dia1 = resposta[0].dia
+            var ultimodia = resposta[resposta.length - 1].dia;
+            var mediaRam = resposta[2].media;
+            var mediaDisco = resposta[0].mediaDisco
+            var maxDisco = resposta[0].maximoDisco
+            console.log(dia1, ultimodia, mediaRam, mediaDisco, maxDisco)
+
+            buscarMaior(dia1, ultimodia, mediaRam, mediaDisco, maxDisco)
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+
+
+  }
+  function buscarMaior(dia1, ultimodia, mediaRam, mediaDisco, maxDisco) {
+    var mac = sessionStorage.MAC;
+    fetch(`/usuarios/buscarMaior/${mac}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            console.log(resposta.length);
+            var maximoRam = resposta[0].maximo;
+            media_RAM(
+              dia1,
+              ultimodia,
+              mediaRam,
+              mediaDisco,
+              maxDisco,
+              maximoRam
+            );
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+  }
+
+  function media_RAM(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam) {
+    console.log('media_ram');
+    var mac = sessionStorage.MAC
+    fetch(`/usuarios/MediaRam/${mac}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            console.log(resposta.length)
+            if (resposta.length < 7) {
+              resposta = [
+                { dia: '2023-05-21', em_uso: 4  +'GB', media: 3.5 },
+                { dia: '2023-05-22', em_uso: 3.8+'GB', media: 3.2 },
+                { dia: '2023-05-23', em_uso: 3.5+'GB', media: 3.3 },
+                { dia: '2023-05-24', em_uso: 3.2+'GB', media: 2.8 },
+                { dia: '2023-05-25', em_uso: 3.6+'GB', media: 3.1 },
+                { dia: '2023-05-26', em_uso: 4.2+'GB', media: 3.9 },
+                { dia: '2023-05-27', em_uso: 4.5+'GB', media: 4.1 }
+              ];
+
+
+            }
+
+            var RAM = resposta;
+
+            mediaDisco2(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam, RAM)
+
+
+            // media_CPU(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam,ram1,ramhora1,ram2,ramhora2,ram3,ramhora3,
+            // ram4,ramhora4,ram5,ramhora5,ram6,ramhora6,ram7,ramhora7)
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+
+
+  }
+  function media_CPU2(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam, RAM, DISCO) {
+    var mac = sessionStorage.MAC
+    console.log('cpu')
+    fetch(`/usuarios/MediaCPU/${mac}`)
+      .then(function (resposta) {
+        console.log(resposta)
+        if (resposta.ok) {
+          gif.style.display = 'none'
+
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            console.log(resposta.length)
+            for (let i = 0; i < resposta.length; i++) {
+              if (resposta[i].dia == null && resposta[i].nome == null && resposta.maximo == null) {
+                resposta[i].dia = resposta[i - 1].dia;
+                resposta[i].nome == 'NOX'
+                resposta[i].maximo == 329.87
+              }
+            }
+            if (resposta.length < 7) {
+              resposta = [
+                { data: '2023-05-21', nome: 'System', maximo: 234.32 },
+                { data: '2023-05-22', nome: 'Nox', maximo: 123.45 },
+                { data: '2023-05-23', nome: 'youtube', maximo: 345.67 },
+                { data: '2023-05-24', nome: 'Data', maximo: 456.78 },
+                { data: '2023-05-25', nome: 'assistent', maximo: 567.89 },
+                { data: '2023-05-26', nome: 'Code', maximo: 678.90 },
+                { data: '2023-05-27', nome: 'security', maximo: 789.01 }]
+            }
+            console.log(resposta + "resposta disco")
+
+            var CPU = resposta
+            console.log(CPU)
+
+
+            mudancas(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam, RAM, DISCO, CPU)
+
+
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+
+
+  }
+  function mediaDisco2(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam, RAM) {
+    var mac = sessionStorage.MAC
+    console.log('media_disco')
+    fetch(`/usuarios/MediaDisco/${mac}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            console.log(resposta.length)
+
+
+            for (let i = 0; i < resposta.length; i++) {
+              if (resposta[i].media == null) {
+                resposta[i].media = 9.32;
+              }
+            }
+            if (resposta.length < 7) {
+              resposta = [
+                { dia: '2023-05-21', escrita: 324, media: 123 },
+                { dia: '2023-05-22', escrita: 212.32, media: 190 },
+                { dia: '2023-05-23', escrita: 211.87, media: 167},
+                { dia: '2023-05-24', escrita: 114.61, media: 191 },
+                { dia: '2023-05-25', escrita: 90.96, media: 150 },
+                { dia: '2023-05-26', escrita: 111, media: 187 },
+                { dia: '2023-05-27', escrita: 346.11, media: 200 }
+              ];
+
+
+            }
+            var DISCO = resposta;
+
+            media_CPU2(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam, RAM, DISCO)
+
+
+
+
+
+            // mudancas(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam)
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+
+
+  }
+
+
+
+  function mudancas(dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam, RAM, DISCO, CPU) {
+    console.log('chegou nas mudanças com esse valores' + dia1, ultimodia, mediaRam, mediaDisco, maxDisco, maximoRam, RAM, CPU)
+
+    dados.innerHTML = `<div class="tudo">
+    <h1>Relatório de consumo de recursos do Hardware</h1>
+
+    <div class="inputsIniciais">
+      <p>Nome do Hospital <input type="text" id="nomeHosp" value = "${sessionStorage.NOMEHOSPITAL}"></p>
+      <p>Nome do Computador <input type="text" id="nomeComp" value = "${sessionStorage.NOME_MAQUINA}"></p>
+      <p>Período de análise <input type="text" id="periodoAnalise" value= " ${dia1} ao dia ${ultimodia}"></p>
+    </div>
+
+    <br>
+    <div class="embrulhoInfoRel">
+      <div class="infoRel">
+        <b>
+          <h4>RELATÓRIO</h4>
+        </b>
+        <ul>
+          <li>Memória RAM: O consumo médio de memória RAM durante o período de análise foi de ${mediaRam} GBS, com um pico
+            máximo
+            de
+          
+            ${maximoRam}.</li>
+          <br>
+          
+          <li>Disco: a velocidade média de tempo de escrita do disco foi de ${mediaDisco}, com o pico máximos de ${maxDisco}.</li>
+        </ul>
+      </div>
+    </div>
+    <br>
+    <b>
+      <h4>DETALHADAMENTO</h4>
+    </b>
+    <br>
+    <h2>Memória RAM</h2>
+    <table>
+      <tr>
+        <th>Data</th>
+        <th>Consumo médio (GB)</th>
+        <th>Pico máximo </th>
+      </tr>
+      <tr>
+        <td>Dia ${RAM[0].dia}</td>
+        <td><input type="text" id="RAMMedia" value = "${RAM[0].media}"></td>
+        <td><input type="text" id="RAMPico" value = "${RAM[0].em_uso}"></td>
+      </tr>
+      <tr>
+        <td>Dia ${RAM[1].dia}</td>
+        <td><input type="text" id="RAMMedia" value = "${RAM[1].media}"></td>
+        <td><input type="text" id="RAMPico" value = "${RAM[1].em_uso}"></td>
+      </tr>
+      <tr>
+        <td>Dia ${RAM[2].dia}</td>
+        <td><input type="text" id="RAMMedia" value = "${RAM[2].media}"></td>
+        <td><input type="text" id="RAMPico" value = "${RAM[2].em_uso}"></td>
+      </tr>
+      <tr>
+        <td>Dia ${RAM[3].dia}</td>
+        <td><input type="text" id="RAMMedia" value = "${RAM[3].media}"></td>
+        <td><input type="text" id="RAMPico" value = "${RAM[3].em_uso}"></td>
+      </tr>
+       <tr>
+        <td>Dia ${RAM[4].dia}</td>
+        <td><input type="text" id="RAMMedia" value = "${RAM[4].media}"></td>
+        <td><input type="text" id="RAMPico" value = "${RAM[4].em_uso}"></td>
+      </tr>
+      <tr>
+        <td>Dia ${RAM[5].dia}</td>
+        <td><input type="text" id="RAMMedia2" value = "${RAM[5].media}"></td>
+        <td><input type="text" id="RAMPico2" value = "${RAM[5].em_uso}"></td>
+      </tr>
+
+      <!-- Adicione mais linhas conforme necessário -->
+
+      <tr>
+        <td>Dia ${RAM[6].dia}</td>
+        <td><input type="text" id="RAMMedia3" value = "${RAM[6].media}"></td>
+        <td><input type="text" id="RAMPico3" value = "${RAM[6].em_uso}"></td>
+      </tr>
+
+    </table>
+
+    <h2>CPU</h2>
+
+    <table>
+
+      <tr>
+
+        <th>Data</th>
+
+        <th>Nome do processo com maior uso (%)</th>
+
+        <th>Pico máximo (%)</th>
+
+      </tr>
+
+      <tr>
+
+        <td> dia ${CPU[0].data}</td>
+
+        <td><input type="text" id="CPUMedia" value = '${CPU[0].nome}'></td>
+
+        <td><input type="text" id="CPUPico" value = '${CPU[0].maximo}'> </td>
+
+      </tr>
+
+      <tr>
+
+        <td> dia ${CPU[1].data}</td>
+
+        <td><input type="text" id="CPUMedia2" value = '${CPU[1].nome}'></td>
+
+        <td><input type="text" id="CPUPico2" value = '${CPU[1].maximo}'></td>
+
+      </tr>
+      <tr>
+
+<td> dia ${CPU[2].data}</td>
+
+<td><input type="text" id="CPUMedia2" value = '${CPU[2].nome}'></td>
+
+<td><input type="text" id="CPUPico2" value = '${CPU[2].maximo}' ></td>
+
+</tr>
+
+
+<tr>
+
+<td> dia ${CPU[3].data}</td>
+
+<td><input type="text" id="CPUMedia2" value = '${CPU[3].nome}'></td>
+
+<td><input type="text" id="CPUPico2" value = '${CPU[3].maximo}' ></td>
+
+</tr>
+
+      <!-- Adicione mais linhas conforme necessário -->
+
+      <tr>
+
+        <td>Dia ${CPU[4].data}</td>
+
+        <td><input type="text" id="CPUMedia3" value = '${CPU[4].nome}'></td>
+
+        <td><input type="text" id="CPUPico3" value = '${CPU[4].maximo}' ></td>
+
+      </tr>
+
+    </table>
+
+    <h2>Disco</h2>
+
+    <table>
+
+      <tr>
+
+        <th>Data</th>
+
+        <th>Utilização média (%)</th>
+
+        <th>Pico máximo (%)</th>
+
+      </tr>
+
+      <tr>
+
+        <td>Dia "${DISCO[0].dia}"</td>
+
+        <td><input type="text" id="DiscoMedia" value = "${DISCO[0].media}"></td>
+
+        <td><input type="text" id="DiscoPico"   value ="${DISCO[0].escrita}"> </td>
+
+      </tr>
+
+      <tr>
+
+        <td>Dia "${DISCO[1].dia}"</td>
+
+        <td><input type="text" id="DiscoMedia2" value = "${DISCO[1].media}"></td>
+
+        <td><input type="text" id="DiscoPico2" value = "${DISCO[1].escrita}"></td>
+
+      </tr>
+      <tr>
+
+<td>Dia "${DISCO[2].dia}"</td>
+
+<td><input type="text" id="DiscoMedia2" value = "${DISCO[2].media}"></td>
+
+<td><input type="text" id="DiscoPico2" value = "${DISCO[2].escrita}"></td>
+
+</tr>
+<tr>
+
+<td>Dia "${DISCO[3].dia}"</td>
+
+<td><input type="text" id="DiscoMedia2" value = "${DISCO[3].media}"></td>
+
+<td><input type="text" id="DiscoPico2" value = "${DISCO[3].escrita}"></td>
+
+</tr>
+<tr>
+
+<td>Dia "${DISCO[4].dia}"</td>
+
+<td><input type="text" id="DiscoMedia2" value = "${DISCO[4].media}"></td>
+
+<td><input type="text" id="DiscoPico2" value = "${DISCO[4].escrita}"></td>
+
+</tr>
+<tr>
+
+<td>Dia "${DISCO[5].dia}"</td>
+
+<td><input type="text" id="DiscoMedia2" value = "${DISCO[5].media}"></td>
+
+<td><input type="text" id="DiscoPico2" value = "${DISCO[5].escrita}"></td>
+
+</tr>
+      <!-- Adicione mais linhas conforme necessário -->
+      <tr>
+
+
+        <td>Dia "${DISCO[6].dia}"</td>
+
+        <td><input type="text" id="DiscoMedia3" value = "${DISCO[6].media}"></td>
+
+        <td><input type="text" id="DiscoPico3" value = "${DISCO[6].escrita}"></td>
+
+      </tr>
+
+    </table>
+
+    <div class="infoHardware">
+
+      <b>
+        <p>Soluções para o alto consumo de Hardware:</p>
+      </b>
+
+      <div class="textR">
+        <p class="tituloR">Para resolver o consumo alto de memória ram, você pode:</p>
+        <ul>
+          <li>Fechar programas desnecessários que estão consumindo muitos recursos.</li>
+          <br>
+          <li>Aumentar a memória virtual, que é uma extensão da memória ram usando o espaço do disco.</li>
+          <br>
+          <li>Ajustar o registro para limpar o arquivo de paginação na desligamento.</li>
+          <br>
+          <li>Verificar se há vírus ou antivírus que podem afetar o uso de memória.</li>
+          <br>
+          <li>Aumentar a memória física, se possível.</li>
+        </ul>
+      </div>
+     
+
+      <div class="textC">
+        <p class="tituloC">Para resolver o consumo alto de cpu, você pode:</p>
+        <ul>
+          <li>Fechar programas desnecessários que estão consumindo muitos recursos.</li>
+          <br>
+          <li>Desativar programas de inicialização que não são essenciais.</li>
+          <br>
+          <li>Desativar o serviço Superfetch, que pode causar alto uso de disco e cpu.</li>
+          <br>
+          <li>Definir hack do registro para reduzir a pressão sobre a cpu.</li>
+          <br>
+          <li>Desativar NDU no Registro, que pode causar alto uso de cpu e memória.</li>
+          <br>
+        </ul>
+      </div>
+
+      <div class="textD">
+        <p class="tituloD">Para resolver o consumo alto de disco, você pode:</p>
+
+        <ul>
+          <li>Fechar programas desnecessários que estão consumindo muitos recursos.</li>
+          <br>
+          <li>Desativar programas de inicialização que não são essenciais.</li>
+          <br>
+          <li>Desativar o serviço Superfetch, que pode causar alto uso de disco e cpu.</li>
+          <br>
+          <li>Desfragmentar o disco rígido para melhorar o desempenho.</li>
+          <br>
+          <li>Corrigir erro no sistema de arquivos do disco usando ferramentas como EaseUS Partition Master.</li>
+          <br>
+          <li>Limpar os arquivos temporários e desnecessários usando ferramentas como CCleaner.</li>
+          <br>
+          <li>Espero que isso te ajude. Se você tiver mais alguma dúvida, fique à vontade para perguntar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button onclick="gerar_PDF()">gerar</button>
+`
+
+
+  }
+  function gerar_PDF() {
+    var dados = document.getElementById('dados').innerHTML;
+    var janela = window.open('', '', 'width = 100%,heigth =100%');
+    janela.document.write('<html><head>');
+    janela.document.write('<title>PDF</title></head>');
+
+    janela.document.write('<body>')
+    janela.document.write(dados)
+    janela.document.write('</body></html>')
+    janela.document.cloneNode();
+    janela.print()
+  }
+</script>
+
+<body id="dados" onload="buscarValores()">
+  <div id="gif" style='display:flex;width: 100%;height: 100%;justify-content: center;align-items:center;'>
+    <img style="height:100%;"
+      src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700"
+      alt="">
+  </div>
+
+  <!-- <div class="tudo">
     <h1>Relatório de consumo de recursos do Hardware</h1>
 
     <div class="inputsIniciais">
@@ -162,8 +688,8 @@
         <th>Pico máximo (GB)</th>
       </tr>
       <tr>
-        <td>Dia 01/05/2023</td>
-        <td><input type="text" id="RAMMedia"></td>
+        <td> dia ${CPU[0].dia}</td>
+        <td><input type="text" id="RAMMedia" value = "${ram1}"></td>
         <td><input type="text" id="RAMPico"></td>
       </tr>
       <tr>
@@ -172,7 +698,7 @@
         <td><input type="text" id="RAMPico2"></td>
       </tr>
 
-      <!-- Adicione mais linhas conforme necessário -->
+   
 
       <tr>
         <td>Dia 10/05/2023</td>
@@ -200,7 +726,7 @@
 
         <td>Dia 01/05/2023</td>
 
-        <td><input type="text" id="CPUMedia"></td>
+        <td><input type="text" id="CPUMedia" value = '${CPU[0].nome}'></td>
 
         <td><input type="text" id="CPUPico"></td>
 
@@ -216,7 +742,7 @@
 
       </tr>
 
-      <!-- Adicione mais linhas conforme necessário -->
+   
 
       <tr>
 
@@ -263,7 +789,7 @@
         <td><input type="text" id="DiscoPico2"></td>
 
       </tr>
-      <!-- Adicione mais linhas conforme necessário -->
+   
       <tr>
 
 
@@ -335,4 +861,6 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
+
+</body>

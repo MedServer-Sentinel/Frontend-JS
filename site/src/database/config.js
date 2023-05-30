@@ -7,6 +7,8 @@ var sqlServerConfig = {
     database: "bd-medserver-sentinel",
     user: "admin-medserver-sentinel",
     password:"#Gfgrupo4",
+    connectionTimeout: 40000, // Tempo limite da conexão em milissegundos
+    requestTimeout: 40000,
     pool: {
         max: 10,
         min: 0,
@@ -15,6 +17,7 @@ var sqlServerConfig = {
     options: {
         encrypt: true, // for azure
     }
+    
 }
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)
