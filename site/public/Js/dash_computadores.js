@@ -55,7 +55,7 @@ function analise(mac, id,soma) {
 function getComputer(soma) {
   console.log(sessionStorage.NOMEHOSPITAL);
   var nomeEmpresa = sessionStorage.NOMEHOSPITAL;
- 
+  computador.innerHTML+= "Ver todos:  <input id='check' type='checkbox' name='' id=''>"
 
   fetch(`/usuarios/listarComputadores/${nomeEmpresa}`)
     .then(function (resposta) {
@@ -93,6 +93,7 @@ function getComputer(soma) {
       </a>`;
               console.log(resposta2[i].id_maquina)
             }}
+            computador.innerHTML+= "Ver todos:  <input id='check' type='checkbox' name='' id=''>"
             soma = 0
 
 
@@ -100,9 +101,6 @@ function getComputer(soma) {
 
           
           }
-
-
-
 
 
         });
@@ -116,6 +114,7 @@ function getComputer(soma) {
 
 
 }
+
 function m(id_maquina, mac,nome) {
 
   console.log(mac)
