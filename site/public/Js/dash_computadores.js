@@ -81,7 +81,7 @@ function getComputer(soma) {
                           <a href="./dashboard_hospitais.html"style="background-color:${resposta2[i].nivel_critico} class="not-active"  id="emergencial">
                           <img src="./assets/imagens/computer.png">
                           <h2>${resposta2[i].nome}<br>(Emergencia)</h2>
-                          <span>X Alertas</span>
+                          
                       </a>`
 
             } else {
@@ -89,11 +89,11 @@ function getComputer(soma) {
           <a href="./dashboard_hospitais.html" style="background-color:${resposta2[i].nivel_critico}" class="computador"  id="emergencial">
           <img src="./assets/imagens/computer.png"  onclick="m('${resposta2[i].id_maquina}','${resposta2[i].cod_MAC}','${resposta2[i].nome}')">
           <h2>${resposta2[i].nome}<br>(Emergencia)</h2>
-          <span>X Alertas</span>
+       
       </a>`;
               console.log(resposta2[i].id_maquina)
             }}
-            computador.innerHTML+= "Ver todos:  <input id='check' type='checkbox' name='' id=''>"
+          
             soma = 0
 
 
