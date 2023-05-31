@@ -282,6 +282,23 @@ function MaxDisco(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+function tempo(req, res) {
+    console.log(`entrei no max da Disco`);
+    var mac = req.params.mac;
+    var tempo = req.params.tempo;
+  
+    medidaModel.tempo(tempo,mac).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas buscar max ram.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 module.exports = {
     buscarUltimasMedidas,
@@ -301,5 +318,6 @@ module.exports = {
     buscaralertsTempoRealDisco,
     MaxRam,
     MaxDisco,
+    tempo,
 
 }

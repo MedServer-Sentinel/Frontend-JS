@@ -135,7 +135,7 @@
                         </div>
                     </div> -->
                     <div class="container-alerta">
-                        <h4>RAM:</h4>
+                        <h4>Parametro:</h4>
                         <div class="alerta">
 
                             <div class="caixa-input">
@@ -157,30 +157,15 @@
 
                         </div>
                     </div>
-                    <div class="container-alerta">
-                        <h4>Disco:</h4>
-                        <div class="alerta">
-                            <div class="caixa-input">
-                                <span>Moderado:</span>
-                                <input type="number" id="alertaModeradoDisco" value='30'>
-                            </div>
-                            <div class="caixa-input">
-                                <span>Significativo:</span>
-                                <input type="number" id="alertaSignificativoDisco" value='30'>
-                            </div>
-                            <div class="caixa-input-critico">
-                                <span>Crítico: </span>
-                                <input type="number" id="alertaCriticoDisco" value='30'>
-                            </div>
-                        </div>
-                    </div>
+                
                     <h2>Parametrize o tempo</h2>
                     <div class="container-alerta-tempo">
                         <h4>Tempo:</h4>
                         <div class="alerta">
                             <div class="caixa-input-alerta">
                                 <span>Intervalo de captura de dados:</span>
-                                <select>
+                                <select id="temporizador">
+                                    <option value="10">10 segundos</option>
                                     <option value="2" selected>2 minutos</option>
                                     <option value="4">4 minutos</option>
                                     <option value="6">6 minutos</option>
@@ -312,24 +297,17 @@
         gaugeDisco.setOptions(optsDisco);
     }
 
-  
-
-    
-
-    
-
-   
     
     function atualizarParametroRam() {
-
-
+   
+        
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
 
         var moderadoRam = alertaModeradoRam.value;
         var significativoRam = alertaSignificativoRam.value;
         var criticoRam = alertaCriticoRam.value;
-     
+        var tempo = temporizador.value
         var id = sessionStorage.ID_MAQUINA;
         console.log(id)
 
@@ -349,6 +327,7 @@
                     significativoRam: significativoRam,
                     moderadoRam: moderadoRam,
                     criticoRam: criticoRam,
+                    tempo:tempo
                     
                 })
             }).then(function (resposta) {

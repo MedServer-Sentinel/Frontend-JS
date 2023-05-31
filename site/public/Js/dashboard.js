@@ -2,6 +2,22 @@
 var ramMax = 0;
 var discoMax = 0;
 var criticoram = 0;
+function tempo() {
+  var mac = sessionStorage.MAC;
+  let tempo = temporizador.value;
+  fetch(`medidas/parametroTempo/${mac}/${tempo}`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+       response.json().then(function (resposta) {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+      });
+    } else {
+      console.error('Nenhum dado encontrado ou erro na API');
+    }
+  })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados paramtro: ${error.message}`);
+    });
+}
 function buscarParemetros() {
   var mac = sessionStorage.MAC
   fetch(`medidas/parametros/${mac}`, { cache: 'no-store' }).then(function (response) {
@@ -92,7 +108,7 @@ function maxDisco(criticoParams) {
   var mac = sessionStorage.MAC;
 
   console.log(criticoParams + "discooooooooo")
-  fetch(`medidas/MaximoDisco/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`medidas/MaxDisco/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
 
     if (response.ok) {
       response.json().then(function (repostaAlert) {

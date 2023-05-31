@@ -40,20 +40,24 @@ router.get("/parametros/:mac", function (req, res) {
     console.log('rota')
     medidaController.buscarParemetros(req, res);
 })
-
+router.put("/parametroTempo/:mac", function (req, res) {
+    console.log('rota')
+    medidaController.tempo(req, res);
+})
 router.get("/alertsRam/:mac/:criticoParams", function (req, res) {
     medidaController.buscaralertsTempoRealram(req, res);
 })
 router.get("/MaxRam/:mac/:criticoParams", function (req, res) {
     medidaController.MaxRam(req, res);
 })
+router.get("/MaxDisco/:mac/:criticoParams", function (req, res) {
+    medidaController.MaxDisco(req, res);
+})
 router.get("/alertsDisco/:mac/:critico", function (req, res) {
    
     medidaController.buscaralertsTempoRealDisco(req, res);
 })
-router.get("/MaximoDisco/:mac/:criticoParams", function (req, res) {
-    medidaController.MaxDisco(req, res);
-})
+
 
 
 

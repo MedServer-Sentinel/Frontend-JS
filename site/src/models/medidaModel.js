@@ -285,10 +285,7 @@ function buscaralertsTempoRealram(mac, critico) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `
         select count(try_convert(float, replace(replace(replace(em_uso,'GIB',''),',','.'),'Mib',''))) as critico from [dbo].[DadosRam] join [dbo].[MemoriaRam]
-        on fk_ram = id_ram join [dbo].[Maquina] on fk_maquina = id_maquina where try_convert(float,replace(replace(replace(em_uso,'KIB',''),',','.'),'Mib',''))
-          
-          > 
-          ${critico} and cod_Mac = '${mac}';
+        on fk_ram = id_ram join [dbo].[Maquina] on fk_maquina = id_maquina where  try_convert(float, replace(replace(replace(em_uso,'GIB',''),',','.'),'Mib','')) >  ${critico} and cod_Mac = '${mac}';
         `;
     } 
 
@@ -305,7 +302,7 @@ function buscaralertsTempoRealDisco(mac, critico) {
         instrucaoSql = `
         select count(try_convert(float,replace(replace(replace(velocidade_leitura,'KIB',''),',','.'),'Mib',''))) as critico from [dbo].[DadosDisco] join [dbo].[Disco] 
         on fk_disco = id_disco join [dbo].[Maquina] on fk_maquina = id_maquina where try_convert(float,replace(replace(replace(velocidade_leitura,'KIB',''),',','.'),'Mib',''))  > 
-	 ${critico*2.5} and cod_Mac = '${mac}';
+	 ${critico*5} and cod_Mac = '${mac}';
         `;
     } 
     
@@ -321,7 +318,7 @@ function  MaxRam(mac, critico){
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `
         select CAST (replace(replace(replace(capacidade_total,'GIB',''),',','.'),'MIB','') 
-        AS float)*${critico/100} as total from [dbo].[MemoriaRam] join maquina on fk_maquina =id_maquina where cod_Mac = '${mac}';
+        AS float)*(${critico/100}) as total from [dbo].[MemoriaRam] join maquina on fk_maquina =id_maquina where cod_Mac = '${mac}';
         `;
     } 
     
@@ -339,6 +336,19 @@ function  MaxDisco(mac, critico){
         instrucaoSql = `
             select CAST (replace(replace(replace(total,'GIB',''),',','.'),'MIB','')
             AS float) * ${critico/100} as total from [dbo].[Disco] join maquina on fk_maquina =id_maquina where cod_Mac = '${mac}';
+        `;
+    } 
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
+function  tempo(tempo,mac){
+    console.log("esse e o tempo "+ tempo)
+
+    instrucaoSql = ''
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `
+         update [dbo].[Parametro] set tempo = '${tempo}' where id_Parametro = '${mac}'
         `;
     } 
 
@@ -374,7 +384,8 @@ module.exports = {
     buscaralertsTempoRealram,
     buscaralertsTempoRealDisco,
     MaxRam,
-    MaxDisco
+    MaxDisco,
+    tempo
 
 
 

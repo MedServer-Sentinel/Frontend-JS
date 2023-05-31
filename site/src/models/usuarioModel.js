@@ -167,11 +167,25 @@ function updateParametro(fkmaquina) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function parametroRam(significativo, moderado, critico, id) {
+function  temporizador(tempo,mac){
+    console.log("esse e o tempo "+ tempo)
+
+    instrucaoSql = ''
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `
+         update [dbo].[Parametro] set tempo = '${tempo}' where id_Parametro = '${mac}'
+        `;
+    } 
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
+function parametroRam(significativo, moderado, critico,id,tempo) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function up():");
 
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
+    temporizador(tempo,id)
     moderadoRam(moderado, id);
     criticoRam(critico, id)
     var instrucao = `
@@ -354,6 +368,42 @@ function updateCor(cor, id) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function corRED(nome) {
+    console.log()
+    var instrucao = `
+ 
+select count(id_parametro) as qnt from [dbo].[Parametro] join [dbo].[Maquina] on fk_maquina = id_maquina join empresa on fk_empresa = idempresa where nivel_critico = 'red' and [dbo].[Empresa].nome = '${nome}';`
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function corGreen(nome) {
+    console.log()
+    var instrucao = `
+ 
+select count(id_parametro) as qnt from [dbo].[Parametro] join [dbo].[Maquina] on fk_maquina = id_maquina join empresa on fk_empresa = idempresa where nivel_critico = 'green' and [dbo].[Empresa].nome = '${nome}';`
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function corOrange(nome) {
+    console.log()
+    var instrucao = `
+ 
+select count(id_parametro) as qnt from [dbo].[Parametro] join [dbo].[Maquina] on fk_maquina = id_maquina join empresa on fk_empresa = idempresa where nivel_critico = 'Orange' and [dbo].[Empresa].nome = '${nome}';`
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function corYellow(nome) {
+    console.log()
+    var instrucao = `
+ 
+select count(id_parametro) as qnt from [dbo].[Parametro] join [dbo].[Maquina] on fk_maquina = id_maquina join empresa on fk_empresa = idempresa where nivel_critico = 'Yellow' and [dbo].[Empresa].nome = '${nome}';`
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
 
 
 module.exports = {
@@ -382,4 +432,8 @@ module.exports = {
     mediasCPU,
     mediasDisco,
     selectComputadores1,
+    corRED,
+    corGreen,
+    corOrange,
+    corYellow,
 };

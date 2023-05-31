@@ -545,13 +545,15 @@ function atualizarParametroRam(req, res) {
     var significativo = req.body.significativoRam;
     var moderado = req.body.moderadoRam;
     var critico = req.body.criticoRam;
+
     var id = req.params.id;
+    var tempo = req.body.tempo;
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     if (significativo == undefined || moderado == undefined || critico == undefined || id == undefined) {
         console.log(undefined)
     }
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel.parametroRam(significativo, moderado, critico, id)
+    usuarioModel.parametroRam(significativo, moderado, critico, id,tempo)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -568,6 +570,7 @@ function atualizarParametroRam(req, res) {
         );
 
 }
+
 
 function updateEmail(req, res) {
     var email = req.body.email;
@@ -675,6 +678,90 @@ function updateCor(req, res) {
         );
 
 }
+function corRED(req, res) {
+    console.log("chegou na controller")
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.params.nome;
+    usuarioModel.corRED(nome)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a atualizao! Erro: catch",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+function corGreen(req, res) {
+    console.log("chegou na controller")
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.params.nome;
+    usuarioModel.corGreen(nome)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a atualizao! Erro: catch",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+function corOrange(req, res) {
+    console.log("chegou na controller")
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.params.nome;
+    usuarioModel.corOrange(nome)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a atualizao! Erro: catch",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+function corYellow(req, res) {
+    console.log("chegou na controller")
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.params.nome;
+    usuarioModel.corYellow(nome)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a atualizao! Erro: catch",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
 
 
 module.exports = {
@@ -704,4 +791,9 @@ module.exports = {
     mediasCPU,
     mediasDisco,
     selectComputadores1,
+    corRED,
+    corGreen,
+    corOrange,
+    corYellow,
+
 }

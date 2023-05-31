@@ -102,6 +102,18 @@ router.put("/updateEmail", function (req, res) {
 router.put("/updateCor", function (req, res) {
     usuarioController.updateCor(req, res);
 });
+router.get("/buscarCorRed/:nome", function (req, res) {
+    usuarioController.corRED(req, res);
+});
+router.get("/buscarCorGreen/:nome", function (req, res) {
+    usuarioController.corGreen(req, res);
+});
+router.get("/buscarCorOrange/:nome", function (req, res) {
+    usuarioController.corOrange(req, res);
+});
+router.get("/buscarCorYellow/:nome", function (req, res) {
+    usuarioController.corYellow(req, res);
+});
 
 
 module.exports = router;

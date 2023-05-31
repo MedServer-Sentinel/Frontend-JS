@@ -1,6 +1,10 @@
 
 sessionStorage.MAC;
 sessionStorage.ID_MAQUINA;
+
+
+
+
 function computador() {
   console.log(sessionStorage.NOMEHOSPITAL);
   var nomeEmpresa = sessionStorage.NOMEHOSPITAL;
@@ -14,13 +18,13 @@ function computador() {
             var soma = 0
             var mac = resposta[i].cod_MAC
             console.log(mac + "teste")
-           var id = resposta[i].id_maquina
-            analise(mac, id,soma);
+            var id = resposta[i].id_maquina
+            analise(mac, id, soma);
             console.log("soma  antes for = " + soma)
             soma = 0
             console.log("soma for = " + soma)
           }
-            
+
         });
       } else {
         throw "Houve um erro na API!";
@@ -32,14 +36,14 @@ function computador() {
 
 }
 
-function analise(mac, id,soma) {
+function analise(mac, id, soma) {
   fetch(`medidas/parametros/${mac}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         console.log(soma + "analise")
 
-        maxRam(resposta[0].critico, mac,id,soma);
+        maxRam(resposta[0].critico, mac, id, soma);
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
@@ -55,13 +59,13 @@ function analise(mac, id,soma) {
 function getComputer(soma) {
   console.log(sessionStorage.NOMEHOSPITAL);
   var nomeEmpresa = sessionStorage.NOMEHOSPITAL;
-  computador.innerHTML+= "Ver todos:  <input id='check' type='checkbox' name='' id=''>"
+  computador.innerHTML += "Ver todos:  <input id='check' type='checkbox' name='' id=''>"
 
   fetch(`/usuarios/listarComputadores/${nomeEmpresa}`)
     .then(function (resposta) {
 
       if (resposta.ok) {
-   
+
         var computador = document.getElementById('fileira-computador')
         computador.innerHTML = ''
         resposta.json().then(function (resposta2) {
@@ -73,33 +77,35 @@ function getComputer(soma) {
             console.log(mac + "teste")
             id = resposta2[i].id_maquina
             let tipo = sessionStorage.TIPO;
-            if(resposta2[i].nivel_critico != 'green'){
+            if (resposta2[i].nivel_critico != 'green') {
 
-            if (tipo != 'admin') {
-              console.log("entrou?")
-              computador.innerHTML += `    
-                          <a href="./dashboard_hospitais.html"style="background-color:${resposta2[i].nivel_critico} class="not-active"  id="emergencial">
+              if (tipo != 'admin') {
+                console.log("entrou?")
+                computador.innerHTML += `    
+                          <a href="" style="background-color:${resposta2[i].nivel_critico}" class="computador"  id="emergencial">
                           <img src="./assets/imagens/computer.png">
                           <h2>${resposta2[i].nome}<br>(Emergencia)</h2>
                           
                       </a>`
 
-            } else {
-              computador.innerHTML += `    
+              } else {
+                computador.innerHTML += `    
           <a href="./dashboard_hospitais.html" style="background-color:${resposta2[i].nivel_critico}" class="computador"  id="emergencial">
           <img src="./assets/imagens/computer.png"  onclick="m('${resposta2[i].id_maquina}','${resposta2[i].cod_MAC}','${resposta2[i].nome}')">
           <h2>${resposta2[i].nome}<br>(Emergencia)</h2>
        
       </a>`;
-              console.log(resposta2[i].id_maquina)
-            }}
-          
+                console.log(resposta2[i].id_maquina)
+              }
+            }
+
+
             soma = 0
 
 
 
 
-          
+
           }
 
 
@@ -111,11 +117,12 @@ function getComputer(soma) {
     .catch(function (resposta) {
       console.error(resposta);
     });
+  qntParametro()
 
 
 }
 
-function m(id_maquina, mac,nome) {
+function m(id_maquina, mac, nome) {
 
   console.log(mac)
   console.log(id_maquina)
@@ -125,7 +132,7 @@ function m(id_maquina, mac,nome) {
 }
 
 
-function maxRam(criticoParams, mac,id,soma) {
+function maxRam(criticoParams, mac, id, soma) {
 
 
   console.log(criticoParams, mac + "criticooooooooooooo max ram")
@@ -135,7 +142,7 @@ function maxRam(criticoParams, mac,id,soma) {
       response.json().then(function (repostaAlert) {
         console.log(`Dados recebidos do alerta: ${JSON.stringify(repostaAlert)}`);
         console.log(`Dados atuais dos akerts:`);
-        atualizarAlertRam(repostaAlert[0].total,criticoParams, mac,id,soma)
+        atualizarAlertRam(repostaAlert[0].total, criticoParams, mac, id, soma)
 
       });
     } else {
@@ -147,15 +154,15 @@ function maxRam(criticoParams, mac,id,soma) {
 
 }
 
-function maxDisco(criticoParams, mac,id,soma) {
+function maxDisco(criticoParams, mac, id, soma) {
 
   console.log(criticoParams + "discooooooooo")
-  fetch(`medidas/MaximoDisco/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
+  fetch(`medidas/MaxDisco/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
 
     if (response.ok) {
       response.json().then(function (repostaAlert) {
         console.log(`Dados recebidos do alerta: ${JSON.stringify(repostaAlert)}`);
-        atualizarAlertDisco(repostaAlert[0].total, mac,id,soma)
+        atualizarAlertDisco(repostaAlert[0].total, mac, id, soma)
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
@@ -166,7 +173,7 @@ function maxDisco(criticoParams, mac,id,soma) {
 
 }
 
-function atualizarAlertDisco(criticoParams, mac,id,soma) {
+function atualizarAlertDisco(criticoParams, mac, id, soma) {
 
 
   console.log(criticoParams + "criticooooooooooooo disco")
@@ -176,11 +183,11 @@ function atualizarAlertDisco(criticoParams, mac,id,soma) {
       response.json().then(function (repostaAlert) {
         console.log(`Dados recebidos do alerta: ${JSON.stringify(repostaAlert)}`);
         console.log(`Dados atuais dos alerts:`);
-      soma +=repostaAlert[0].critico
-       
-        update(soma,id)
+        soma += repostaAlert[0].critico
+
+        update(soma, id)
         console.log(soma + "alertDisco")
-     
+
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
@@ -191,7 +198,7 @@ function atualizarAlertDisco(criticoParams, mac,id,soma) {
   })
 
 }
-function atualizarAlertRam(criticoParams,critico, mac,id,soma) {
+function atualizarAlertRam(criticoParams, critico, mac, id, soma) {
   console.log(criticoParams + "criticooooooooooooo")
   fetch(`medidas/alertsRam/${mac}/${criticoParams}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
@@ -201,7 +208,7 @@ function atualizarAlertRam(criticoParams,critico, mac,id,soma) {
 
         soma += repostaAlert[0].critico//0
         console.log(soma + "alertRam")
-        maxDisco(critico, mac,id,soma);
+        maxDisco(critico, mac, id, soma);
       });
     } else {
       console.error('Nenhum dado encontrado ou erro na API');
@@ -238,5 +245,76 @@ function update(soma, id) {
   }).catch(function (resposta) {
     console.log(`#ERRO: ${resposta}`);
   });
+  var inner = document.getElementById('fileira-computador')
+  inner.innerHTML = ''
   getComputer(soma);
 }
+function qntParametro() {
+  console.log('red')
+  var nome = sessionStorage.NOMEHOSPITAL;
+  fetch(`/usuarios/buscarCorRed/${nome}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          console.log(resposta.length)
+          qtdEmergencial.innerHTML = resposta[0].qnt
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+  fetch(`/usuarios/buscarCorGreen/${nome}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          console.log(resposta.length)
+          qtdModerado.innerHTML = resposta[0].qnt
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+  fetch(`/usuarios/buscarCorOrange/${nome}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          console.log(resposta.length)
+          qtdCritico.innerHTML = resposta[0].qnt
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+  fetch(`/usuarios/buscarCorYellow/${nome}`)
+    .then(function (resposta) {
+      if (resposta.ok) {
+
+        resposta.json().then(function (resposta) {
+          console.log("Dados recebidos: ", JSON.stringify(resposta));
+          console.log(resposta.length)
+          qtdSignificativo.innerHTML = resposta[0].qnt
+        });
+      } else {
+        throw "Houve um erro na API!";
+      }
+    })
+    .catch(function (resposta) {
+      console.error(resposta);
+    });
+}
+
