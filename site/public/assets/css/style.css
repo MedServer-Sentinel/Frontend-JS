@@ -398,6 +398,7 @@ body {
 .contatos1 p {
     font-size: 1.3rem;
     margin-top: 2vh;
+    text-align: center;
     color: var(--color--verdeMed);
 }
 
