@@ -651,13 +651,13 @@ function updateCor(req, res) {
     if (cor == undefined) {
         res.status(400).send("sua cor esta indefinada");
     } 
-    else if(cor <= 3){
+    else if(cor <= 5){
         cor = 'green'
-    }else if (cor < 10 && cor < 13) {
+    }else if (cor < 25) {
         cor = 'yellow'
-    } else if (cor <= 20) {
+    } else if (cor < 35) {
         cor = 'orange'
-    } else if (cor > 20) {
+    } else if (cor > 40) {
         cor = 'red'
     }
     console.log('khaskjdhasjsakdjsabdjskndsjdsjk')
