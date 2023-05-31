@@ -184,13 +184,11 @@ function getDadosUsuario() {
     var idEmpresa = sessionStorage.ID_EMPRESA;
     var Matriz = document.getElementById('matriz');
     Matriz.value = idEmpresa;
-    fetch(`/usuarios/listarEmpresas/${idEmpresa}`)
-    .then(function (resposta) {
+    fetch(`/usuarios/listarEmpresas/${idEmpresa}`).then(function (resposta) {
       if (resposta.ok) {
-        if (resposta.status == 204) {
-          alert("Nenhum resultado encontrado.");
-        }
+       
         var selectFiliais = document.getElementById('MatrizOuFilial')
+        console.log(resposta)
         
         
         resposta.json().then(function (resposta) {

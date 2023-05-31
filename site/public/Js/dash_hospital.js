@@ -2,6 +2,7 @@
 function getHospital() {
     var cnpj = sessionStorage.CNPJ;
     console.log(cnpj)
+    
 
     fetch(`/usuarios/listarHospitais/${cnpj}`)
         .then(function (resposta) {
@@ -20,6 +21,7 @@ function getHospital() {
                  
 
                     }
+                    
                 });
             } else {
                 throw "Houve um erro na API!";
@@ -33,4 +35,3 @@ function i(nome){
     console.log(nome)
      sessionStorage.NOMEHOSPITAL = nome 
 }
-

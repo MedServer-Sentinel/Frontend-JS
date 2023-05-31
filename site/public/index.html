@@ -123,6 +123,12 @@
 
     <section class="secaoInicial" id="secaoInicial">
 
+        <div class="floating-button">
+            <a href="https://medserversentinel.auvo.com.br/Ticket/Novo" target="_blank">
+                <img src="./assets/imagens/telefone.png" alt="">
+            </a>
+        </div>
+
         <div class="conteudoInicialCel" id="conteudoInicialCel">
             <img data-aos="fade-right" data-aos-duration="3000" src="./assets/imagens/svg/desenho.svg" alt="">
             <div class="textoInicialCel">
@@ -321,22 +327,16 @@
             <h1 class="tituloContatos" data-aos="zoom-in" data-aos-duration="2000">Contatos</h1>
             <div class="conteudoContatos">
                 <div class="contatos1" data-aos="fade-right" data-aos-duration="2000">
-                    <h1>Contato</h1>
-                    <p>Contato</p>
-                    <p>Contato</p>
-                    <p>Contato</p>
+                    <h1>Endereço</h1>
+                    <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</p>
                 </div>
                 <div class="contatos1" data-aos="zoom-in" data-aos-duration="2000">
                     <h1>Contato</h1>
-                    <p>Contato</p>
-                    <p>Contato</p>
-                    <p>Contato</p>
+                    <p>(11)3589-4043</p>
                 </div>
                 <div class="contatos1" data-aos="fade-left" data-aos-duration="2000">
-                    <h1>Contato</h1>
-                    <p>Contato</p>
-                    <p>Contato</p>
-                    <p>Contato</p>
+                    <h1>Email</h1>
+                    <p>231-2adsa-grupo4@bandtec.com.br</p>
                 </div>
             </div>
         </div>
@@ -521,6 +521,7 @@
             sessionStorage.ID_EMPRESA = json.fkempresa;
             sessionStorage.TIPO = json.tipo;
             sessionStorage.CNPJ = json.cnpj;
+            sessionStorage.CONTAGEM = 0;
             setTimeout(function () {
               window.location = "/index.html";
             }, 1000); // apenas para exibir o loading
